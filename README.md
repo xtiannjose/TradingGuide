@@ -8,7 +8,7 @@ Educational only. Not financial advice. Unofficial: not affiliated with the crea
 
 | Path | What it is |
 |---|---|
-| `Confluence-Trading-Guide.pdf` | 35-page beginner guide (version 1.2) to the strategy studied so far. Start here if you want to learn it. |
+| `Confluence-Trading-Guide.pdf` | 35-page beginner guide (version 1.3) to the strategy studied so far. Start here if you want to learn it. |
 | `strategy/strategy.md` | The merged rule set: exact definitions, numbers, conflicts, gaps. The source of truth for the app. |
 | `docs/APP-PLAN.md` | What the app should do and the open build decisions. |
 | `docs/VIDEOS.md` | Videos studied, and which video time range each study part covers. |
@@ -34,7 +34,8 @@ Then see `docs/WORKFLOW.md` to study another video, or `docs/APP-PLAN.md` to bui
 - Video 1 studied: fxalexg, "The Trading Industry Will Hate Me for This FREE 10+ Hour Course" (10h36m).
 - Video 2 studied: fxalexg, "The ONLY confirmation YOU need..." (22 min): entry confirmation and entry timing.
 - Video 3 studied: fxalexg, "How to Master Liquidity in Trading (Advanced Guide)" (19 min): liquidity zones are his AOI; do not wait for sweeps.
-- See `docs/VIDEOS.md` for all three.
+- Video 4 studied: fxalexg, "Price Action Trading Was Hard, Until I Discovered This" (25 min): candle strength by location, wick fill, break-and-retest entries.
+- See `docs/VIDEOS.md` for all four.
 - App: not built yet. Plan and decisions are in `docs/APP-PLAN.md`.
 - More videos are expected. Each one is merged into `strategy/strategy.md`, with differences between teachers kept visible.
 

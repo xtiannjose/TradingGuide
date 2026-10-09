@@ -4,6 +4,7 @@ Sources, both by fxalexg (Swing Trading Lab), studied from auto-captions plus vi
 - **Video 1:** "The Trading Industry Will Hate Me for This FREE 10+ Hour Course", https://www.youtube.com/watch?v=grw58BIzotU, 10:35:59 long, studied 2026-10-08 in 12 parts.
 - **Video 2:** "The ONLY confirmation YOU need to make $1000/day Trading Forex", https://www.youtube.com/watch?v=BcWxqfcjk9A, 22:03 long, studied 2026-10-09. Teaches the entry confirmation and entry timing. Cited as `[V2 mm:ss]`.
 - **Video 3:** "How to Master Liquidity in Trading (Advanced Guide)", https://www.youtube.com/watch?v=Rua24ytuHuY, 19:18 long, studied 2026-10-09. Teaches what "liquidity" means in his method and why he does not trade liquidity sweeps. Cited as `[V3 mm:ss]`.
+- **Video 4:** "Price Action Trading Was Hard, Until I Discovered This", https://www.youtube.com/watch?v=WEyJ-zKAEoA, 25:23 long, studied 2026-10-09. Teaches strong vs weak candles, rejection vs wick fill, patterns as extra confluence, and break-and-retest entry options. Cited as `[V4 mm:ss]`.
 
 Citations look like `[E 3:44]` = study part E of video 1, video time 3:44 (h:mm:ss or mm:ss). Part letters follow the time ranges in `docs/VIDEOS.md`. The detailed per-part study notes (quotes, numbers, worked examples, open questions) are kept locally and are not published here. This file is the merged rule set and the source of truth for the app.
 
@@ -179,6 +180,8 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - Dragonfly doji = hammer; gravestone doji = hanging man = shooting star. Treated as the same families [H 6:30:11, 6:35:40].
 - **Rejected patterns:** piercing line, three white soldiers / three black crows, dark cloud cover [H 6:31:51 to 6:34:17].
 - Higher timeframe = stronger formation (daily doji at an AOI is "amazing", 4H good, 1H okay) [H 6:26:45].
+- **A candle's strength comes from where it forms, not its size** [V4 2:46 to 6:53]. A giant bullish candle in the middle of the chart is weak (it may fully reverse); a small doji rejection at a strong support that already caused a big reaction is strong. The same candle mid-chart, with nothing holding it up, is weak. He enters before the impulse and does not chase momentum.
+- **Patterns are extra confluence, never the whole trade.** He takes many trades with no pattern and will not take a trade that is only a pattern [V4 14:05 to 14:47].
 - In his challenge he says plainly "you need an engulfing candlestick to enter a sell or a bullish engulfing to enter a buy" [K 8:50:58].
 
 **The entry confirmation, in his own summary (video 2)** [V2 0:00 to 21:13]
@@ -189,7 +192,7 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - Only **at a support/resistance zone** (supply/demand, order block). Bullish confirmation at support, bearish at resistance. Mid-chart confirmations are ignored [V2 8:31 to 9:32].
 - He may enter on the rejection alone or wait for the engulfing too. It depends on the strategy, level strength, timeframe, days left in the week, R:R and other confluences ("extra extra extra confirmations"). Waiting avoids losses but misses trades; he accepts both [V2 9:52 to 11:36].
 - **Pro-trend only.** A confirmation points the same way as the trend. A counter-direction engulfing does not flip the bias; bias does not change overnight, and on intraday/swing it holds for almost a month. Entering the opposite engulfing is "gambling" [V2 11:56 to 14:21].
-- **Wick fill (daily vs 4H):** a daily candle with a long lower wick can be a wick fill rather than a plain rejection if the 4H within that day went bearish into the area and then made a higher low. The next daily bullish engulfing is then the entry. He quotes "almost 70%" chance of a bullish push the day after a strong daily confirmation [V2 5:06 to 7:28].
+- **Wick fill (daily vs 4H):** a daily candle with a long lower wick can be a wick fill rather than a plain rejection if the 4H within that day went bearish into the area and then made a higher low. The next daily bullish engulfing is then the entry. He quotes "almost 70%" chance of a bullish push the day after a strong daily confirmation [V2 5:06 to 7:28]. Video 4 gives the same idea: a candle that looks like a rejection against your trade (for example from the EMA) may only be a wick fill if the 4H shows a retracement or higher low. One contrary candle must not cancel a top-down read when a major support has held price three times [V4 10:19 to 13:44, 12:01 to 12:41].
 - **Everything must line up.** A perfect setup on a Tuesday at the London open still gets no trade without the confirmation [V2 19:30 to 20:12].
 
 **Liquidity sweeps: do not anticipate them, do not wait for them** (video 3)
@@ -206,13 +209,15 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - **Breakout** entry (no retest) is allowed but is not counted as the break-and-retest confluence. He enters on the breakout about 30% of the time, base case is the retest. After a breakout it is "50/50" that price retests, then "50/50" that it reacts [H 6:11:34 to 6:14:16].
 - "BOS = CHoCH = shift of structure" are one concept: the break of the HL (bull) or LH (bear) [H 6:09:52].
 - Consolidation breakout: do not enter inside a range at the AOI; wait for the breakout, then the quick retest/pullback with an engulfing or rejection, then enter [L 10:08:08, 10:14:26].
+- **Three ways to enter a break and retest, ranked by him** [V4 19:36 to 23:22]: (1) on the breakout itself (least favourite); (2) on the retest with no rejection candle (also least favourite); (3) **on the retest with a rejection candle** (favourite, about 8 in 10 of his trades with this pattern). Missing a trade because the retest never comes is accepted: "if you change your rules every single time, so will your results."
+- **Live example** [V4 19:56 to 21:40]: price failed 4 times to break a support zone and broke on the 5th. He entered on the retest with rejection candles and lost 1%; price broke again, retested, he entered again on the same kind of candles and made 6% (net +5%). He re-enters when the setup returns. Frames show EURAUD 4H with two short boxes, the second with a much larger target.
 
 **Head and shoulders** (reversal; valid only on the shift of structure) [I 6:49:30 to 7:13:33, J 7:13:53 to 7:17:38, L 10:04:58]
 - Regular H&S forms at a high/resistance (bearish reversal); inverted at a low/support (bullish). Draw on bodies. Shape need not be textbook; slanted or unequal is fine.
 - The **neckline is horizontal**, at the previous structure point (the higher low), at an AOI. Not the diagonal the drawing tool makes.
 - **Valid only after the neckline breaks** (body close). Never sell a potential H&S, and never sell off the right shoulder (his current rule, "extremely high risk" otherwise) [J 7:56:12].
 - After the break: mark the LL and LH (snake trick), draw the box between them, find the AOI inside it by working up from the LL; the AOI that coincides with the neckline is the entry zone. Wait for the retest; then a shooting star / evening star / bearish engulfing; then sell. Buy side is the exact mirror.
-- A pattern can still lose, and one that never breaks the neckline is simply not traded [I 7:03:33, 7:05:17].
+- A pattern can still lose, and one that never breaks the neckline is simply not traded [I 7:03:33, 7:05:17]. Video 4 repeats: never sell the anticipated right shoulder; the pattern exists only after the structure shift; take it on that break or on the neckline retest; works on any timeframe, stronger on higher. His claim that a reversal follows "7 out of 10" times is unverified [V4 15:07 to 18:54].
 - Double top with a neckline is treated the same way [K 9:26:13].
 
 **What the live trades actually show** (not a stated rule): trend alignment, then AOI (structure level + EMA + round number + neckline), then break and retest, then an engulfing/evening-star candle on 1H, 30m or 15m, then set and forget [K 8:49:15 to 9:48:27, L 9:50:05 to 10:19:20].
@@ -234,6 +239,7 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
   - "The higher I go in the account I lower my risk by 25 to 50%" [L 10:07:26].
   - More confluences = lower risk = risk more money; no numbers [J 7:36:10].
   - Examples in teaching: $10 on $100, $50 on $1,000 [A 0:27:57, D 2:34:40].
+  - A live break-and-retest example "lost 1%" then "made back 6%" [V4 21:19]. That implies about 1% risk per trade on that example (inferred; he states no risk rule) and a reward of about 6 times the risk.
   - **This ladder is a stunt, not a rule to copy.** Risking 100% of an account on a trade means one miss ends it, and his own earlier attempt went $100 to about $330,000 and then blew up in one week [J 8:20:41]. The app should take the user's own risk % and not use his ladder.
 - **Frequency:** "one and done" in the challenge: one trade a week, win or lose [K 8:32:59]. His normal swing/day mix is a few trades a month [A 0:30:42].
 
@@ -308,6 +314,7 @@ His own examples, as test cases:
 | Risk % | 100% to 35% ladder, "50 to 75%" at $3 to 5K, "lower risk 25 to 50% as account grows" | Not his rule to copy; user-set |
 | Engulfing definition | Must cover the last **two** bodies [H 6:30:31, I 6:42:56] vs body-close beyond the **last** candle, even a tiny one [V2 3:43] | Valid minimum: beyond the last candle's body. Grade higher when it covers the last two bodies (his "morning/evening star" form) |
 | Entry timing | Pre-London entries from 1:00 AM [B] vs "wait until right before London" if the confirmation printed before Sydney [V2 16:25] | Same window; a confirmation that prints outside a session waits for the pre-London hour, then enters |
+| Retest entry | Video 1: wick or body rejection on the retest is the confirmation [H 6:13:37]; breakout entry allowed about 30% of the time [H 6:12:35]. Video 4 ranks entry on the breakout and entry on the retest without a rejection candle as least favourite [V4 23:02] | Require a rejection candle on the retest; breakout entry is an option the user can switch on |
 | Weekday | No weekday rule in video 1 (challenge trades on various days) vs Monday to Wednesday only [V2 17:26] | Mon to Wed by default; user can relax it, and he allows exceptions |
 | Break wording | He once says a body close "above the higher high or the higher low" shifts structure [E 3:21:05]. His examples and on-screen notes show: beyond the extreme moves the labels, beyond the **protecting** point (HL when bullish, LH when bearish) flips the bias | Use the state machine in 3.3 |
 
@@ -319,7 +326,7 @@ His own examples, as test cases:
 - Numeric limits for a rejection doji (body size, wick ratio) and for "first thing Monday morning" [V2].
 - EMA **length is only given once** (50 EMA) and is not tied to a timeframe rule [J 7:21:50]. Earlier segments said "later"; no other value appears.
 - A numeric definition of a significant swing, an elbow, a touch, "slowdown", doji body size, wick ratios.
-- His normal (non-challenge) risk %, max trades, daily/weekly loss limits, withdrawals, journaling. His "Perfect Trade Checklist" sheet exists but is never shown [L 10:26:57].
+- His normal (non-challenge) risk % (video 4's "lost 1%, made 6%" example hints at about 1% but is not a stated rule), max trades, daily/weekly loss limits, withdrawals, journaling. His "Perfect Trade Checklist" sheet exists but is never shown [L 10:26:57].
 - A news filter beyond "look at the red folders".
 - Any statistics: no back-test; win-rate claims are loose and inconsistent (e.g. 60 to 65% swing, 70% on 7 trades) [A 0:32:06, K 8:25:11].
 - He says the YouTube challenge series and other videos explain more.
@@ -332,5 +339,6 @@ His own examples, as test cases:
 - When more videos are studied (see `docs/WORKFLOW.md`), update the sections here and list any change in a "changed by video N" line so differences between teachers stay visible.
 
 **Changelog**
+- **Video 4 (2026-10-09):** added candle strength by location (3.6), patterns as extra confluence only, the three ranked entries for a break and retest with a live example (3.6), H&S reminders, a risk hint of about 1% (3.8, inferred), and a conflicts row on retest entries (require a rejection candle). Other rules restated, not changed.
 - **Video 3 (2026-10-09):** added the liquidity framing of the AOI (3.5), the rule to ignore liquidity sweeps and wait for confirmation (3.6), wick-out frequency (3.9), and a caution that his stop-hunting view is opinion. No rule from videos 1 or 2 changed; it restates them (zones with 3+ taps, confirmation not anticipation, bodies not wicks).
 - **Video 2 (2026-10-09):** added the entry confirmation rules (3.6), Monday to Wednesday and wait-for-session timing (3.2), average TP of 80 to 100 pips (3.7), three rows in the conflicts table (engulfing definition, entry timing, weekday), and updated the gaps. Everything else in video 1's rules is unchanged and consistent with video 2 (same creator).

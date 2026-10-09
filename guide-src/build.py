@@ -86,6 +86,7 @@ tbody tr:nth-child(even) td { background: #f9fafb; }
 .tag { font-size: 8.5pt; color: #6b7280; }
 #p11 h2, #pb h2 { margin-top: 4.5mm; } #p11 li, #pb li { margin-bottom: .6mm; } #p11 td, #pb td { padding-top: 1.1mm; padding-bottom: 1.1mm; } #p11 .steps > li { margin-bottom: 1.2mm; }
 #p11 p, #pb p { margin-bottom: 2mm; }
+#pc td { padding-top: 1.1mm; padding-bottom: 1.1mm; } #pc h2 { margin-top: 4.5mm; }
 """
 
 
@@ -118,8 +119,8 @@ COVER = """
 <h1>The Confluence<br>Trading Guide</h1>
 <div class="sub">Market structure, areas of interest and entry confirmation, explained step by step.</div>
 <div class="line"></div>
-<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos on entry confirmation and liquidity. Every rule has a picture, an example, and a place on the final checklist.</div>
-<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.2</div>
+<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos on entry confirmation, liquidity and price action. Every rule has a picture, an example, and a place on the final checklist.</div>
+<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.3</div>
 </div>
 """
 
@@ -452,6 +453,7 @@ P8 = """
 </tbody></table>
 <ul>
 <li>The <b>higher the timeframe, the stronger</b> the signal. A daily doji at an AOI is "amazing", a 4-hour is good, a 1-hour is okay.</li>
+<li><b>Where a candle forms matters more than how big it is.</b> A giant candle in the middle of the chart is weak: it may reverse completely. A small doji at a strong support that already caused a big reaction is strong. The same candle, with nothing holding it up, is weak.</li>
 <li>Gravestone doji, hanging man and shooting star are treated as the same family (the bearish side). Dragonfly doji is treated as a hammer.</li>
 <li><b>He rejects:</b> piercing line, three white soldiers, three black crows and dark cloud cover. "If it's not an engulfing, it's not strong enough."</li>
 <li>A morning star at a resistance, or in a bearish market, is not respected.</li>
@@ -463,7 +465,18 @@ P8 = """
 <li>Price comes back into the zone and gets <b>rejected</b> from it (a wick or body rejection).</li>
 <li>You enter on the far side of the zone (buy above a broken resistance, sell below a broken support), with the stop just beyond the zone.</li>
 </ol>
-<p><b>Breakout</b> is the "little brother": you enter right when the body closes beyond the zone, without waiting for the retest. It is allowed, but it does not count as the break-and-retest confluence. He says that after a breakout it is about 50/50 that price comes back to retest, and he takes the breakout entry only about 30% of the time. If the retest never comes, the trade is missed ("it is what it is").</p>
+<div style="break-inside:avoid">
+<p>He ranks the three ways to enter a break and retest:</p>
+<table>
+<thead><tr><th>Entry</th><th>His view</th></tr></thead>
+<tbody>
+<tr><td>1. On the <b>breakout</b> itself (no retest)</td><td>Least favourite. Allowed, but it does not count as the break-and-retest confluence. After a breakout it is about 50/50 that price comes back to retest.</td></tr>
+<tr><td>2. On the <b>retest with no rejection candle</b></td><td>Also his least favourite.</td></tr>
+<tr><td>3. On the <b>retest with a rejection candle</b></td><td><b>His favourite</b>, used on about 8 in 10 of his trades with this pattern.</td></tr>
+</tbody></table>
+</div>
+<p>If the retest never comes, the trade is missed ("it is what it is"). He sticks to the same rule every time: "if you change your rules every single time, so will your results."</p>
+{{CALL:ex|His live example: one loss, then a win|<p>On a EURAUD 4-hour chart, price failed four times to break a support zone and broke on the fifth. He waited for the retest and entered on the rejection candles, and <b>lost 1%</b>. Price broke the zone again, retested it, and he entered again on the same kind of candles and <b>made 6%</b>: net +5%. He is not afraid to re-enter when the setup returns.</p>}}
 <p>Break of structure, change of character ("CHoCH") and shift of structure are all the same idea: the break of the HL in an uptrend (or LH in a downtrend).</p>
 <h2>Head and shoulders</h2>
 {{D:hs}}
@@ -524,6 +537,7 @@ P9 = """
 <li>He says that as an account grows he lowers risk by 25 to 50%.</li>
 <li>His teaching examples use $10 on a $100 account and $50 on $1,000.</li>
 <li>He says the more reasons a trade has, the more he is willing to risk on it, but gives no numbers.</li>
+<li>In a later video he mentions a trade where he "lost 1%" and then "made back 6%". That suggests about 1% risk on that trade, but he does not state it as a rule.</li>
 </ul>
 {{CALL:bad|Do not copy his challenge risk|<p>Risking 100% of an account on a trade means one loss ends it. An earlier attempt at the challenge grew $100 to about $330,000 and then lost it all in a single week, and he says he failed about five times before it worked. His percentages come from a high-risk challenge made for video, not from a rule for normal trading.</p><p><b>Choose your own risk per trade, and make it an amount you can lose many times in a row.</b> Many traders use 1 to 2% of the account as a starting point (this is general practice, not from the course).</p>}}
 """
@@ -629,7 +643,7 @@ P13 = """
 <thead><tr><th>Gap</th><th>What the course says</th></tr></thead>
 <tbody>
 <tr><td><b>The full entry signal</b></td><td>In the course he says there is one that he explains only on his livestream. His follow-up video teaches an open entry confirmation (Part 8), but he never says whether it is the same thing.</td></tr>
-<tr><td><b>Normal risk per trade</b></td><td>Never stated. Only the challenge ladder and small teaching examples.</td></tr>
+<tr><td><b>Normal risk per trade</b></td><td>Never stated. Only the challenge ladder, small teaching examples, and one later example that hints at about 1%.</td></tr>
 <tr><td><b>Exact definitions</b></td><td>No numbers for a "significant" swing, a "clean elbow", a "touch", a "slowdown", or how big a doji's body can be.</td></tr>
 <tr><td><b>EMA</b></td><td>Only the 50 EMA is named, and only once. No rule ties it to a timeframe.</td></tr>
 <tr><td><b>News</b></td><td>No filter. Only "look at the red folders".</td></tr>
@@ -691,6 +705,7 @@ GLOSSARY = [
     ("Snake trick", "Start at a new extreme and walk backwards to the first clean turn to find its partner point."),
     ("Spread", "The broker's small fee built into the price."),
     ("Stop loss", "The price where a losing trade is closed automatically."),
+    ("Strong / weak candle", "A candle is strong because of where it forms (at a key zone, followed by a push), not because of its size. The same candle mid-chart is weak."),
     ("Take profit (target)", "The price where a winning trade is closed automatically."),
     ("Top-down analysis", "Reading weekly, then daily, then 4-hour to decide the trend."),
     ("Touch", "One clear reaction (rejection) from an AOI."),
@@ -753,11 +768,11 @@ PC = """
 <ul>
 <li>"The ONLY confirmation YOU need to make $1000/day Trading Forex" (22 min): <b>https://www.youtube.com/watch?v=BcWxqfcjk9A</b>. The entry confirmation (Part 8) and weekday and session timing (Part 4). Its income figures are marketing claims, not tested.</li>
 <li>"How to Master Liquidity in Trading (Advanced Guide)" (19 min): <b>https://www.youtube.com/watch?v=Rua24ytuHuY</b>. The AOI as a liquidity zone and why he does not trade sweeps (Parts 7 and 8).</li>
+<li>"Price Action Trading Was Hard, Until I Discovered This" (25 min): <b>https://www.youtube.com/watch?v=WEyJ-zKAEoA</b>. Strong versus weak candles, wick fill, patterns as extra confluence, and the three break-and-retest entries (Part 8).</li>
 </ul>
 <h2>Credits and notes</h2>
 <ul>
-<li>All strategy ideas and teaching examples belong to their creator, fxalexg / Swing Trading Lab. This guide is an independent summary for study. It paraphrases the course and quotes only short phrases. To learn from the source, watch the video.</li>
-<li>Diagrams are original drawings made for this guide. They are not real prices and not screenshots from the video.</li></ul>
+<li>The strategy ideas and examples belong to fxalexg / Swing Trading Lab. This is an independent study summary that quotes only short phrases; watch the videos to learn from the source. Diagrams are original drawings, not real prices or screenshots.</li></ul>
 """
 
 

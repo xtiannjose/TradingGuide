@@ -7,6 +7,20 @@
 
 | 3 | "How to Master Liquidity in Trading (Advanced Guide)" (`Rua24ytuHuY`) https://www.youtube.com/watch?v=Rua24ytuHuY | fxalexg | 19:18 | 2026-10-09 | Merged (liquidity = AOI, ignore sweeps). Cited as `[V3 mm:ss]` |
 
+| 4 | "Price Action Trading Was Hard, Until I Discovered This" (`WEyJ-zKAEoA`) https://www.youtube.com/watch?v=WEyJ-zKAEoA | fxalexg | 25:23 | 2026-10-09 | Merged (candle strength by location, wick fill, patterns as confluence, break-and-retest entries). Cited as `[V4 mm:ss]` |
+
+## Video 4: what it teaches
+
+Chart talk on TradingView (EURAUD 1D and 4H in Replay, plus drawings). 0:00 to 24:44 is content; the end is promotion.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 2:06 | What price action is (the market's non-verbal language) |
+| 2:06 to 7:14 | Strong vs weak candles: strength comes from where a candle forms, not its size |
+| 7:14 to 13:44 | Wicks: rejection vs wick fill; read a daily candle with the 4H; one candle should not cancel a top-down read |
+| 13:44 to 19:36 | Patterns are extra confluence only; head and shoulders, never anticipated |
+| 19:36 to 23:42 | Break and retest: three entries ranked, live EURAUD example (lost 1%, then made 6%) |
+
 ## Video 3: what it teaches
 
 Whiteboard on TradingView (ETH 1W canvas), then a live AUDCHF 1W example. 0:00 to 17:53 is content; the end is promotion.
