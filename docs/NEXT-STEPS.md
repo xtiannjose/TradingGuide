@@ -30,6 +30,8 @@ Claude keeps this current. Only the items Claude cannot do for you are listed as
 - [ ] **Review Claude's weekly and daily draft boxes** in `docs/REFERENCE-AOIS.md`. Move the ones you agree with into your key, strike out the rest. Best done before phase 3, because the key is what tunes the AOI finder.
 - [ ] **Choose your risk per trade.** Run `python app/lotsize.py EURUSD --stop 25 --balance <your real balance>` to see a table of risk levels. Then tell Claude the risk %, balance and account currency before phase 5. The demo account's small balance cannot risk 1% on a 25-pip stop (the smallest lot is already more); use your real balance.
 
+- [ ] **Push to GitHub yourself:** run `git push origin main` in the repo folder. A git guard hook on this PC blocks Claude from pushing to `main`, so the commits are local until you do. Say so if you would rather have Claude push a separate branch.
+
 **Later**
 
 - [ ] Before phase 9: confirm the PC stays on and MT5 stays logged in at the run times, 12:30 PM Manila (1:30 PM in US winter) each trading day and Monday 5 AM Manila (6 AM in winter) for the weekly bias.
@@ -43,7 +45,7 @@ Claude keeps this current. Only the items Claude cannot do for you are listed as
 - [x] Daily reference boxes for GBPUSD, AUDUSD and AUDJPY (`docs/REFERENCE-AOIS.md`).
 - [x] Weekly boxes drafted by Claude with confluences, kept apart from your key.
 - [x] Lot size calculator and price alert watcher built.
-- [x] Work committed and pushed to GitHub.
+- [x] Work committed locally (three commits).
 
 ## Setup steps (done; kept for a new machine)
 
