@@ -118,8 +118,8 @@ COVER = """
 <h1>The Confluence<br>Trading Guide</h1>
 <div class="sub">Market structure, areas of interest and entry confirmation, explained step by step.</div>
 <div class="line"></div>
-<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up video on entry confirmation. Every rule has a picture, an example, and a place on the final checklist.</div>
-<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.1</div>
+<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos on entry confirmation and liquidity. Every rule has a picture, an example, and a place on the final checklist.</div>
+<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.2</div>
 </div>
 """
 
@@ -412,6 +412,7 @@ P7 = """
 <li>a round psychological number (for example 157.500 or 1.12500)</li>
 <li>the neckline of a head and shoulders or a double top</li>
 </ul>
+{{CALL:rule|"Liquidity" is just another word for your AOI|<p>In a later video he explains that <b>liquidity</b> simply means buyers and sellers (with their take profits and stop losses) sitting at a price. It is strongest where price has <b>rejected again and again</b>, which is exactly what an AOI is. Above the zone buyers dominate, below it sellers do. He wants zones on higher timeframes with more than three taps.</p><p><b>Round numbers hold liquidity too.</b> His example: Ethereum never quite reached 5,000 because many holders set take profits just below it, so selling began a little short of the round number. Price may likewise stall a few points before a round level; he gives no exact distance.</p>}}
 {{CALL:warn|Watch out|<p>The course gives no exact test for what counts as "one touch" (how close is close enough). It also leaves some choices to your eye, such as which three touches to use. Expect to practise on many charts before your AOIs look like his.</p>}}
 """
 
@@ -428,6 +429,14 @@ P8 = """
 </ol>
 {{CALL:ex|Rejection alone, or wait for the engulfing too?|<p>He may enter on the rejection alone, or wait for the engulfing as well. It depends on how strong the level is, the timeframe, how many days are left in the week, the risk-to-reward, and your other reasons. Waiting avoids some losses but misses some good trades. He calls these the "extra extra extra confirmations" and says either choice is fine as long as you understand the trade and are comfortable with the risk.</p>}}
 {{CALL:warn|Do not flip on a counter-direction candle|<p>If a bearish engulfing appears after a bullish setup, you do <b>not</b> switch sides. Direction does not change every day; on swing and day trades it often holds for almost a month. Entering the opposite candle "is not a strategy, that's gambling". Skip that trade and wait for the next setup that fits your plan.</p>}}
+<h3>Liquidity sweeps: do not wait for them</h3>
+<p>A "liquidity sweep" (or "grab", or "fake out") is a wick that pokes through a zone and then reverses. Many traders believe banks hunt stop losses this way. He calls that story "almost a big hoax" with no hard evidence (his opinion, and he offers no data). What matters for you is his rule: <b>you cannot predict a sweep, so do not wait for one.</b></p>
+<ul>
+<li>Waiting for a sweep is "playing defense". Entering on a confirmation is "playing offense".</li>
+<li><b>His example:</b> price approached one support zone 7 times. Only once did it sweep. The other six times it gave a bullish engulfing, a morning star, a bullish rejection candle or a pin bar. A trader who waited for the sweep missed six trades.</li>
+<li>If price moves <b>against</b> the direction you want (for example bullish candles when you want to sell at resistance), do not sell yet and do not guess it is a sweep. Wait for a candle that confirms your direction, such as a bearish candle for a sell.</li>
+<li>You will still get wicked out sometimes. It happens to him about once every two weeks. He takes the next trade and does not let it affect it.</li>
+</ul>
 <h3>Reading a daily candle with the 4-hour (the "wick fill")</h3>
 <p>A daily candle with a long lower wick looks like a rejection. Sometimes it is really a <b>wick fill</b>: inside that same day the 4-hour went down into the area, then turned up and made a higher low. The 4-hour higher low is what sets up the next daily bullish engulfing, which is your entry. He says a strong bullish daily with a strong lower rejection gives "almost 70%" odds of a push up the next day (his figure, not tested).</p>
 <h2>Candle signals</h2>
@@ -669,6 +678,8 @@ GLOSSARY = [
     ("Head and shoulders", "A reversal pattern. Valid only after the horizontal neckline breaks; you enter on the retest."),
     ("HH, HL, LH, LL", "Higher high, higher low, lower high, lower low."),
     ("Inside (the structure)", "Price sitting between the current HH and HL (bullish) or LH and LL (bearish)."),
+    ("Liquidity", "Buyers and sellers, with their take profits and stops, sitting at a price. Strongest where price has rejected many times, which is an AOI."),
+    ("Liquidity sweep", "A wick that pokes through a zone and reverses (also called a grab or fake out). He says it cannot be predicted, so you do not wait for it."),
     ("Lot", "The size of a position. A standard lot is 100,000 units."),
     ("Market execution", "Entering immediately at the current price."),
     ("Neckline", "The horizontal line at the previous structure point in a head and shoulders. It sits at an AOI."),
@@ -738,14 +749,15 @@ PC = """
 <tr><td>8:25 to 9:48</td><td>The $100 to $1M challenge: risk ladder, risk:reward, weeks 1 to 8</td></tr>
 <tr><td>9:48 to 10:36</td><td>Challenge weeks 9 to 14, short recap, close</td></tr>
 </tbody></table>
-<h2>Follow-up video: the entry confirmation</h2>
-<p>"The ONLY confirmation YOU need to make $1000/day Trading Forex" by fxalexg, 22 minutes: <b>https://www.youtube.com/watch?v=BcWxqfcjk9A</b>. Its title and intro quote income figures; those are marketing claims and not tested. The useful part is the entry confirmation (0:00 to 21:13), used in Part 8, and the weekday and session timing used in Part 4.</p>
+<h2>Follow-up videos</h2>
+<ul>
+<li>"The ONLY confirmation YOU need to make $1000/day Trading Forex" (22 min): <b>https://www.youtube.com/watch?v=BcWxqfcjk9A</b>. The entry confirmation (Part 8) and weekday and session timing (Part 4). Its income figures are marketing claims, not tested.</li>
+<li>"How to Master Liquidity in Trading (Advanced Guide)" (19 min): <b>https://www.youtube.com/watch?v=Rua24ytuHuY</b>. The AOI as a liquidity zone and why he does not trade sweeps (Parts 7 and 8).</li>
+</ul>
 <h2>Credits and notes</h2>
 <ul>
 <li>All strategy ideas and teaching examples belong to their creator, fxalexg / Swing Trading Lab. This guide is an independent summary for study. It paraphrases the course and quotes only short phrases. To learn from the source, watch the video.</li>
-<li>Diagrams are original drawings made for this guide. They are not real prices and not screenshots from the video.</li>
-<li>Detailed study notes (with timestamps and open questions) were used to prepare this guide.</li>
-</ul>
+<li>Diagrams are original drawings made for this guide. They are not real prices and not screenshots from the video.</li></ul>
 """
 
 

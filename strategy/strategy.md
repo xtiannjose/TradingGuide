@@ -3,6 +3,7 @@
 Sources, both by fxalexg (Swing Trading Lab), studied from auto-captions plus video frames:
 - **Video 1:** "The Trading Industry Will Hate Me for This FREE 10+ Hour Course", https://www.youtube.com/watch?v=grw58BIzotU, 10:35:59 long, studied 2026-10-08 in 12 parts.
 - **Video 2:** "The ONLY confirmation YOU need to make $1000/day Trading Forex", https://www.youtube.com/watch?v=BcWxqfcjk9A, 22:03 long, studied 2026-10-09. Teaches the entry confirmation and entry timing. Cited as `[V2 mm:ss]`.
+- **Video 3:** "How to Master Liquidity in Trading (Advanced Guide)", https://www.youtube.com/watch?v=Rua24ytuHuY, 19:18 long, studied 2026-10-09. Teaches what "liquidity" means in his method and why he does not trade liquidity sweeps. Cited as `[V3 mm:ss]`.
 
 Citations look like `[E 3:44]` = study part E of video 1, video time 3:44 (h:mm:ss or mm:ss). Part letters follow the time ranges in `docs/VIDEOS.md`. The detailed per-part study notes (quotes, numbers, worked examples, open questions) are kept locally and are not published here. This file is the merged rule set and the source of truth for the app.
 
@@ -17,6 +18,7 @@ Wording convention: "(app default)" marks something I chose to fill a gap. It is
 - **His "entry signal" is only partly public.** In video 1 he says a specific entry signal is explained only on his livestream [L 10:14:48]. Video 2 teaches an "entry confirmation" in the open (closed rejection or engulfing candle at a support/resistance zone, with the trend, at the right session and weekday). That is the best public statement of it and is documented in 3.6, but he never says it is the same thing he withholds.
 - Video 2's title and intro quote income figures ($500 to $1,000 a day). Those are marketing claims, not evidence.
 - The course never gives a base risk %, a numeric rule for what counts as a "significant" swing or a "touch", or a news filter. See section 7.
+- Video 3's view that "liquidity sweeps" and bank stop-hunting are mostly a myth is his opinion, given without data. It is recorded as his method (do not anticipate or wait for sweeps), not as a fact about markets.
 - Trade results and win rates in the video are his own claims. Nothing was back-tested (he opposes back-testing [C 2:07:52]). This is a description of his method, not evidence that it makes money.
 
 ---
@@ -154,6 +156,11 @@ Using it:
 
 Things that add to an AOI (confluence, from his live trades): previous daily structure level, a round psychological number (e.g. 157.500, 1.12500), the daily/weekly/1H EMA, a head-and-shoulders or double-top neckline [K 8:49:57, 9:26:35].
 
+**"Liquidity" in his method** [V3 0:41 to 5:50]. Liquidity just means buyers and sellers (with their take profits and stops) at a price. He says it is everywhere but strongest where price has **consistently rejected**, which is exactly his AOI (support/resistance, supply and demand, order block). Consequences:
+- Above the zone buyers dominate (buy); below it sellers dominate (sell). A zone with one rejection is less predictable; he wants a **higher-timeframe zone with multiple taps, "more than three" ideal** [V3 5:29 to 5:50]. This matches the 3-touch rule in 3.5.
+- **Round numbers hold liquidity.** Example: Ethereum failed to reach 5,000 because many holders set take profits just below it (4,999, 4,998...), so selling began just short of the round number [V3 1:01 to 1:41]. For the app this supports a "near a round number" confluence, and price may stall a few points short of it. No distance rule is given.
+- Do not buy at the high; wait for a retracement into a zone with a track record of rejections ("a discount") [V3 14:29 to 15:09].
+
 ### 3.6 Entry
 
 Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count of extras, but "more confluences = lower-risk trade" [J 7:35:29, 7:36:10]. Seen checklist: 1 Trend, 2 AOI, 3 Entry, 4 Patterns [J 7:42:05].
@@ -184,6 +191,12 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - **Pro-trend only.** A confirmation points the same way as the trend. A counter-direction engulfing does not flip the bias; bias does not change overnight, and on intraday/swing it holds for almost a month. Entering the opposite engulfing is "gambling" [V2 11:56 to 14:21].
 - **Wick fill (daily vs 4H):** a daily candle with a long lower wick can be a wick fill rather than a plain rejection if the 4H within that day went bearish into the area and then made a higher low. The next daily bullish engulfing is then the entry. He quotes "almost 70%" chance of a bullish push the day after a strong daily confirmation [V2 5:06 to 7:28].
 - **Everything must line up.** A perfect setup on a Tuesday at the London open still gets no trade without the confirmation [V2 19:30 to 20:12].
+
+**Liquidity sweeps: do not anticipate them, do not wait for them** (video 3)
+- A wick through a zone that then reverses is called a "liquidity sweep / grab / fake out". He considers the stop-hunting story largely unproven and says no strategy can anticipate or consistently trade sweeps [V3 6:11 to 9:36]. This agrees with the body-close rule: wicks do not count (3.3).
+- **Wait for the confirmation, not the sweep.** Waiting for a sweep is "playing defense"; entering on a confirmation is "playing offense". In his example the market approached one support zone 7 times; only one gave a sweep, and the other six gave a bullish engulfing, a morning star with engulfing, a bullish rejection candle or a bullish pin bar. Waiting for the sweep would have missed six trades [V3 9:57 to 17:13].
+- If price moves **against** the direction you want (for example several bullish closes when you want to sell at resistance), do not sell yet and do not guess it is a sweep. Wait for a candle that confirms your direction (a bearish candle for a sell) [V3 10:39 to 12:48].
+- The next step after the zone is a confirmation candle, never a sweep [V3 15:29].
 - His own recap: candle closed; rejection or engulfing (stronger with more rejections and one strong engulfing); at a strong support/resistance zone; at the right time [V2 20:12 to 21:13].
 
 **Break and retest** (his favourite continuation pattern) [H 6:10:12 to 6:19:52, I 6:47:46]
@@ -230,7 +243,7 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - Alerts at key structure points (e.g. a 4H body close beyond a structure point) then wait [J 7:55:10, L 10:05:41].
 - Discretionary exits he describes (optional, for a short; mirror for a buy): a 30-minute break above the last structure point; at a structure point near the target, watch the candle close (closes back above the line: close; closes under it: hold); a clear structure shift; if the daily closes under a previous structure level, hold "for a long time" [J 8:01:05, K 9:01:56, 8:53:44].
 - When price runs past the target he sometimes closes at a chosen point ("do not get greedy", e.g. closed about 1:5) [J 8:10:03].
-- Wick-outs are inevitable and accepted ("if you want to avoid a wick out, don't trade") [J 8:05:11].
+- Wick-outs are inevitable and accepted ("if you want to avoid a wick out, don't trade") [J 8:05:11]. They still happen to him about once every 2 weeks; he takes the next trade and does not let it affect it [V3 17:33 to 17:53].
 - Split larger positions into several orders to limit slippage [K 9:39:04].
 
 ---
@@ -319,4 +332,5 @@ His own examples, as test cases:
 - When more videos are studied (see `docs/WORKFLOW.md`), update the sections here and list any change in a "changed by video N" line so differences between teachers stay visible.
 
 **Changelog**
+- **Video 3 (2026-10-09):** added the liquidity framing of the AOI (3.5), the rule to ignore liquidity sweeps and wait for confirmation (3.6), wick-out frequency (3.9), and a caution that his stop-hunting view is opinion. No rule from videos 1 or 2 changed; it restates them (zones with 3+ taps, confirmation not anticipation, bodies not wicks).
 - **Video 2 (2026-10-09):** added the entry confirmation rules (3.6), Monday to Wednesday and wait-for-session timing (3.2), average TP of 80 to 100 pips (3.7), three rows in the conflicts table (engulfing definition, entry timing, weekday), and updated the gaps. Everything else in video 1's rules is unchanged and consistent with video 2 (same creator).

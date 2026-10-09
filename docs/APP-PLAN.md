@@ -13,7 +13,7 @@ For each pair, run the strategy in `strategy/strategy.md` against recent candles
 - Weekly, daily and 4-hour bias, with the HH, HL, LH, LL prices
 - Agreement grade: none, two in a row, all three
 - The zone (HH-HL or LH-LL) and the weekly and daily AOIs: touches, height in pips, merged boxes, distance from price to the nearest AOI
-- EMA(50) side on each timeframe
+- EMA(50) side on each timeframe; distance to the nearest round number (a confluence; price may stall just short of it)
 - Latest candle signal at the AOI; pattern state (potential, neckline broken, retested)
 - Suggested stop, target and risk:reward; lot size for the user's own risk setting
 - The pre-trade checklist with pass or fail, and a clear "no trade" reason when a gate fails

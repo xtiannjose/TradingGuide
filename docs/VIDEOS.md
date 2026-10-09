@@ -5,6 +5,19 @@
 | 1 | "The Trading Industry Will Hate Me for This FREE 10+ Hour Course" (`grw58BIzotU`) https://www.youtube.com/watch?v=grw58BIzotU | fxalexg (Swing Trading Lab) | 10:35:59 | 2026-10-08 | Merged into `strategy/strategy.md` and the PDF |
 | 2 | "The ONLY confirmation YOU need to make $1000/day Trading Forex" (`BcWxqfcjk9A`) https://www.youtube.com/watch?v=BcWxqfcjk9A | fxalexg | 22:03 | 2026-10-09 | Merged (entry confirmation, entry timing). Cited as `[V2 mm:ss]` |
 
+| 3 | "How to Master Liquidity in Trading (Advanced Guide)" (`Rua24ytuHuY`) https://www.youtube.com/watch?v=Rua24ytuHuY | fxalexg | 19:18 | 2026-10-09 | Merged (liquidity = AOI, ignore sweeps). Cited as `[V3 mm:ss]` |
+
+## Video 3: what it teaches
+
+Whiteboard on TradingView (ETH 1W canvas), then a live AUDCHF 1W example. 0:00 to 17:53 is content; the end is promotion.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 2:22 | What liquidity is; round-number example (Ethereum at 5,000) |
+| 2:22 to 6:11 | Where liquidity lies: zones with repeated rejection = AOI; higher timeframe, more than 3 taps |
+| 6:11 to 9:57 | AUDCHF 1W example; his view that sweeps and stop-hunting are mostly a myth (opinion) |
+| 9:57 to 17:53 | Do not anticipate or wait for sweeps; trade on confirmation; 7-touch example; wick-outs happen |
+
 ## Video 2: what it teaches
 
 Whiteboard talk on a TradingView chart (hand-drawn candles, no real trade). 0:00 to 21:13 is the content; the end is promotion.
