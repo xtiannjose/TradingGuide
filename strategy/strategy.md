@@ -5,6 +5,7 @@ Sources, both by fxalexg (Swing Trading Lab), studied from auto-captions plus vi
 - **Video 2:** "The ONLY confirmation YOU need to make $1000/day Trading Forex", https://www.youtube.com/watch?v=BcWxqfcjk9A, 22:03 long, studied 2026-10-09. Teaches the entry confirmation and entry timing. Cited as `[V2 mm:ss]`.
 - **Video 3:** "How to Master Liquidity in Trading (Advanced Guide)", https://www.youtube.com/watch?v=Rua24ytuHuY, 19:18 long, studied 2026-10-09. Teaches what "liquidity" means in his method and why he does not trade liquidity sweeps. Cited as `[V3 mm:ss]`.
 - **Video 4:** "Price Action Trading Was Hard, Until I Discovered This", https://www.youtube.com/watch?v=WEyJ-zKAEoA, 25:23 long, studied 2026-10-09. Teaches strong vs weak candles, rejection vs wick fill, patterns as extra confluence, and break-and-retest entry options. Cited as `[V4 mm:ss]`.
+- **Video 5:** "How Trading Dumb Made Me a Millionaire Trader (You Can Too)", https://www.youtube.com/watch?v=KPVVOa6c6dY, 28:12 long, studied 2026-10-09. A simplified one-pair, one-timeframe, one-session, one-entry-signal version of the strategy. Cited as `[V5 mm:ss]`. The title's "millionaire" is marketing.
 
 Citations look like `[E 3:44]` = study part E of video 1, video time 3:44 (h:mm:ss or mm:ss). Part letters follow the time ranges in `docs/VIDEOS.md`. The detailed per-part study notes (quotes, numbers, worked examples, open questions) are kept locally and are not published here. This file is the merged rule set and the source of truth for the app.
 
@@ -50,6 +51,8 @@ Decision pipeline, in order. A failed gate means "no trade, next pair".
 | 8 | Plan | Stop beyond the level, target at next structure, R:R at least 1:2 |
 | 9 | Size | Lot size from risk amount and stop pips |
 
+**A simpler version (video 5, "trading dumb").** For beginners he strips the same strategy to **one pair, one timeframe, one session and one entry signal**, and says to stick to it until consistently profitable before adding anything [V5 0:21 to 4:45]. His picks: **EURUSD** (lowest cost, very liquid, predictable patterns), the **4H** chart, the **London** session, and the **engulfing candle** as the entry signal. Direction comes from market structure on that one timeframe; he then trades only that direction, entering on the engulfing candle (optionally at a head-and-shoulders neckline retest), with the stop beyond the pattern and the target at the next structure point [V5 23:43 to 26:09]. He calls three-timeframe top-down analysis "the more advanced approach" [V5 8:13]. The app should support both modes: the full pipeline above, and this single-timeframe mode where the user picks the pair, timeframe and session.
+
 ---
 
 ## 2. Chart setup and universe
@@ -82,6 +85,7 @@ Decision pipeline, in order. A failed gate means "no trade, next pair".
 - Do not trade the Sydney or Tokyo sessions (no volume).
 - Be active from about **1:00 AM to about 10:30 AM** New York time. He says "10:00" in places; the marker he drew sits at about 10:30. He has taken no trade after 10:30 AM in about four years [B 1:13:49].
 - Entry moments: just before London (pre-London), in the middle of London, or just before volatility fades (9 to 10 AM, end of the London/New York overlap).
+- **Session by market (video 5):** pick the session that fits the market. Gold and the S&P 500 depend on New York (the S&P only New York); GBPUSD leans London; for EURUSD and, in his view, any other market, use **London** because London and the London/New York overlap give both sessions. Enter 1 to 2 hours before London (about 1 to 2 AM EST) and hold through London and the overlap. "Don't look for a reason to take a trade out of session" [V5 14:01 to 17:30].
 - Reference times: pre-London analysis from 1:00 AM; London opens 3:00 AM; New York opens 8:00 AM; London ends about 12:00 PM; market closes 5:00 PM.
 - USD pairs: the dollar side wakes at the New York open, so these get "double volatility" from London into New York [B 1:15:34].
 - Being inside the window is not a trade trigger; the strategy still has to say yes [B 1:16:16].
@@ -229,6 +233,8 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - **Risk:reward:** always at least **1:2**; set the trade up so 1:4 is possible; hold for it [K 8:37:51 to 8:39:37]. Wording conflicts ("minimum of 1:4" vs "aim for potential 1:4"); read as potential. Seen: 1:2 to 1:3.5 typical, 1:5 to 1:11 on a few [K R34, L 10:03:14].
 - Use the TradingView long/short position tool to read the ratio before entering [C 2:13:41].
 - His average take profit is about **80 to 100 pips** [V2 17:26].
+- **Match the take profit to the entry timeframe** (video 5). The same head-and-shoulders entry on the 4H needed a smaller stop and reached a 1:2 target in about 1.5 days; on the daily the stop was much larger and 1:2 took about 5 days; on the 1H about 10 hours. Same direction; only stop and target placement change. Never enter on a 1H and use a day-trade target, or the reverse: a winner for that timeframe turns into a loser [V5 10:40 to 13:41].
+- Higher timeframe = stronger confirmation but slower (maybe one trade a week); lower = faster but weaker (3 to 4 trades a week, maybe one winner in three) [V5 8:56 to 9:37].
 
 ### 3.8 Risk and position size
 
@@ -245,6 +251,7 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 
 ### 3.9 Management and exit
 
+- **Holding through sessions and the weekend (video 5):** hold a London entry through Sydney and Tokyo if the market still gives every indication it can reach the target (for example halfway to target, momentum fading, to be pushed by the next London). Close before the weekend if the trade is losing and about halfway to the stop, because the Sunday-open spread can stop you out. If halfway to the stop but still rejecting, he holds. "Doing nothing is doing something" [V5 17:51 to 19:54].
 - **Set and forget:** after entry do nothing until the stop or target is hit. Exceptions about 1 in 20 [J 7:52:46 to 7:53:07, L 10:17:35]. Do not let post-entry emotion change the decision [J 7:53:27]. Expect an immediate small drawdown from the spread [C 1:43:40].
 - Alerts at key structure points (e.g. a 4H body close beyond a structure point) then wait [J 7:55:10, L 10:05:41].
 - Discretionary exits he describes (optional, for a short; mirror for a buy): a 30-minute break above the last structure point; at a structure point near the target, watch the candle close (closes back above the line: close; closes under it: hold); a clear structure shift; if the daily closes under a previous structure level, hold "for a long time" [J 8:01:05, K 9:01:56, 8:53:44].
@@ -312,7 +319,9 @@ His own examples, as test cases:
 | Close before SL/TP | "Never" [J] vs closes early in a few live trades [K, L] | Default hold to SL/TP; flag early-exit ideas as manual |
 | Stop and target in teaching samples | Spoken ratios differ from the position tool on screen (AUDJPY: "1 to 2, 118 pips" vs tool 2.71 [H 6:38:45]; NZDJPY: said 2 vs tool 2.47 [D V9]) | Use the stop/target the app derives; do not copy these samples |
 | Risk % | 100% to 35% ladder, "50 to 75%" at $3 to 5K, "lower risk 25 to 50% as account grows" | Not his rule to copy; user-set |
-| Engulfing definition | Must cover the last **two** bodies [H 6:30:31, I 6:42:56] vs body-close beyond the **last** candle, even a tiny one [V2 3:43] | Valid minimum: beyond the last candle's body. Grade higher when it covers the last two bodies (his "morning/evening star" form) |
+| Engulfing definition | Must cover the last **two** bodies [H 6:30:31, I 6:42:56] vs body-close beyond the **last** candle, even a tiny one [V2 3:43]. Video 5 agrees with the minimum of one and adds "the more candles it engulfs, the better" (examples engulfing 4 and 10 candles; a pin-bar engulfing one candle counts) [V5 21:17 to 23:22] | Valid minimum: beyond the last candle's body. Grade by the number of candles engulfed (1 = valid, 2 or more = stronger, a whole consolidation = his favourite) |
+| Back-testing | "I actually hate back testing" [C 2:07:52] vs "do a little bit of back testing" to pick your entry signal [V5 20:57] | Allow back-testing as the user's own choice (the app could back-test signals); do not treat either as a rule |
+| One or three timeframes | Top-down on W/D/4H is the method [F, G]; video 5 says one timeframe only is simpler and "more advanced" is top-down [V5 8:13] | Support both modes |
 | Entry timing | Pre-London entries from 1:00 AM [B] vs "wait until right before London" if the confirmation printed before Sydney [V2 16:25] | Same window; a confirmation that prints outside a session waits for the pre-London hour, then enters |
 | Retest entry | Video 1: wick or body rejection on the retest is the confirmation [H 6:13:37]; breakout entry allowed about 30% of the time [H 6:12:35]. Video 4 ranks entry on the breakout and entry on the retest without a rejection candle as least favourite [V4 23:02] | Require a rejection candle on the retest; breakout entry is an option the user can switch on |
 | Weekday | No weekday rule in video 1 (challenge trades on various days) vs Monday to Wednesday only [V2 17:26] | Mon to Wed by default; user can relax it, and he allows exceptions |
@@ -339,6 +348,7 @@ His own examples, as test cases:
 - When more videos are studied (see `docs/WORKFLOW.md`), update the sections here and list any change in a "changed by video N" line so differences between teachers stay visible.
 
 **Changelog**
+- **Video 5 (2026-10-09):** added the simplified one-pair/one-timeframe/one-session/one-signal mode (section 1), session by market and entry timing (3.2), take profit matched to the entry timeframe (3.7), holding through sessions and the weekend (3.9), the "more candles engulfed, the better" grading, and conflict rows for back-testing and one vs three timeframes.
 - **Video 4 (2026-10-09):** added candle strength by location (3.6), patterns as extra confluence only, the three ranked entries for a break and retest with a live example (3.6), H&S reminders, a risk hint of about 1% (3.8, inferred), and a conflicts row on retest entries (require a rejection candle). Other rules restated, not changed.
 - **Video 3 (2026-10-09):** added the liquidity framing of the AOI (3.5), the rule to ignore liquidity sweeps and wait for confirmation (3.6), wick-out frequency (3.9), and a caution that his stop-hunting view is opinion. No rule from videos 1 or 2 changed; it restates them (zones with 3+ taps, confirmation not anticipation, bodies not wicks).
 - **Video 2 (2026-10-09):** added the entry confirmation rules (3.6), Monday to Wednesday and wait-for-session timing (3.2), average TP of 80 to 100 pips (3.7), three rows in the conflicts table (engulfing definition, entry timing, weekday), and updated the gaps. Everything else in video 1's rules is unchanged and consistent with video 2 (same creator).

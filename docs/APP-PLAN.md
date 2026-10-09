@@ -7,6 +7,11 @@ Status: not built. This file records what the app should do and the decisions al
 Input: a list of forex pairs the user chooses.
 For each pair, run the strategy in `strategy/strategy.md` against recent candles and write a report of what lines up and what does not. It is an analysis tool: it shows confluences and gates, it does not place trades and does not promise results.
 
+## Two modes
+
+1. **Full mode:** weekly, daily and 4-hour top-down with AOIs (the main pipeline in `strategy/strategy.md`).
+2. **Simple mode (video 5):** the user picks one pair, one timeframe (default 4H) and one session (default London); the app reads structure on that timeframe, then looks for an engulfing signal in the trend direction (optionally at a pattern retest), with target matched to that timeframe. A back-test option (his own advice is mixed on back-testing) could rank which entry signal fits a pair best.
+
 ## Report fields (per pair)
 
 - Time window pass or fail (1:00 to 10:30 AM New York), and weekday pass or fail (Monday to Wednesday); if a confirmation printed before a session, "wait until the hour before London"

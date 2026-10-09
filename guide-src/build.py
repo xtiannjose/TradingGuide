@@ -86,7 +86,8 @@ tbody tr:nth-child(even) td { background: #f9fafb; }
 .tag { font-size: 8.5pt; color: #6b7280; }
 #p11 h2, #pb h2 { margin-top: 4.5mm; } #p11 li, #pb li { margin-bottom: .6mm; } #p11 td, #pb td { padding-top: 1.1mm; padding-bottom: 1.1mm; } #p11 .steps > li { margin-bottom: 1.2mm; }
 #p11 p, #pb p { margin-bottom: 2mm; }
-#pc td { padding-top: 1.1mm; padding-bottom: 1.1mm; } #pc h2 { margin-top: 4.5mm; }
+#pc td { padding-top: .8mm; padding-bottom: .8mm; } #pc h2 { margin-top: 4mm; } #pc li { margin-bottom: .6mm; }
+#p10 h2 { margin-top: 4.5mm; } #p10 li { margin-bottom: .7mm; } #p10 p { margin-bottom: 2mm; } #p10 .callout { margin: 2mm 0 2mm 0; }
 """
 
 
@@ -119,8 +120,8 @@ COVER = """
 <h1>The Confluence<br>Trading Guide</h1>
 <div class="sub">Market structure, areas of interest and entry confirmation, explained step by step.</div>
 <div class="line"></div>
-<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos on entry confirmation, liquidity and price action. Every rule has a picture, an example, and a place on the final checklist.</div>
-<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.3</div>
+<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos on entry confirmation, liquidity, price action and a simple version. Every rule has a picture, an example, and a place on the final checklist.</div>
+<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.4</div>
 </div>
 """
 
@@ -171,6 +172,7 @@ P1 = """
 <tr><td>8</td><td><b>Plan</b></td><td>Is the trade worth it?</td><td>Stop just beyond the level, target at the next structure point, reward at least twice the risk</td><td>9</td></tr>
 <tr><td>9</td><td><b>Size</b></td><td>How big?</td><td>Lot size set from the money you accept to lose and the stop distance</td><td>9</td></tr>
 </tbody></table>
+{{CALL:ex|The simple version for beginners|<p>In a later video he strips the strategy down to <b>one pair, one timeframe, one session and one entry signal</b>, and says to stick to it until you are consistently profitable before adding anything. His picks: <b>EURUSD</b> (low costs, very liquid, predictable patterns), the <b>4-hour</b> chart, the <b>London</b> session, and the <b>engulfing candle</b> as the entry signal. You read the structure on that one chart, trade only that direction, and enter on the engulfing candle. He calls the three-timeframe method in this guide "the more advanced approach". Both are valid; start with whichever you can follow consistently.</p>}}
 <h2>The mindset rules</h2>
 <ul>
 <li><b>Trade with the trend.</b> "The trend is your friend." Never try to pick the top or the bottom.</li>
@@ -277,6 +279,7 @@ P4 = """
 <li>He starts his <b>pre-London analysis at 1:00 AM</b>.</li>
 <li>Pairs with the US dollar get "double the volatility" from the London open into the New York open, because the dollar side wakes up at the New York open.</li>
 <li>The window applies to every pair, not only USD pairs.</li>
+<li><b>Match the session to the market.</b> The S&amp;P 500 and gold depend on New York; GBPUSD leans London. For EURUSD, and in his view any other market, he uses London because London and the overlap give you both sessions. Enter 1 to 2 hours before London and hold through it.</li>
 </ul>
 {{CALL:rule|Which days, and what to do if the signal comes early|<ul><li><b>Enter only on Monday, Tuesday and Wednesday.</b> After Wednesday there is not enough time to reach a take profit (his average target is about 80 to 100 pips, and Thursday's New York session gives only about 5 hours). He breaks this only for a shorter target, a very strong confirmation, or strong momentum.</li><li><b>If the confirmation prints before a session</b> (for example before Sydney), <b>wait until right before London</b> and enter inside the session. He calls this the "black and white rule". You may get a worse or a better price, but the confirmation has proven itself.</li><li>Do not enter just because a confirmation printed first thing on Monday morning or in the last 3 hours before the weekly close.</li><li>Avoid entries where you would get only about an hour of volume and then roughly 9 hours of nothing.</li></ul>}}
 {{CALL:warn|Watch out|<p>Being inside the window is <b>not</b> a reason to trade. It only means you are allowed to. The strategy still has to say yes.</p><p>His own session graphic shows Sydney lasting until about 2 AM and Tokyo until about 4 AM, which overlaps his 1:00 AM start. He treats the "pre-London" hours as tradable anyway. This is one of the small inconsistencies in the course (see Part 13).</p>}}
@@ -448,7 +451,7 @@ P8 = """
 <tr><td><b>Doji</b> / spinning top</td><td>Almost no body (doji) or a small body with wicks on both sides</td><td>A slowdown at the AOI after a push. The next candle might engulf. A weak signal on its own.</td></tr>
 <tr><td><b>Hammer</b></td><td>Small body at the top, long lower wick, little or no upper wick</td><td>At support: sellers pushed down and buyers closed it back up. A rejection.</td></tr>
 <tr><td><b>Inverted hammer</b> ("wick fill")</td><td>Small body at the bottom, long upper wick</td><td>At support, the wick is in the trade direction. The next candle is expected to fill it.</td></tr>
-<tr><td><b>Engulfing</b></td><td>The last candle's <b>body</b> closes beyond the body of the previous candle; stronger when it covers the <b>last two</b> bodies</td><td>Stronger than the signals above. A tiny hairline beyond the last body still counts. Wicks are ignored. (In the follow-up video the last candle alone is enough; in the course he wanted two. Treat two as the stronger version.)</td></tr>
+<tr><td><b>Engulfing</b></td><td>The last candle's <b>body</b> closes beyond the body of the previous candle; <b>the more candles it engulfs, the better</b> (two or more is stronger; swallowing a whole consolidation is his favourite)</td><td>Stronger than the signals above. A tiny hairline beyond the last body still counts. Wicks are ignored. (In the follow-up video the last candle alone is enough; in the course he wanted two. Treat two as the stronger version.)</td></tr>
 <tr><td><b>Morning star</b> / <b>evening star</b></td><td>A doji (or hammer) followed by an engulfing candle covering the last two candles</td><td>His favourite. Morning star to buy, evening star to sell. Not useful against the trend.</td></tr>
 </tbody></table>
 <ul>
@@ -509,6 +512,7 @@ P9 = """
 <p>Put the stop <b>just beyond the level that would prove the idea wrong</b>. For a sell, a little above the zone or wick; for a buy, a little below. On his recorded NZDUSD trade he put it "10 to 15 pips above the wick", which made the stop about 20 pips from entry. Stops in his examples range from about 20 to 50 pips. There is no fixed pip rule, so the chart decides.</p>
 <h2>Step 2: the target</h2>
 <p>Place the target at the <b>next structure point</b>: the previous swing low (for a sell) or high (for a buy), or the next 4-hour low. He picks a realistic one, not the furthest one ("we're not going to be greedy").</p>
+<p><b>Match your target to your entry chart.</b> The same head-and-shoulders entry on the 4-hour chart needed a smaller stop and reached a 1:2 target in about a day and a half. On the daily chart the stop was much larger and 1:2 took about 5 days; on the 1-hour about 10 hours. Never enter on a 1-hour chart and use a daily-chart target (or the reverse): a winner for that timeframe can turn into a loser.</p>
 <h2>Step 3: check the reward is worth the risk</h2>
 {{D:plan}}
 {{CALL:rule|Risk to reward|<ul><li>Every trade needs at least <b>1:2</b> (the reward at least twice the risk). "No ifs, ands or buts."</li><li>Set it up so that <b>1:4</b> is possible, and let it run to there.</li><li>Use TradingView's long/short position tool to read the ratio before you enter: the red box is your risk, the green box is your reward.</li></ul>}}
@@ -549,6 +553,7 @@ P10 = """
 <li><b>Never close before the stop or the target.</b> He allows an exception roughly once in 20 trades.</li>
 <li><b>Do not let emotions change your decision.</b> The plan was made when you were calm. After entry, watch the chart to see whether the trade still makes sense, not the profit and loss number.</li>
 <li>Expect a small drawdown right away, because of the spread. Do not panic in drawdown.</li>
+<li><b>Holding overnight and over the weekend:</b> hold a London entry through the Sydney and Tokyo hours if the market still shows it can reach the target. Close a losing trade that is about halfway to the stop before the weekend, because the Sunday-open spread can take you out. "Doing nothing is doing something."</li>
 <li><b>Live your life.</b> Set alerts and walk away. Hold times of 2 to 3 days on higher-timeframe setups are normal.</li>
 </ul>
 <h2>Alerts</h2>
@@ -702,7 +707,8 @@ GLOSSARY = [
     ("Retest", "Price returning to a broken level to test it."),
     ("Risk:reward (R:R)", "Reward divided by risk. At least 1:2 is required."),
     ("Set and forget", "After entering, do nothing until the stop or target is hit."),
-    ("Snake trick", "Start at a new extreme and walk backwards to the first clean turn to find its partner point."),
+    ("Shiny object syndrome", "Jumping between strategies, pairs and signals. He says to pick one simple approach and stick to it until it is consistently profitable."),
+    ("Snake trick","Start at a new extreme and walk backwards to the first clean turn to find its partner point."),
     ("Spread", "The broker's small fee built into the price."),
     ("Stop loss", "The price where a losing trade is closed automatically."),
     ("Strong / weak candle", "A candle is strong because of where it forms (at a key zone, followed by a push), not because of its size. The same candle mid-chart is weak."),
@@ -769,6 +775,7 @@ PC = """
 <li>"The ONLY confirmation YOU need to make $1000/day Trading Forex" (22 min): <b>https://www.youtube.com/watch?v=BcWxqfcjk9A</b>. The entry confirmation (Part 8) and weekday and session timing (Part 4). Its income figures are marketing claims, not tested.</li>
 <li>"How to Master Liquidity in Trading (Advanced Guide)" (19 min): <b>https://www.youtube.com/watch?v=Rua24ytuHuY</b>. The AOI as a liquidity zone and why he does not trade sweeps (Parts 7 and 8).</li>
 <li>"Price Action Trading Was Hard, Until I Discovered This" (25 min): <b>https://www.youtube.com/watch?v=WEyJ-zKAEoA</b>. Strong versus weak candles, wick fill, patterns as extra confluence, and the three break-and-retest entries (Part 8).</li>
+<li>"How Trading Dumb Made Me a Millionaire Trader (You Can Too)" (28 min): <b>https://www.youtube.com/watch?v=KPVVOa6c6dY</b>. The simple one-pair, one-timeframe, one-session version, session choice and matching targets to timeframes (Parts 1, 4, 9, 10). The title's "millionaire" is marketing.</li>
 </ul>
 <h2>Credits and notes</h2>
 <ul>

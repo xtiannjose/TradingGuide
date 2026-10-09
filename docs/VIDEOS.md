@@ -9,6 +9,21 @@
 
 | 4 | "Price Action Trading Was Hard, Until I Discovered This" (`WEyJ-zKAEoA`) https://www.youtube.com/watch?v=WEyJ-zKAEoA | fxalexg | 25:23 | 2026-10-09 | Merged (candle strength by location, wick fill, patterns as confluence, break-and-retest entries). Cited as `[V4 mm:ss]` |
 
+| 5 | "How Trading Dumb Made Me a Millionaire Trader (You Can Too)" (`KPVVOa6c6dY`) https://www.youtube.com/watch?v=KPVVOa6c6dY | fxalexg | 28:12 | 2026-10-09 | Merged (simple one-pair/timeframe/session/signal mode, session by market, TP matched to timeframe, holding rules). Cited as `[V5 mm:ss]` |
+
+## Video 5: what it teaches
+
+Chart talk on TradingView (EURUSD 1D, 1H, 4H). 0:00 to 26:09 is content; the end is promotion.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 4:45 | One pair, one timeframe, one session, one entry signal; avoid shiny object syndrome |
+| 4:45 to 7:12 | Choosing the pair (his pick and beginner advice: EURUSD) |
+| 7:12 to 14:01 | Choosing the timeframe (4H); H&S on 4H vs daily vs 1H; match take profit to entry timeframe |
+| 14:01 to 19:54 | Choosing the session (London; New York for S&P/gold); entry timing; holding through sessions and weekend |
+| 19:54 to 23:22 | Entry signal: engulfing candles, graded by how many candles are engulfed |
+| 23:22 to 26:09 | Full EURUSD 4H walk-through: structure, direction, H&S retest, engulfing entry |
+
 ## Video 4: what it teaches
 
 Chart talk on TradingView (EURAUD 1D and 4H in Replay, plus drawings). 0:00 to 24:44 is content; the end is promotion.
