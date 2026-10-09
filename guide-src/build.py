@@ -120,8 +120,8 @@ COVER = """
 <h1>The Confluence<br>Trading Guide</h1>
 <div class="sub">Market structure, areas of interest and entry confirmation, explained step by step.</div>
 <div class="line"></div>
-<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos (entry confirmation, liquidity, price action, a simple version, and recent trades). Every rule has a picture, an example, and a place on the final checklist.</div>
-<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.5</div>
+<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos (entry confirmation, liquidity, price action, a simple version, recent trades and mindset). Every rule has a picture, an example, and a place on the final checklist.</div>
+<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.6</div>
 </div>
 """
 
@@ -182,6 +182,8 @@ P1 = """
 <li><b>Set and forget.</b> After you enter, you leave the trade alone until it hits the stop or the target.</li>
 <li><b>Use alerts, not guesses.</b> Set a price alert at the level you are waiting for, step away, and check when it rings.</li>
 <li><b>Confirmation, not anticipation.</b> Wait for the candle to close and "let the market show you its hand" before you enter.</li>
+<li><b>Wait for the pullback; never chase.</b> After a big push, do not buy the high or sell the low. Wait for the "discount", then your confirmation.</li>
+<li><b>Think in weeks, not days.</b> Aim for a weekly result, not a daily one, so you are never tempted to force a trade. One good trade can make the week.</li>
 </ul>
 """
 
@@ -517,7 +519,7 @@ P9 = """
 <p><b>Match your target to your entry chart.</b> The same head-and-shoulders entry on the 4-hour chart needed a smaller stop and reached a 1:2 target in about a day and a half. On the daily chart the stop was much larger and 1:2 took about 5 days; on the 1-hour about 10 hours. Never enter on a 1-hour chart and use a daily-chart target (or the reverse): a winner for that timeframe can turn into a loser.</p>
 <h2>Step 3: check the reward is worth the risk</h2>
 {{D:plan}}
-{{CALL:rule|Risk to reward|<ul><li>Every trade needs at least <b>1:2</b> (the reward at least twice the risk). "No ifs, ands or buts."</li><li>Set it up so that <b>1:4</b> is possible, and let it run to there. In a later video his default is to <b>get out at 1:2</b> unless it clearly makes sense to hold on (for example when the target he chose sits at an area where he expects a reaction). Decide which rule you follow and keep it the same every time.</li><li>Use TradingView's long/short position tool to read the ratio before you enter: the red box is your risk, the green box is your reward.</li></ul>}}
+{{CALL:rule|Risk to reward|<ul><li>Every trade needs at least <b>1:2</b> (the reward at least twice the risk). "No ifs, ands or buts."</li><li>Set it up so that <b>1:4</b> is possible, and let it run to there. In a later video his default is to <b>get out at 1:2</b> unless it clearly makes sense to hold on (for example when the target he chose sits at an area where he expects a reaction). Decide which rule you follow and keep it the same every time.</li><li>Use TradingView's long/short position tool to read the ratio before you enter: the red box is your risk, the green box is your reward.</li><li>At 1:4 the trade is done ("a home run"). Do not close at 1:1 to lock in profit: that was not the plan. The maths: lose 5 of 10 trades at -1 and win 5 at +2, and you are still +5.</li></ul>}}
 <h2>Real examples from his charts</h2>
 <div style="break-inside:avoid">
 <table>
@@ -577,13 +579,13 @@ P10 = """
 <li><b>Wick-outs happen.</b> You can be stopped out by a wick, and then price runs to your target without you. He accepts it: "If you want to avoid a wick out, don't trade."</li>
 <li><b>Missed profit is not a loss.</b> If the target is hit and price keeps going, you made money and you move on.</li>
 <li><b>Never try to catch up for lost time.</b> It "puts you in a deeper hole".</li>
-<li>No trade is guaranteed. Ten reasons can still lose.</li>
+<li>No trade is guaranteed. A good plan wins about 50 to 60% of the time, so 40 to 50% of trades lose. If you are not ready to lose the amount you risked, do not take the trade.</li>
 <li><b>No plan B.</b> In a losing streak do not change the strategy or your risk to win losses back. Every trade is independent of the last ten. To grow a winning streak, keep the same sessions and timeframe that got you there; do not start tightening stops or stretching targets.</li>
 </ul>"""
 
 P11 = """
 <h2>Once a week: pick your pairs</h2>
-<p>He calls this his <b>Sunday swings</b>. It is a weekly analysis session to choose the best markets of the week.</p>
+<p>He calls this his <b>Sunday swings</b>. It is a weekly analysis session to choose the best markets of the week. You also fix the week's direction on Sunday and do not change it with your mood or the news.</p>
 <ol class="steps">
 <li>List your watchlist (about 10 markets you are focusing on).</li>
 <li>Read the structure on weekly, daily and 4-hour for each.</li>
@@ -768,15 +770,16 @@ PC = """
 <tr><td>7:14 to 8:25</td><td>Head and shoulders wrap-up, the 50 EMA, confluence trading, a recorded NZDUSD trade, trade management</td></tr>
 <tr><td>8:25 to 10:36</td><td>The $100 to $1M challenge: risk ladder, risk:reward, weeks 1 to 14, short recap</td></tr>
 </tbody></table>
-<h2>Follow-up videos</h2>
+<h2>Follow-up videos (all by fxalexg)</h2>
 <ul>
-<li>"The ONLY confirmation YOU need to make $1000/day Trading Forex" (22 min): <b>https://www.youtube.com/watch?v=BcWxqfcjk9A</b>. The entry confirmation (Part 8) and weekday and session timing (Part 4). Its income figures are marketing claims, not tested.</li>
-<li>"How to Master Liquidity in Trading (Advanced Guide)" (19 min): <b>https://www.youtube.com/watch?v=Rua24ytuHuY</b>. The AOI as a liquidity zone and why he does not trade sweeps (Parts 7 and 8).</li>
-<li>"Price Action Trading Was Hard, Until I Discovered This" (25 min): <b>https://www.youtube.com/watch?v=WEyJ-zKAEoA</b>. Strong versus weak candles, wick fill, patterns as extra confluence, and the three break-and-retest entries (Part 8).</li>
-<li>"How Trading Dumb Made Me a Millionaire Trader (You Can Too)" (28 min): <b>https://www.youtube.com/watch?v=KPVVOa6c6dY</b>. The simple one-pair, one-timeframe, one-session version, session choice and matching targets to timeframes (Parts 1, 4, 9, 10). The title's "millionaire" is marketing.</li>
-<li>"This trading strategy is boring, but it makes me $150,000/week" (21 min): <b>https://www.youtube.com/watch?v=1fGzVHI7rN0</b>. Streak discipline and four recent trades (Parts 6, 9, 10). His dollar results are claims, not verified.</li>
+<li>"The ONLY confirmation YOU need..." (22 min): <b>youtube.com/watch?v=BcWxqfcjk9A</b>. Entry confirmation, weekday and session timing (Parts 4, 8).</li>
+<li>"How to Master Liquidity in Trading" (19 min): <b>youtube.com/watch?v=Rua24ytuHuY</b>. AOI as a liquidity zone; ignoring sweeps (Parts 7, 8).</li>
+<li>"Price Action Trading Was Hard, Until I Discovered This" (25 min): <b>youtube.com/watch?v=WEyJ-zKAEoA</b>. Strong vs weak candles, wick fill, break-and-retest entries (Part 8).</li>
+<li>"How Trading Dumb Made Me a Millionaire Trader" (28 min): <b>youtube.com/watch?v=KPVVOa6c6dY</b>. The simple one-pair, one-timeframe version (Parts 1, 4, 9, 10).</li>
+<li>"This trading strategy is boring, but it makes me $150,000/week" (21 min): <b>youtube.com/watch?v=1fGzVHI7rN0</b>. Streak discipline, four recent trades (Parts 6, 9, 10).</li>
+<li>"If I Wanted to Make $1,000/Day Trading, I'd Do This" (18 min): <b>youtube.com/watch?v=M8wDlKjaQRk</b>. Weekly goals, pullbacks, weekly bias, accepting losses (Parts 1, 9 to 11).</li>
 </ul>
-<h2>Credits and notes</h2>
+<p class="small">Income and "millionaire" claims in these titles are marketing and were not verified.</p><h2>Credits and notes</h2>
 <ul>
 <li>The strategy ideas and examples belong to fxalexg / Swing Trading Lab. This is an independent study summary that quotes only short phrases; watch the videos to learn from the source. Diagrams are original drawings, not real prices or screenshots.</li></ul>
 """

@@ -13,6 +13,20 @@
 
 | 6 | "This trading strategy is boring, but it makes me $150,000/week" (`1fGzVHI7rN0`) https://www.youtube.com/watch?v=1fGzVHI7rN0 | fxalexg | 21:13 | 2026-10-09 | Merged (no plan B, counter-weekly recipe, stop philosophy, 1:2 exit). Cited as `[V6 mm:ss]` |
 
+| 7 | "If I Wanted to Make $1,000/Day Trading, I'd Do This" (`M8wDlKjaQRk`) https://www.youtube.com/watch?v=M8wDlKjaQRk | fxalexg | 17:47 | 2026-10-09 | Merged (weekly goal, Sunday bias, wait for retracement, accept losses, 1:2 minimum, done at 1:4). Talking head, no charts. Cited as `[V7 mm:ss]` |
+
+## Video 7: what it teaches
+
+Talking head with caption overlays; baseball analogy throughout. No charts.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 4:04 | Weekly goal instead of a daily one; wait for the perfect pitch |
+| 4:04 to 5:27 | Wait for a retracement; never buy highs or sell lows |
+| 5:27 to 7:50 | Keep the weekly bias set on Sunday; do not flip daily |
+| 7:50 to 12:20 | Accept losses as part of the plan; 50 to 60% win rate; do not carry a loss forward |
+| 12:20 to 16:07 | Minimum 1:2 every trade; hold to 1:3 or 1:4; done at 1:4; do not close at 1:1 |
+
 ## Video 6: what it teaches
 
 Talk plus four recent trade reviews on TradingView (GBPNZD 1W, GBPCAD 1D, EURAUD 4H). Dollar results are his claims.

@@ -8,7 +8,7 @@ Educational only. Not financial advice. Unofficial: not affiliated with the crea
 
 | Path | What it is |
 |---|---|
-| `Confluence-Trading-Guide.pdf` | 35-page beginner guide (version 1.5) to the strategy studied so far. Start here if you want to learn it. |
+| `Confluence-Trading-Guide.pdf` | 35-page beginner guide (version 1.6) to the strategy studied so far. Start here if you want to learn it. |
 | `strategy/strategy.md` | The merged rule set: exact definitions, numbers, conflicts, gaps. The source of truth for the app. |
 | `docs/APP-PLAN.md` | What the app should do and the open build decisions. |
 | `docs/VIDEOS.md` | Videos studied, and which video time range each study part covers. |
@@ -37,7 +37,8 @@ Then see `docs/WORKFLOW.md` to study another video, or `docs/APP-PLAN.md` to bui
 - Video 4 studied: fxalexg, "Price Action Trading Was Hard, Until I Discovered This" (25 min): candle strength by location, wick fill, break-and-retest entries.
 - Video 5 studied: fxalexg, "How Trading Dumb Made Me a Millionaire Trader (You Can Too)" (28 min): the simple one-pair, one-timeframe, one-session, one-signal version.
 - Video 6 studied: fxalexg, "This trading strategy is boring, but it makes me $150,000/week" (21 min): streak discipline and four recent trades.
-- See `docs/VIDEOS.md` for all six.
+- Video 7 studied: fxalexg, "If I Wanted to Make $1,000/Day Trading, I'd Do This" (18 min): mindset and the 1:2 minimum (no charts).
+- See `docs/VIDEOS.md` for all seven.
 - App: not built yet. Plan and decisions are in `docs/APP-PLAN.md`.
 - More videos are expected. Each one is merged into `strategy/strategy.md`, with differences between teachers kept visible.
 
