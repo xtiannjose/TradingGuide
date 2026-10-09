@@ -360,7 +360,7 @@ His own examples, as test cases:
 
 ## 8. Using this
 
-- For the build: read this file and `docs/APP-PLAN.md`. Where each topic is taught: structure state machine in parts E, F, G; AOI in G, H; candles and patterns in H, I, J; entry/exit/risk in practice in J, K, L; tooling and setup in B, C, D.
+- For the build: read `docs/BUILD-PLAN.md` (the plan) and `docs/ANALYSIS-SPEC.md` (the app-ready rules and parameters), with this file as the source behind them. Where each topic is taught: structure state machine in parts E, F, G; AOI in G, H; candles and patterns in H, I, J; entry/exit/risk in practice in J, K, L; tooling and setup in B, C, D.
 - When more videos are studied (see `docs/WORKFLOW.md`), update the sections here and list any change in a "changed by video N" line so differences between teachers stay visible.
 
 **Changelog**

@@ -10,7 +10,8 @@ Educational only. Not financial advice. Unofficial: not affiliated with the crea
 |---|---|
 | `Confluence-Trading-Guide.pdf` | 35-page beginner guide (version 1.6) to the strategy studied so far. Start here if you want to learn it. |
 | `strategy/strategy.md` | The merged rule set: exact definitions, numbers, conflicts, gaps. The source of truth for the app. |
-| `docs/APP-PLAN.md` | What the app should do and the open build decisions. |
+| `docs/BUILD-PLAN.md` | The plan for the chart-analysis app: study digest, architecture, data options, phases, decisions needed. |
+| `docs/ANALYSIS-SPEC.md` | App-ready spec: exact rules, parameters, outputs and tests the app must implement. |
 | `docs/VIDEOS.md` | Videos studied, and which video time range each study part covers. |
 | `docs/SETUP.md` | One-time machine setup (tools, plugin, GitHub login). |
 | `docs/WORKFLOW.md` | Step by step: study a new video, merge it, rebuild the PDF, push. |
@@ -27,7 +28,7 @@ cd TradingGuide
 .\scripts\setup.ps1            # checks the machine; add -Install to fix what is missing
 ```
 
-Then see `docs/WORKFLOW.md` to study another video, or `docs/APP-PLAN.md` to build the app.
+Then see `docs/WORKFLOW.md` to study another video, or `docs/BUILD-PLAN.md` to build the app.
 
 ## Status
 
@@ -39,7 +40,7 @@ Then see `docs/WORKFLOW.md` to study another video, or `docs/APP-PLAN.md` to bui
 - Video 6 studied: fxalexg, "This trading strategy is boring, but it makes me $150,000/week" (21 min): streak discipline and four recent trades.
 - Video 7 studied: fxalexg, "If I Wanted to Make $1,000/Day Trading, I'd Do This" (18 min): mindset and the 1:2 minimum (no charts).
 - See `docs/VIDEOS.md` for all seven.
-- App: not built yet. Plan and decisions are in `docs/APP-PLAN.md`.
+- App: not built yet. The plan is in `docs/BUILD-PLAN.md` (with 8 decisions waiting on the owner) and the exact rules are in `docs/ANALYSIS-SPEC.md`.
 - More videos are expected. Each one is merged into `strategy/strategy.md`, with differences between teachers kept visible.
 
 ## Source credit
