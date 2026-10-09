@@ -8,6 +8,19 @@ Where the videos give a number, it is used and marked **course**. Where they lea
 
 - **Candles** are OHLC bars with a UTC timestamp. Only **closed** candles are analysed; the live candle is ignored.
 - **New York time** (`America/New_York`, with daylight saving) is used for every clock rule and for the day/week boundary: a daily candle runs 5:00 PM to 5:00 PM New York; a weekly candle runs from Sunday 5:00 PM to Friday 5:00 PM. Higher-timeframe candles are built from lower ones (or taken from a feed that uses this boundary).
+- **Two clocks.** Every strategy rule is evaluated in **New York time** (his). Reports, schedules and alerts also show the user's local time, set by `display_tz` (default `Asia/Manila`, UTC+8, no daylight saving). Times are stored in UTC and converted for display; the two zones are always shown side by side, for example `01:00 NY (13:00 Manila)`. Manila is NY + 12 hours while the US is on summer time (EDT) and NY + 13 hours in winter (EST); the US changes on the second Sunday of March and the first Sunday of November (2026: 8 March and 1 November).
+
+  | Event | New York (rule) | Manila, US summer | Manila, US winter |
+  |---|---|---|---|
+  | Entry window opens | 01:00 | 13:00 | 14:00 |
+  | London opens | 03:00 | 15:00 | 16:00 |
+  | New York opens | 08:00 | 20:00 | 21:00 |
+  | Last entry | 10:30 | 22:30 | 23:30 |
+  | London ends | 12:00 | 00:00 (+1 day) | 01:00 (+1 day) |
+  | Daily/weekly candle close | 17:00 | 05:00 (+1 day) | 06:00 (+1 day) |
+  | Sunday market open, weekly bias | Sun 17:00 | Mon 05:00 | Mon 06:00 |
+
+  The entry window falls on the same calendar day in Manila, so Monday to Wednesday is the same in both. The US and UK change clocks on different dates, so for 1 to 3 weeks each spring and autumn London opens at 04:00 NY instead of 03:00 (2026: 8 to 29 March and 25 October to 1 November). The entry window stays on the New York clock (his rule); "the hour before London" (T5) uses London's real 08:00 local open.
 - **Pip** = 0.01 for pairs quoted in JPY, otherwise 0.0001.
 - **Body top / body bottom** = max / min of open and close. A **body close beyond a level** means the candle's close is beyond it (open and close beyond for a full body; the rule needs the close).
 - **Direction**: +1 bullish (buy), -1 bearish (sell).
@@ -23,6 +36,7 @@ Where the videos give a number, it is used and marked **course**. Where they lea
 | `risk_pct`, `account_balance`, `account_currency` | For lot size | `risk_pct` has no course default; placeholder 1.0, user must confirm |
 | `weekdays` | Allowed entry days | Mon, Tue, Wed |
 | `window` | Allowed entry hours, New York | 01:00 to 10:30 |
+| `display_tz` | Second clock shown next to New York time everywhere | `Asia/Manila` |
 | `exit_policy` | `next_structure` or `rr2` (see 8.2) | `next_structure` |
 | `strict_engulfing` | Engulfing must cover two bodies | off |
 

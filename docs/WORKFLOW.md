@@ -18,6 +18,14 @@ This writes `report.md` (header, frame list, full transcript) and keeps the down
 
 Short video (under about 15 minutes): read `report.md`, view the frames it lists, and skip to step 5.
 
+**Check the caption language.** The report header says `Transcript: N segments (via captions (xx, ...))`. If it is not `en`, the downloader picked a wrong auto-caption track (in 2026-10 three videos came back as Arabic). Fix without re-downloading the video:
+
+```powershell
+python <watch.py> "<url>" --engine local --detail transcript --sub-lang en-orig --out-dir <work>\<id>\en | Set-Content -Encoding UTF8 <work>\<id>\en\report.md
+```
+
+Then split `<work>\<id>\en\report.md` instead. Study notes made from a wrong-language transcript are unreliable and must be redone.
+
 ## 3. Split a long transcript
 
 YouTube auto-captions repeat every line. `segment.py` removes the repeats and cuts the transcript into parts.

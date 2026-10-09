@@ -67,6 +67,23 @@ Seven videos by one creator (fxalexg), merged into one rule set.
 
 What you see after a run: a summary table of all pairs (verdict, grade, bias, nearest AOI, what is awaited), then for each pair a checklist with a reason for every pass or fail, three timeframe reads, the AOIs, the signal candle, the plan, and alert levels. Every pair that fails a gate says exactly which gate and why. Two modes: **full** (three timeframes) and **simple** (one pair, timeframe and session).
 
+### Time zones: New York (the strategy) and Manila (you)
+
+All the strategy's times are New York time. The app evaluates its rules on the New York clock and shows your Manila time next to it everywhere (reports, schedule, alerts). Manila is 12 hours ahead of New York while the US is on summer time (EDT) and 13 hours ahead in winter (EST), because Manila does not change its clocks. The US changes on the second Sunday of March and the first Sunday of November (2026: 8 March and 1 November).
+
+| Event | New York (rule) | Manila, US summer | Manila, US winter |
+|---|---|---|---|
+| App run before the window (planned) | 12:30 AM | 12:30 PM | 1:30 PM |
+| Entry window opens, pre-London analysis | 1:00 AM | 1:00 PM | 2:00 PM |
+| London opens | 3:00 AM | 3:00 PM | 4:00 PM |
+| New York opens | 8:00 AM | 8:00 PM | 9:00 PM |
+| Last entry | 10:30 AM | 10:30 PM | 11:30 PM |
+| London ends | 12:00 PM | 12:00 AM (next day) | 1:00 AM (next day) |
+| Daily and weekly candles close | 5:00 PM | 5:00 AM (next day) | 6:00 AM (next day) |
+| Weekly bias run (Sunday market open) | Sunday 5:00 PM | Monday 5:00 AM | Monday 6:00 AM |
+
+The entry window is on the same calendar day in Manila, so Monday to Wednesday is the same in both. London's clocks change on different dates from the US, so for 1 to 3 weeks each spring and autumn London opens at 4:00 AM New York time instead of 3:00 AM (2026: 8 to 29 March and 25 October to 1 November). The window stays on the New York clock because that is his rule.
+
 ## 4. "Reading the charts": how
 
 The app does **not** read screenshots. It reads candle data (open, high, low, close) and computes everything, because the strategy is built from exact rules on candles (body closes, highs and lows, pips), and a screenshot reader would guess. To let you check it, the app **draws its own annotated chart** (structure lines, AOI boxes, EMA, signal candle, stop and target) in the same colours as the videos, and you compare it with your TradingView.
@@ -161,7 +178,7 @@ Recommended defaults are in bold; say "go with the defaults" to accept them all.
 4. **Pairs:** **the 21 pairs on his Blue list** (editable) or your own list?
 5. **Starting mode:** **both modes**, full first.
 6. **Risk per trade:** your number (the course gives none; I will use a placeholder until you confirm).
-7. **Run schedule:** **Sunday 5 PM New York for the weekly bias, then each trading day at 12:30 AM** (before his 1:00 AM window), plus on demand.
+7. **Run schedule:** **Sunday 5 PM New York for the weekly bias (Monday 5 AM Manila in US summer, 6 AM in winter), then each trading day at 12:30 AM New York (12:30 PM Manila in summer, 1:30 PM in winter)**, just before his 1:00 AM window, plus on demand. Both clocks are shown in every report. Display zone: Asia/Manila (confirmed).
 8. **Repository:** keep it **public** and put code in `app/`, or make it private first?
 
 ## 11. First steps once you confirm

@@ -87,6 +87,8 @@ tbody tr:nth-child(even) td { background: #f9fafb; }
 #p11 h2, #pb h2 { margin-top: 4.5mm; } #p11 li, #pb li { margin-bottom: .6mm; } #p11 td, #pb td { padding-top: 1.1mm; padding-bottom: 1.1mm; } #p11 .steps > li { margin-bottom: 1.2mm; }
 #p11 p, #pb p { margin-bottom: 2mm; }
 #pc td { padding-top: .8mm; padding-bottom: .8mm; } #pc h2 { margin-top: 4mm; } #pc li { margin-bottom: .6mm; }
+#p4 h2 { margin-top: 4.5mm; } #p4 li { margin-bottom: .7mm; } #p4 td { padding-top: 1mm; padding-bottom: 1mm; } #p4 p { margin-bottom: 2mm; } #p4 .callout { margin: 2mm 0 2.5mm 0; } #p4 .fig { margin: 2mm 0 3mm 0; }
+#p11 td { padding-top: .9mm; padding-bottom: .9mm; } #p11 h2 { margin-top: 4mm; } #p11 .steps > li { margin-bottom: .9mm; }
 #p10 h2 { margin-top: 4.5mm; } #p10 li { margin-bottom: .7mm; } #p10 p { margin-bottom: 2mm; } #p10 .callout { margin: 2mm 0 2mm 0; }
 """
 
@@ -274,6 +276,20 @@ P4 = """
 <p>Forex is open 24 hours a day, five days a week, but not every hour is worth trading. His rule is to be in the market only when the big sessions are active.</p>
 {{D:sessions}}
 {{CALL:rule|The time rules|<ul><li><b>Do not trade during the Sydney or Tokyo sessions.</b> There is little volume and little movement.</li><li><b>Trade roughly between 1:00 AM and 10:30 AM New York time.</b> (He says "10:00" in places. The marker he drew sits at about 10:30.)</li><li><b>No new trade after about 10:30 AM.</b> He has not taken one later in about four years.</li><li><b>Best moments to enter:</b> just before London opens (pre-London), in the middle of London, or just before the volatility fades around 9 to 10 AM at the end of the London and New York overlap.</li></ul>}}
+<h2>New York time and Manila time side by side</h2>
+<p>Every time in the course is New York time. Manila is 12 hours ahead while the US is on summer time (about March to early November) and 13 hours ahead in winter, because Manila does not change its clocks. In 2026 the US clocks go back on 1 November.</p>
+<table>
+<thead><tr><th>Event</th><th>New York (his)</th><th>Manila, US summer (EDT)</th><th>Manila, US winter (EST)</th></tr></thead>
+<tbody>
+<tr><td>Window opens, pre-London analysis</td><td>1:00 AM</td><td>1:00 PM</td><td>2:00 PM</td></tr>
+<tr><td>London opens</td><td>3:00 AM</td><td>3:00 PM</td><td>4:00 PM</td></tr>
+<tr><td>New York opens</td><td>8:00 AM</td><td>8:00 PM</td><td>9:00 PM</td></tr>
+<tr><td>Last entry</td><td>10:30 AM</td><td>10:30 PM</td><td>11:30 PM</td></tr>
+<tr><td>London ends</td><td>12:00 PM</td><td>12:00 AM (next day)</td><td>1:00 AM (next day)</td></tr>
+<tr><td>Daily and weekly candles close</td><td>5:00 PM</td><td>5:00 AM (next day)</td><td>6:00 AM (next day)</td></tr>
+<tr><td>Sunday market open, weekly bias</td><td>Sunday 5:00 PM</td><td>Monday 5:00 AM</td><td>Monday 6:00 AM</td></tr>
+</tbody></table>
+<p class="small">The whole entry window falls on the same calendar day in Manila, so "Monday to Wednesday" is the same in both places. London's clocks change on different dates from the US, so for about 1 to 3 weeks each spring and autumn London opens at 4:00 AM New York time instead of 3:00 AM (in 2026: 8 to 29 March and 25 October to 1 November). His window is written in New York time, so it does not move.</p>
 <h2>Why this window</h2>
 <ul>
 <li>London opens at 3:00 AM and New York at 8:00 AM. Where they overlap, volatility is highest.</li>
@@ -589,34 +605,31 @@ P11 = """
 <ol class="steps">
 <li>List your watchlist (about 10 markets you are focusing on).</li>
 <li>Read the structure on weekly, daily and 4-hour for each.</li>
-<li>Apply the agreement check (Part 6). This removes about half.</li>
-<li>Mark the zone and AOIs on the survivors.</li>
+<li>Apply the agreement check (Part 6), which removes about half. Mark the zone and AOIs on the survivors.</li>
 <li>Keep the best 2 or 3. Set alerts at the AOIs. Add a note on each chart saying what you are waiting for ("waiting for a shift in structure", "waiting for my entry signal").</li>
 </ol>
-<p>In his challenge he took only <b>one trade a week</b>, then stopped for the week. That was a personal rule of the challenge, not part of the strategy.</p>
 <h2>Each trading day</h2>
 <table class="tl">
+<thead><tr><th>New York (his)</th><th>Manila (summer / winter)</th><th>What happens</th></tr></thead>
 <tbody>
-<tr><td>1:00 AM</td><td>Pre-London analysis. Check your shortlist and where price is relative to the AOIs. Check the news calendar for red folders.</td></tr>
-<tr><td>Which days</td><td>Monday, Tuesday or Wednesday only. A confirmation that prints before a session waits for the hour before London.</td></tr>
-<tr><td>3:00 AM</td><td>London opens. Entries are allowed from before this time through the London session.</td></tr>
-<tr><td>8:00 AM</td><td>New York opens. The overlap adds volatility. Last good entries around 9 to 10 AM.</td></tr>
-<tr><td>10:30 AM</td><td>No new trades after this time.</td></tr>
-<tr><td>Rest of day</td><td>Leave open trades alone. Alerts do the watching.</td></tr>
+<tr><td>1:00 AM</td><td>1:00 PM / 2:00 PM</td><td>Pre-London analysis. Check your shortlist and where price is relative to the AOIs. Check the news calendar for red folders.</td></tr>
+<tr><td>Which days</td><td>Same days</td><td>Monday, Tuesday or Wednesday only. A confirmation that prints before a session waits for the hour before London.</td></tr>
+<tr><td>3:00 AM</td><td>3:00 PM / 4:00 PM</td><td>London opens. Entries are allowed from before this time through the London session.</td></tr>
+<tr><td>8:00 AM</td><td>8:00 PM / 9:00 PM</td><td>New York opens. The overlap adds volatility. Last good entries around 9 to 10 AM New York.</td></tr>
+<tr><td>10:30 AM</td><td>10:30 PM / 11:30 PM</td><td>No new trades after this time.</td></tr>
+<tr><td>Rest of day</td><td>-</td><td>Leave open trades alone. Alerts do the watching.</td></tr>
 </tbody></table>
-<p class="small" style="margin-top:-2mm">He says only that his pre-London analysis starts at 1:00 AM. The contents of that hour are a sensible reading, not his exact routine.</p>
+<p class="small" style="margin-top:-2mm">He says only that pre-London analysis starts at 1:00 AM; what you do in that hour is a sensible reading. Manila: add 12 hours in US summer, 13 in winter.</p>
 <h2>The full walk-through, start to finish</h2>
 <ol class="steps">
 <li>Open the pair. Is it the right time of day?</li>
 <li>Read weekly, daily and 4-hour structure. Do two in a row agree?</li>
-<li>Mark the zone (HH-HL or LH-LL).</li>
-<li>Find the weekly and daily AOIs inside the zone. Merge overlaps.</li>
+<li>Mark the zone (HH-HL or LH-LL). Find the weekly and daily AOIs inside it and merge overlaps.</li>
 <li>Is price at an AOI? If not, set an alert and leave.</li>
 <li>Price arrives. Wait for a closed confirmation candle or a break-and-retest at the AOI, in the trend direction.</li>
 <li>Check the extras (EMA, round number, previous level, pattern).</li>
 <li>Draw the stop and target. Is the reward at least twice the risk?</li>
-<li>Work out the lot size for the money you accept to lose.</li>
-<li>Enter with a market order, stop and target in place. Set alerts at key levels, then leave the trade alone.</li>
+<li>Work out the lot size for the money you accept to lose. Enter with a market order, stop and target in place, set alerts, then leave the trade alone.</li>
 </ol>
 """
 
