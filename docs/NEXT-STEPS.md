@@ -25,12 +25,12 @@ Claude keeps this current. Only the items Claude cannot do for you are listed as
 
 **Open (needs you)**
 
-- [ ] **Phase 1 eye check (about 5 minutes).** Claude has reviewed 10 of the 12 pictures and run the rule check, but cannot see your TradingView or judge how you would mark a level. Open `app/out/AUDJPY_D.png`, `GBPUSD_D.png` and `AUDUSD_D.png` (made by `python app/chart.py <PAIR>` with MT5 open) and say whether the HH/HL or LL/LH lines are where you would draw them. Reply "OK" or the pair, timeframe and what is wrong. Known miss: the AUDJPY daily of Sept 2025 skips a 0.28 dip that the course counts as the HL; if you see many of those, the swing threshold goes down.
+- [ ] **Pick how the structure should be read (about 5 minutes).** Your first eye check said the levels were too tied to older HH/HL and LL/LH. Open the pictures in `app/out/compare/` (`AUDUSD_D.png`, `AUDJPY_D.png`, `GBPUSD_D.png` and the `_W.png` ones). Each shows the same candles read four ways: A is the course rule as built, B lets the HL/LH follow the latest swing, C and D are A and B with finer swings. Reply with the letter that matches how you would mark it, or say what is still wrong. The course (video 12) keeps the HL behind the HH until a new HH forms (A), while B flips earlier, on the latest swing; you decide.
 - [ ] **Test the pop-up once:** run `python app/alerts.py --test`. Claude cannot see your screen, so a window must appear for you. Then, with MT5 open and the market open, run `python app/alerts.py`; it watches the six levels in `app/settings.toml` (the edges of your three daily boxes). Edit or add levels there.
 - [ ] **Review Claude's weekly and daily draft boxes** in `docs/REFERENCE-AOIS.md`. Move the ones you agree with into your key, strike out the rest. Best done before phase 3, because the key is what tunes the AOI finder.
 - [ ] **Settle your risk per trade.** The owner said about 10% or 20%. Run `python app/lotsize.py EURUSD --stop 25 --balance <your real balance>` to see lots and the drawdown after 5 and 10 stops in a row for each level (at 10%, five stops in a row leave 59% of the balance; at 20%, 33%). Tell Claude the one number, the balance and the account currency before phase 5. The app then uses that same % on every trade.
 
-- [ ] **Push to GitHub yourself:** run `git push origin main` in the repo folder. A git guard hook on this PC blocks Claude from pushing to `main`, so the commits are local until you do. Say so if you would rather have Claude push a separate branch.
+- [ ] **Push to GitHub yourself:** run `git push origin main` in the repo folder. A git guard hook on this PC blocks Claude from pushing to `main`, and Claude's permission layer refuses to edit that hook, so the commits are local until you push. Or say "push a branch" and Claude pushes a branch for you to merge.
 
 **Later**
 

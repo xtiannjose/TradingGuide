@@ -3,6 +3,7 @@
 Everything runs on closes, so a wick can never break a level (strategy.md 3.3).
 One forward pass: a level is never changed by later candles, so the state after
 candle i is the same whether it is read live or replayed from history.
+
 """
 import numpy as np
 import pandas as pd
@@ -14,8 +15,11 @@ def atr(df, n=14):
     return tr.ewm(alpha=1 / n, adjust=False).mean()  # Wilder smoothing
 
 
-def replay(close, atr, k=1.0):
+def replay(close, atr, k=1.0, trail=False):
     """Walk the closes once. `atr` is an array of the same length; k is P-SWING-ATR.
+
+    trail=False is the course rule: the paired level is placed at a new extreme and stays
+    until the next one. trail=True moves it to every newly confirmed swing (latest swing).
 
     Returns state ("bull"/"bear"/None), ext and pair as (index, price) -- HH and HL when
     bull, LL and LH when bear -- plus the swing points, the open leg and the event list.
@@ -78,6 +82,9 @@ def replay(close, atr, k=1.0):
             elif c < pair[1]:
                 state, ext, pair = "bear", (i, c), snake("H", i)
                 events.append({"i": i, "state": state, "ext": ext, "pair": pair, "flip": True})
+            elif trail and (new := snake("L", i)) and new[0] > pair[0]:  # the latest swing low is the HL
+                pair = new
+                events.append({"i": i, "state": state, "ext": ext, "pair": pair, "flip": False})
         else:
             if c < ext[1]:
                 ext, pair = (i, c), snake("H", i)
@@ -85,6 +92,9 @@ def replay(close, atr, k=1.0):
             elif c > pair[1]:
                 state, ext, pair = "bull", (i, c), snake("L", i)
                 events.append({"i": i, "state": state, "ext": ext, "pair": pair, "flip": True})
+            elif trail and (new := snake("H", i)) and new[0] > pair[0]:  # the latest swing high is the LH
+                pair = new
+                events.append({"i": i, "state": state, "ext": ext, "pair": pair, "flip": False})
 
     extreme_kind = "H" if state == "bull" else "L"
     return {
@@ -94,9 +104,9 @@ def replay(close, atr, k=1.0):
     }
 
 
-def read(df, k=1.0):
+def read(df, k=1.0, trail=False):
     """Structure of one timeframe from a closed-candle frame (candles.py). Output as spec 4.3."""
-    r = replay(df["close"].to_numpy(), atr(df).to_numpy(), k)
+    r = replay(df["close"].to_numpy(), atr(df).to_numpy(), k, trail)
 
     def at(p):
         return None if p is None else {"i": p[0], "price": float(p[1]), "time": df["ny"].iloc[p[0]]}

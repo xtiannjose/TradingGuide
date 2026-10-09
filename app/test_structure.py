@@ -39,6 +39,17 @@ def test_pullback_after_the_head_is_not_the_hl_until_a_new_hh():
     assert r["ext"][1] == 30 and r["pair"][1] == 18
 
 
+def test_trailing_pair_follows_the_latest_swing_low():
+    base = path(10, 20, 15, 25)                          # bull, HH 25, HL 15
+    close = np.r_[base, path(25, 18, 24)[1:]]            # pullback low 18, confirmed by the bounce
+    ones = lambda c: np.ones(len(c))
+    assert s.replay(close, ones(close), 1.0)["pair"][1] == 15               # course rule
+    assert s.replay(close, ones(close), 1.0, trail=True)["pair"][1] == 18   # latest swing
+    close2 = np.r_[close, path(24, 17)[1:]]              # a close under 18 but above 15
+    assert s.replay(close2, ones(close2), 1.0)["state"] == "bull"
+    assert s.replay(close2, ones(close2), 1.0, trail=True)["state"] == "bear"
+
+
 def test_soft_bump_is_skipped_by_the_snake():
     base = path(10, 20, 15, 25)                    # bull, HL 15
     r = run(np.r_[base, path(25, 24.5, 26, 30)[1:]])  # 0.5 dip is under the threshold of 1
