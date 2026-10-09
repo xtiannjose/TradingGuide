@@ -109,3 +109,23 @@ Citations in `strategy/strategy.md` use these part letters, for example `[E 3:44
 ## Next videos
 
 Add each new video as a new row above and its own part table below, using `docs/WORKFLOW.md`.
+
+### Candidates on the same channel (found 2026-10-09)
+
+The channel has about 200 videos. These are the ones most likely to fill the gaps listed in `strategy/strategy.md` section 7. Titles are as listed on the channel; the video id goes after `watch?v=`. Priority 1 fills a gap the app needs.
+
+| Priority | Fills this gap | Video (id, length) |
+|---|---|---|
+| 1 | Base risk % | "Best Risk Management Strategy to Make Millions with Trading" (`VzMlFZbWA0Y`, 12:38) |
+| 1 | EMA settings and use | "How to Trade FOREX with Moving Averages. Part 1" (`R24MdNFjAGU`, 10:07); "How to Trade GBPJPY with EMA. Pt. 2" (`P4pHJaDGkHU`, 12:59) |
+| 1 | AOI definition (box size, touches) | "Learn How THIS Forex AOI SECRET Bought Me A $200,000 Watch" (`urX1iWvHc5g`, 9:16); "Support & Resistance Trading Strategy Was Hard, Until I Understood This" (`7KedELXv68I`, 21:32) |
+| 1 | The fuller entry signal | "Live Forex Session With 965 Traders - Full Strategy Reveal (Pt. 1)" (`frXFCucMp6w`, 12:22); "The Only Trading Strategy You Need To Be Profitable | Swing Trading" (`1dL3xmxA2e0`, 27:20) |
+| 2 | Top-down analysis routine | "Best Top Down Analysis Strategy for 2026" (`pD1vAUMbSjw`, 33:01); the 2025 version (`FmKJDOSUAUY`, 27:30) |
+| 2 | Structure and swing definition | "Simplifying Advanced Market Structure in 20 Minutes" (`sZAE_lqdeno`, 20:45); "Easiest Forex Trading Strategy... | Shift of Structure" (`X0Ua4XeA2Xo`, 19:46) |
+| 2 | Loss limits, funded-account rules | "The Prop Firm Industry is Going to Hate Me For This Free Course" (`7QNdSEwQUJE`, 1:18:24) |
+| 2 | News filter | "How to Use the News to Make Money Trading Forex | Fundamental Analysis" (`x7Ki7QV7USU`, 7:45) |
+| 3 | Candle shape numbers | "EVERY Candlestick Pattern YOU Need to Know to Trade Forex" (`kLLMCoPb6h0`, 32:50); "6 Reversal Candlestick Patterns" (`ibgnOrk9MLo`, 8:57) |
+| 3 | Test cases and evidence | "Live Forex swing trade breakdown with the students # Sunday Swings" (`c5PdraC8KkA`, 9:12); "Live Swing Trading Forex At Its SIMPLEST Market BREAKDOWN" (`Yn6Yltqnk9Q`, 16:52); "How I Made $58K Trading in 60 Days - Full Strategy + Track Record" (`S5n1Jmhbydo`, 17:12) |
+| 3 | Head and shoulders detail | "How this Trading Strategy Made Me $70,000 in 1 Day | Head And Shoulders Pattern" (`JA4N8nlycXY`, 13:00) |
+
+Most of the 200 are vlogs, challenges and promotions; skip those. Studying priority 1 and 2 is about 3.5 hours of video.
