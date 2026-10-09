@@ -4,7 +4,7 @@ This repo is a study project: trading-strategy videos become a guide (PDF) and a
 
 ## Ground rules
 
-- **Source of truth:** `strategy/strategy.md`. When a new video is studied, update it. Keep each teacher's differences visible (a "changed by video N" line), and keep citations in the form `[PART mm:ss]`.
+- **Source of truth:** `strategy/strategy.md`. When a new video is studied, update it. Keep each video's differences visible (a "changed by video N" line), and keep citations in the form `[PART mm:ss]`. **When two videos disagree, the newer upload wins**; keep both sides in the conflicts table (section 6) with the upload dates in the sources list. Rules tied to one account type (small account, prop challenge) stay a separate mode, not a general rule.
 - **The user's goal:** a forex app that takes a list of pairs, analyses each against the strategy, and writes a report of confluences (areas of interest, structure, daily bias and so on). Strategy first, app later. The user left the choice of method to Claude.
 - **Do not copy the creators' risk numbers.** The course's 100% to 35% challenge risk ladder is not a rule. The app takes the user's own risk %.
 - **Do not scrape TradingView.** It has no public data API and automating it is fragile and against its terms. Use a candle data API and compute everything from candles (see `docs/BUILD-PLAN.md`). To build the app, follow `docs/BUILD-PLAN.md` (phases) and `docs/ANALYSIS-SPEC.md` (exact rules and parameters); write tests from the spec first, and never place orders.

@@ -10,7 +10,7 @@ What it is not: a signal seller, an auto-trader, or proof that the strategy make
 
 ## 2. What the study material gives us (digest)
 
-Seven videos by one creator (fxalexg), merged into one rule set.
+Ten videos by one creator (fxalexg), merged into one rule set. When two videos disagree, the newer upload wins and both sides are kept in `strategy/strategy.md` section 6.
 
 | # | Video | What it contributed |
 |---|---|---|
@@ -21,25 +21,29 @@ Seven videos by one creator (fxalexg), merged into one rule set.
 | 5 | "Trading dumb" (28 min) | A simple mode: one pair, one timeframe, one session, one signal |
 | 6 | Recent trades (21 min) | Counter-weekly recipe; stop philosophy; exit at 1:2; no plan B |
 | 7 | Mindset (18 min) | Weekly bias fixed on Sunday; wait for retracement; 1:2 minimum, done at 1:4 |
+| 8 | Small account (52 min, Feb 2026) | Small-account mode: fixed-dollar risk, 1:3 minimum, three timeframes in sync, no Sunday or late-Thursday entries, no lockout after a win |
+| 9 | Three-step walkthrough (1:23, Jun 2026) | Entry signal only inside the AOI; AOIs on W/D/4H, each independent; stop 5 to 10 pips beyond the whole AOI; next candle open |
+| 10 | Prop-firm course (1:18, Sep 2026) | Prop mode: 10-minute news block, one position at a time, 2% first trade then the same risk; five real trades; weekend rule |
 
 **The strategy in ten lines**
 
 1. Read market structure (higher highs/lows or lower highs/lows) from candle bodies on the weekly, daily and 4-hour charts.
 2. Two timeframes in a row must agree; that fixes the direction. The bias is set on Sunday and held all week.
 3. Price is trapped in a zone (between HH and HL, or LH and LL); only look inside it.
-4. Find areas of interest (AOI) on the weekly and daily: at least 3 touches, 5 to 60 pips, inside the zone.
+4. Find areas of interest (AOI) on the weekly and daily (4H as a minor extra): at least 3 touches, 5 to 60 pips, inside the zone.
 5. Trade only when price is at an AOI, buying at support and selling at resistance.
 6. Wait for a closed confirmation candle there (rejection or engulfing), in the trend direction. Never anticipate, never chase.
 7. Break and retest, head and shoulders and similar patterns add confidence but are never enough alone.
 8. Enter only in his window (about 1:00 to 10:30 AM New York) and on Monday to Wednesday.
-9. Stop just beyond the level that proves you wrong; target the next structure point; at least 1:2, normally done by 1:4; lot size from your own risk amount.
+9. Stop just beyond the whole AOI (5 to 10 pips); target the next structure point; at least 1:2 (1:3 on a small account), normally done by 1:4; lot size from your own risk amount.
 10. Set it, forget it, accept the losses.
 
 **How sure we are**
 
 - Solid and computable: the structure rules, alignment, zones, the AOI numbers, the candle names, the time and weekday gates, the stop/target/R:R maths.
 - Judgement the course leaves to the eye (the app must choose and expose a setting): what counts as a significant swing, what counts as one touch, where to place the AOI box, when a retracement has stopped, the exact candle shapes.
-- Not in the course: his base risk % (only a hint of about 1% in two examples), a news filter, the full "entry signal" he keeps for his livestream, and any back-test evidence.
+- Not given for a standard account: his base risk % (small accounts use fixed dollars, a prop challenge uses 2% on the first trade and the same after, and the 1% hints are inferred), a news filter outside prop mode (the firm's 10-minute window), the full "entry signal" he keeps for his livestream, and any back-test evidence.
+- Three account modes follow from the newer videos: `standard`, `small_account` and `prop` (`docs/ANALYSIS-SPEC.md` 8.5).
 - The course also disagrees with itself in small ways (engulfing size, window end, target cap). `strategy/strategy.md` section 6 lists each and the default chosen.
 
 ## 3. How the app works (concept)
@@ -177,7 +181,7 @@ Recommended defaults are in bold; say "go with the defaults" to accept them all.
 3. **First output:** **HTML report with annotated charts**, then notifications, then a UI.
 4. **Pairs:** **the 21 pairs on his Blue list** (editable) or your own list?
 5. **Starting mode:** **both modes**, full first.
-6. **Risk per trade:** your number (the course gives none; I will use a placeholder until you confirm).
+6. **Risk per trade and account mode:** your number and which mode (`standard`, `small_account`, `prop`). The videos give none for a standard account; the prop preset is 2% first trade then the same; I will use a placeholder until you confirm.
 7. **Run schedule:** **Sunday 5 PM New York for the weekly bias (Monday 5 AM Manila in US summer, 6 AM in winter), then each trading day at 12:30 AM New York (12:30 PM Manila in summer, 1:30 PM in winter)**, just before his 1:00 AM window, plus on demand. Both clocks are shown in every report. Display zone: Asia/Manila (confirmed).
 8. **Repository:** keep it **public** and put code in `app/`, or make it private first?
 

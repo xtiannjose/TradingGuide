@@ -4,16 +4,58 @@
 |---|---|---|---|---|---|
 | 1 | "The Trading Industry Will Hate Me for This FREE 10+ Hour Course" (`grw58BIzotU`) https://www.youtube.com/watch?v=grw58BIzotU | fxalexg (Swing Trading Lab) | 10:35:59 | 2026-10-08 | Merged into `strategy/strategy.md` and the PDF |
 | 2 | "The ONLY confirmation YOU need to make $1000/day Trading Forex" (`BcWxqfcjk9A`) https://www.youtube.com/watch?v=BcWxqfcjk9A | fxalexg | 22:03 | 2026-10-09 | Merged (entry confirmation, entry timing). Cited as `[V2 mm:ss]` |
-
 | 3 | "How to Master Liquidity in Trading (Advanced Guide)" (`Rua24ytuHuY`) https://www.youtube.com/watch?v=Rua24ytuHuY | fxalexg | 19:18 | 2026-10-09 | Merged (liquidity = AOI, ignore sweeps). Cited as `[V3 mm:ss]` |
-
 | 4 | "Price Action Trading Was Hard, Until I Discovered This" (`WEyJ-zKAEoA`) https://www.youtube.com/watch?v=WEyJ-zKAEoA | fxalexg | 25:23 | 2026-10-09 | Merged (candle strength by location, wick fill, patterns as confluence, break-and-retest entries). Cited as `[V4 mm:ss]` |
-
 | 5 | "How Trading Dumb Made Me a Millionaire Trader (You Can Too)" (`KPVVOa6c6dY`) https://www.youtube.com/watch?v=KPVVOa6c6dY | fxalexg | 28:12 | 2026-10-09 | Merged (simple one-pair/timeframe/session/signal mode, session by market, TP matched to timeframe, holding rules). Cited as `[V5 mm:ss]` |
-
 | 6 | "This trading strategy is boring, but it makes me $150,000/week" (`1fGzVHI7rN0`) https://www.youtube.com/watch?v=1fGzVHI7rN0 | fxalexg | 21:13 | 2026-10-09 | Merged (no plan B, counter-weekly recipe, stop philosophy, 1:2 exit). Cited as `[V6 mm:ss]` |
-
 | 7 | "If I Wanted to Make $1,000/Day Trading, I'd Do This" (`M8wDlKjaQRk`) https://www.youtube.com/watch?v=M8wDlKjaQRk | fxalexg | 17:47 | 2026-10-09 | Merged (weekly goal, Sunday bias, wait for retracement, accept losses, 1:2 minimum, done at 1:4). Talking head, no charts. Cited as `[V7 mm:ss]` |
+| 8 | "How to Grow a Small Trading Account From Scratch in 2026" (`LwMsai2ppKc`) https://www.youtube.com/watch?v=LwMsai2ppKc | fxalexg | 52:32 | 2026-10-09 | Merged (small-account mode: fixed-dollar risk, 1:3 minimum, three timeframes in sync, no Sunday/Thursday entries, psychology). Uploaded 2026-02-22, older than videos 2 to 7. Cited as `[V8 h:mm:ss]` |
+| 9 | "This is Boring, But it'll make your first $100,000 Trading" (`MhWSZp4yS2c`) https://www.youtube.com/watch?v=MhWSZp4yS2c | fxalexg | 1:23:24 | 2026-10-09 | Merged (three steps in order, LT sector and weighted vote, AOI rules, entry gate, stop 5 to 10 pips beyond the AOI). Whiteboard only. Uploaded 2026-06-28. Cited as `[V9 h:mm:ss]` |
+| 10 | "The Prop Firm Industry is Going to Hate Me For This Free Course" (`7QNdSEwQUJE`) https://www.youtube.com/watch?v=7QNdSEwQUJE | fxalexg | 1:18:24 | 2026-10-09 | Merged (prop-firm rules, his four challenge rules, five real trades). Newest video studied, uploaded 2026-09-06. Cited as `[V10 h:mm:ss]` |
+
+**Precedence.** The newer upload wins when two videos disagree. Order, oldest first: video 1, video 8 (2026-02-22), videos 2 to 7 (about April to June 2026, exact order among them unconfirmed), video 9 (2026-06-28), video 10 (2026-09-06). Dates come from the video page or the channel listing (the listing is approximate). Videos 8 to 10 were merged while three others (`1dL3xmxA2e0`, `pD1vAUMbSjw`, `hb7ot1_szWI`) were still unstudied.
+
+
+## Video 10: what it teaches
+
+Whiteboard recap of a prop-firm challenge (Eightcap 5K one-step) with a student, plus five trade reviews. Firm tables are shown on screen.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 5:30 | Agenda; why prop rules changed since 2022 |
+| 5:30 to 14:19 | Eightcap background; rule 1: profit distribution (funded only), payout caps |
+| 14:19 to 18:31 | Rule 2: no entries within 10 minutes of news (2 minutes in 2022) |
+| 18:31 to 28:35 | Weekend holding, EAs, scalping allowed; account tables (one-step, two-step); no time limit; day-trading challenge |
+| 28:35 to 34:06 | Choosing the account type; cost |
+| 34:06 to 44:11 | His four challenge rules: Strong Start 2%, one trade a day, 1:2 minimum, daily confirmations |
+| 44:11 to 53:26 | Account type by lifestyle; one position at a time; same risk every trade; two-step adjustments |
+| 53:26 to 1:15:26 | Five trades: GBPCHF loss, AUDCHF win (scale-in), USDCHF win, EURGBP loss, GBPNZD win; weekend rule |
+
+## Video 9: what it teaches
+
+Hand-drawn whiteboard class with a student; no real chart. Fishing and video-game analogies are teaching aids, not rules. Times are mm:ss (h:mm:ss after one hour).
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 4:07 | Framing: entry, stop, take profit, when to stay away |
+| 4:07 to 19:28 | Step 1: top-down analysis on four sectors, HH/HL vs LL/LH, snake trick, body closes, bias count |
+| 19:28 to 36:54 | Step 2: AOI (support/resistance, supply/demand, order block), three touches, only inside the zone, nearest first, each independent |
+| 36:54 to 41:00 | Step 3 introduced; weighted timeframe vote |
+| 41:00 to 1:05:00 | Entry signal only inside or at the AOI; confirmation not anticipation; engulfing, stars, rejection wicks |
+| 1:05:00 to 1:18:44 | Order of actions; stop beyond the whole AOI (5 to 10 pips); win-rate maths; take profit at the nearest structure point |
+| 1:18:44 to 1:23:24 | Stop on the 4H, take profit on the daily; recap |
+
+## Video 8: what it teaches
+
+Interview-style whiteboard talk for a $500 to $2,000 account. Dollar and profit claims are his or the guest's. Times are mm:ss.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 6:58 | Three pillars; accept the deposit as lost; 1 to 2 trades a week; 1:3 minimum |
+| 6:58 to 22:18 | Risk: money game vs percentage game, punch card, working the goal backwards |
+| 22:18 to 31:35 | Technicals: pro-trend (all three timeframes), "mid risk", counter-trend; wait for the discount |
+| 31:35 to 39:19 | Secrets: 1:500 leverage, no Sunday, no Thursday after 8 to 9 AM, enter in London |
+| 39:19 to 52:32 | No lockout after a win; psychology (motivation, FOMO, greed, emotional decisions, procrastination); foundations |
 
 ## Video 7: what it teaches
 
@@ -110,7 +152,7 @@ Citations in `strategy/strategy.md` use these part letters, for example `[E 3:44
 
 Add each new video as a new row above and its own part table below, using `docs/WORKFLOW.md`.
 
-### Candidates on the same channel (found 2026-10-09)
+### Candidates on the same channel (found 2026-10-09; studied since: `LwMsai2ppKc`, `MhWSZp4yS2c`, `7QNdSEwQUJE`)
 
 The channel has about 200 videos. These are the ones most likely to fill the gaps listed in `strategy/strategy.md` section 7. Titles are as listed on the channel; the video id goes after `watch?v=`. Priority 1 fills a gap the app needs.
 
@@ -122,7 +164,6 @@ The channel has about 200 videos. These are the ones most likely to fill the gap
 | 1 | The fuller entry signal | "Live Forex Session With 965 Traders - Full Strategy Reveal (Pt. 1)" (`frXFCucMp6w`, 12:22); "The Only Trading Strategy You Need To Be Profitable | Swing Trading" (`1dL3xmxA2e0`, 27:20) |
 | 2 | Top-down analysis routine | "Best Top Down Analysis Strategy for 2026" (`pD1vAUMbSjw`, 33:01); the 2025 version (`FmKJDOSUAUY`, 27:30) |
 | 2 | Structure and swing definition | "Simplifying Advanced Market Structure in 20 Minutes" (`sZAE_lqdeno`, 20:45); "Easiest Forex Trading Strategy... | Shift of Structure" (`X0Ua4XeA2Xo`, 19:46) |
-| 2 | Loss limits, funded-account rules | "The Prop Firm Industry is Going to Hate Me For This Free Course" (`7QNdSEwQUJE`, 1:18:24) |
 | 2 | News filter | "How to Use the News to Make Money Trading Forex | Fundamental Analysis" (`x7Ki7QV7USU`, 7:45) |
 | 3 | Candle shape numbers | "EVERY Candlestick Pattern YOU Need to Know to Trade Forex" (`kLLMCoPb6h0`, 32:50); "6 Reversal Candlestick Patterns" (`ibgnOrk9MLo`, 8:57) |
 | 3 | Test cases and evidence | "Live Forex swing trade breakdown with the students # Sunday Swings" (`c5PdraC8KkA`, 9:12); "Live Swing Trading Forex At Its SIMPLEST Market BREAKDOWN" (`Yn6Yltqnk9Q`, 16:52); "How I Made $58K Trading in 60 Days - Full Strategy + Track Record" (`S5n1Jmhbydo`, 17:12) |

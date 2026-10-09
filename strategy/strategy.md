@@ -1,6 +1,6 @@
 # fxalexg confluence strategy: consolidated spec
 
-Sources, both by fxalexg (Swing Trading Lab), studied from auto-captions plus video frames:
+Sources, all by fxalexg (Swing Trading Lab), studied from auto-captions plus video frames:
 - **Video 1:** "The Trading Industry Will Hate Me for This FREE 10+ Hour Course", https://www.youtube.com/watch?v=grw58BIzotU, 10:35:59 long, studied 2026-10-08 in 12 parts.
 - **Video 2:** "The ONLY confirmation YOU need to make $1000/day Trading Forex", https://www.youtube.com/watch?v=BcWxqfcjk9A, 22:03 long, studied 2026-10-09. Teaches the entry confirmation and entry timing. Cited as `[V2 mm:ss]`.
 - **Video 3:** "How to Master Liquidity in Trading (Advanced Guide)", https://www.youtube.com/watch?v=Rua24ytuHuY, 19:18 long, studied 2026-10-09. Teaches what "liquidity" means in his method and why he does not trade liquidity sweeps. Cited as `[V3 mm:ss]`.
@@ -8,6 +8,12 @@ Sources, both by fxalexg (Swing Trading Lab), studied from auto-captions plus vi
 - **Video 5:** "How Trading Dumb Made Me a Millionaire Trader (You Can Too)", https://www.youtube.com/watch?v=KPVVOa6c6dY, 28:12 long, studied 2026-10-09. A simplified one-pair, one-timeframe, one-session, one-entry-signal version of the strategy. Cited as `[V5 mm:ss]`. The title's "millionaire" is marketing.
 - **Video 6:** "This trading strategy is boring, but it makes me $150,000/week", https://www.youtube.com/watch?v=1fGzVHI7rN0, 21:13 long, studied 2026-10-09. Streak mindset plus four recent trades (GBPNZD, NZDCAD, GBPCAD, EURAUD). Cited as `[V6 mm:ss]`. Dollar results are his claims.
 - **Video 7:** "If I Wanted to Make $1,000/Day Trading, I'd Do This", https://www.youtube.com/watch?v=M8wDlKjaQRk, 17:47 long, studied 2026-10-09. A talking-head video (no charts) on weekly goals, retracements, weekly bias, accepting losses and the 1:2 minimum. Cited as `[V7 mm:ss]`. Income claims in the title are marketing.
+
+- **Video 8:** "How to Grow a Small Trading Account From Scratch in 2026", https://www.youtube.com/watch?v=LwMsai2ppKc, 52:32 long, uploaded 2026-02-22, studied 2026-10-09. An interview-style whiteboard talk on a $500 to $2,000 account: risk as a fixed dollar amount, 1:3 minimum, all three timeframes in sync, leverage, weekday and London timing, trading psychology. No entry-signal teaching. Cited as `[V8 h:mm:ss]`. Dollar results and profit claims (including the guest's) are not evidence.
+- **Video 9:** "This is Boring, But it'll make your first $100,000 Trading", https://www.youtube.com/watch?v=MhWSZp4yS2c, 1:23:24 long, uploaded 2026-06-28, studied 2026-10-09. A hand-drawn whiteboard class (no real chart) that he presents as the updated walkthrough: the three steps (top-down, AOI, entry signal), then stop and take profit. Cited as `[V9 h:mm:ss]`. The board says "XAUUSD Gold" but he never says the examples are gold. Title income claim is marketing.
+- **Video 10:** "The Prop Firm Industry is Going to Hate Me For This Free Course", https://www.youtube.com/watch?v=7QNdSEwQUJE, 1:18:24 long, uploaded 2026-09-06, studied 2026-10-09. Prop-firm rules for 2026 (Eightcap), his four rules for a 5K one-step challenge, and five real challenge trades. The newest video studied. Cited as `[V10 h:mm:ss]`.
+
+**Which video wins.** When two videos disagree, the **newer upload wins** and both sides stay in the conflicts table (section 6). Order, oldest first: video 1 (about autumn 2025), video 8 (2026-02-22), videos 2 to 7 (about April to June 2026; the channel listing only gives approximate dates, so their order among themselves is not certain), video 9 (2026-06-28), video 10 (2026-09-06). Video 8 is older than videos 2 to 7, so it loses to them on any clash. A rule that belongs to one account type (small account, prop challenge) is kept as a **mode**, not as a general rule.
 
 Citations look like `[E 3:44]` = study part E of video 1, video time 3:44 (h:mm:ss or mm:ss). Part letters follow the time ranges in `docs/VIDEOS.md`. The detailed per-part study notes (quotes, numbers, worked examples, open questions) are kept locally and are not published here. This file is the merged rule set and the source of truth for the app.
 
@@ -21,7 +27,8 @@ Wording convention: "(app default)" marks something I chose to fill a gap. It is
 - The video description's chapter titles do not match where topics are taught. "Confluence Trading" (2:28:00 to 4:01:40) is actually market-structure basics. I merged by content, not by chapter.
 - **His "entry signal" is only partly public.** In video 1 he says a specific entry signal is explained only on his livestream [L 10:14:48]. Video 2 teaches an "entry confirmation" in the open (closed rejection or engulfing candle at a support/resistance zone, with the trend, at the right session and weekday). That is the best public statement of it and is documented in 3.6, but he never says it is the same thing he withholds.
 - Video 2's title and intro quote income figures ($500 to $1,000 a day). Those are marketing claims, not evidence.
-- The course never gives a base risk %, a numeric rule for what counts as a "significant" swing or a "touch", or a news filter. See section 7.
+- The 10-hour course never gives a base risk %, a numeric rule for what counts as a "significant" swing or a "touch", or a news filter. Later videos partly fill the first and last (small-account dollar risk, 2% on a prop challenge, a 10-minute news window), but only for those account types. See section 7.
+- Videos 8 to 10 were recorded as whiteboard talks or as a recap of a prop-firm challenge. The risk, timing and news numbers in them belong to **small-account** or **prop-challenge** setups (section 3.10); they are not a base rule for every account.
 - Video 3's view that "liquidity sweeps" and bank stop-hunting are mostly a myth is his opinion, given without data. It is recorded as his method (do not anticipate or wait for sweeps), not as a fact about markets.
 - Trade results and win rates in the video are his own claims. Nothing was back-tested (he opposes back-testing [C 2:07:52]). This is a description of his method, not evidence that it makes money.
 
@@ -46,12 +53,16 @@ Decision pipeline, in order. A failed gate means "no trade, next pair".
 | 1 | Pair | On his watchlist (section 2); weekly shortlist |
 | 2 | Time | Inside his 1:00 to 10:30 AM New York window, not Sydney/Tokyo |
 | 3 | Structure | Bullish or bearish read on weekly, daily, 4H |
-| 4 | Alignment | Two consecutive timeframes agree (W+D or D+4H) |
+| 4 | Alignment | Two consecutive timeframes agree (W+D or D+4H); all three = best grade |
 | 5 | Zone | HH-HL (bull) or LH-LL (bear) drawn on W/D/4H |
-| 6 | AOI | Price is at a valid AOI inside that zone |
-| 7 | Entry signal | Confirmation candle/pattern at the AOI, trend direction |
-| 8 | Plan | Stop beyond the level, target at next structure, R:R at least 1:2 |
+| 6 | AOI | Price is inside or at a valid AOI inside that zone (video 9: entry signal is not allowed until it is) |
+| 7 | Entry signal | Closed confirmation candle/pattern at the AOI, trend direction |
+| 8 | Plan | Stop beyond the whole AOI, target at next structure, R:R at least 1:2 |
 | 9 | Size | Lot size from risk amount and stop pips |
+
+**His own three-step summary (videos 9 and 8).** In the newest teaching (video 9) he reduces this to three steps in a fixed order: **(1) top-down analysis** (which direction: it removes the buy or the sell), **(2) AOI** (where to enter), **(3) entry signal** (the reason to enter, allowed only when price is inside or at the AOI). Stop loss and take profit follow once the signal candle has closed [V9 1:04:27 to 1:08:32, 1:20:27 to 1:22:11]. He says he used to "jump the gun" to the entry signal and that this was his mistake [V9 0:36:54]. This is the same pipeline as above.
+
+**Account modes.** The same rules run in three modes (details in 3.10): the **standard** mode (everything above, user-set risk); a **small-account** mode (video 8: fixed-dollar risk, 1:3 minimum, all three timeframes in sync, no counter-trend); and a **prop-challenge** mode (video 10: firm rules such as a news window and loss limits, plus his four challenge rules). The app should let the user pick one.
 
 **A simpler version (video 5, "trading dumb").** For beginners he strips the same strategy to **one pair, one timeframe, one session and one entry signal**, and says to stick to it until consistently profitable before adding anything [V5 0:21 to 4:45]. His picks: **EURUSD** (lowest cost, very liquid, predictable patterns), the **4H** chart, the **London** session, and the **engulfing candle** as the entry signal. Direction comes from market structure on that one timeframe; he then trades only that direction, entering on the engulfing candle (optionally at a head-and-shoulders neckline retest), with the stop beyond the pattern and the target at the next structure point [V5 23:43 to 26:09]. He calls three-timeframe top-down analysis "the more advanced approach" [V5 8:13]. The app should support both modes: the full pipeline above, and this single-timeframe mode where the user picks the pair, timeframe and session.
 
@@ -63,8 +74,9 @@ Decision pipeline, in order. A failed gate means "no trade, next pair".
 - **Chart types:** candlesticks (trading, patterns) and the line chart (reading structure). Nothing else [A 0:47:17].
 - **Indicators:** only two. (1) "No gaps candles" (community indicator that fills gaps so each candle opens at the previous close; native candles hidden; up candles blue, down candles red) [C 1:46:25]. (2) **50 EMA**: his settings panel offers 20/50/100/200 and only the 50 is ticked; "use only one indicator: 50 EMA" [J 7:18:39, 7:21:50]. No volume [C 1:47:26].
 - **Timeframes:** weekly, daily, 4H, 2H, 1H, 30m, 15m only; never below 15m [C 1:51:14, B 0:57:16].
-  - Trend + AOI timeframes: weekly, daily, 4H.
-  - Entry-signal timeframes: 2H, 1H, 30m, 15m, "completely avoided until ready to enter" [F 4:40:31]. In his live trades he also confirms on 4H [J 7:50:01] and daily/weekly candles [L 10:01:10], so entry timeframe is flexible.
+  - Trend + AOI timeframes: weekly, daily, 4H. Video 9 (newer) says he looks for AOIs on the weekly, daily and 4H, and video 10 uses a "minor 4H AOI" at a neckline (see 3.5).
+  - Video 9 adds a fourth top-down "sector", **LT** = 2H, 1H, 30m, 15m taken together, and lists the timeframes he trades as weekly, daily, 4H, 2H and 1H. Its bias is an optional extra vote (see 3.4) [V9 0:04:07, 0:51:50].
+  - Entry-signal timeframes: 2H, 1H, 30m, 15m, "completely avoided until ready to enter" [F 4:40:31]. In his live trades he also confirms on 4H [J 7:50:01] and daily/weekly candles [L 10:01:10], so entry timeframe is flexible. Video 9: entry signals on daily, 4H and lower; the 4H and the daily are the "most respected" [V9 0:53:13 to 0:53:59]. Video 10 restricts the 5K challenge to daily confirmations (3.10).
 - **Chart timezone:** UTC-4 New York [C 1:58:10]. Interpretation: all his clock times are New York local time (see 3.2).
 - **Drawing tools he uses:** trend line (only to create structure points), horizontal line and ray, rectangles for zones (fill about 4 to 5%), long/short position tool, head and shoulders tool, path, ellipse, text, measure. No Fibonacci, no pitchforks [C 2:09:56, D 2:17:29]. Alerts at key levels instead of pending orders [C 1:53:16].
 - **Watchlist ("Blue list"), fixed, never edited** [C 1:59:43]. Forex (21): USDCHF, NZDUSD, GBPUSD, AUDCHF, NZDJPY, EURGBP, GBPCHF, USDCAD, GBPCAD, AUDCAD, AUDJPY, GBPNZD, EURJPY, NZDCAD, USDJPY, CADJPY, EURAUD, GBPJPY, GBPAUD, EURUSD, AUDUSD. Also OIL, ETHUSD, SOLUSD, DOGEUSD, XRP, BTCUSD, SPX500. He trades 15 to 20 pairs and prefers the 7 majors for volatility and cleaner reactions [A 0:40:43, 0:42:44]. Forex is the target for this app.
@@ -81,6 +93,8 @@ Decision pipeline, in order. A failed gate means "no trade, next pair".
 - Do not trade a market that lacks aligned timeframes. Skipping a week is normal [K 9:06:46].
 - **Set the bias on Sunday and keep it all week (video 7).** Before the market opens on Sunday, read the higher timeframes and decide the direction for the week. Look for entries only in that direction; do not flip with your mood, the day or the news ("the technicals will always lead"); do not take counter-direction retracement trades just to feel involved. If the plan is to wait for a retracement and then continue, wait for it [V7 5:27 to 7:50]. The app should store a weekly bias and not change it intra-week unless a structure break defined in 3.3 flips the higher-timeframe state.
 - **Think in weekly goals, not daily ones.** A weekly figure (his example $5,000) avoids forcing trades; one well-chosen trade at 1:5 can make the week. You are never forced to trade [V7 0:40 to 3:44].
+- **Frequency.** He expects "usually one good probability setup a week, maybe two"; one trade a week is fine "as long as I'm confident" [V10 0:41:03, 0:51:01]. Small accounts: 1 to 2 trades a week at most, one is better [V8 0:03:51].
+- **No lockout after a win or a loss.** He rejects "one and done" as a weekly rule: if a real opportunity shows after an early win or loss, take it, because "the market doesn't know if you won or lost" and the next good setup may be two weeks away. The decision is the trader's [V8 0:40:39 to 0:41:41]. Keep this separate from the one-position-at-a-time and one-trade-a-day limits in 3.10.
 
 ### 3.2 Time-of-day filter
 
@@ -96,7 +110,8 @@ Decision pipeline, in order. A failed gate means "no trade, next pair".
 - **Weekday and wait-for-session rules (video 2):** enter only on **Monday, Tuesday and Wednesday**. After Wednesday there is not enough time to reach a take profit (his average TP is about 80 to 100 pips; Thursday New York offers only about 5 hours, about 14 to 15 hours of decent volume remain). He breaks this only for a shorter TP, a very strong confirmation or strong momentum [V2 17:26 to 18:28].
 - If the confirmation prints **before a session** (for example before Sydney), do not enter yet: **wait until right before London** and enter inside the session. "That's the black and white rule." Waiting may cost a better or worse price; he accepts it because the confirmation then has proven itself. Do not enter just because a confirmation printed first thing Monday morning or in the last 3 hours before the weekly close [V2 14:41 to 19:30].
 - He avoids entries where there would be only about an hour of volume followed by about 9 hours of none [V2 15:22].
-- News: Forex Factory, red-folder events only, as information. He does not change his approach for news and says it does not build a strategy. Occasionally sits out a big speech or event [B 1:27:49, D 3:00:11].
+- News: Forex Factory, red-folder events only, as information. He does not change his approach for news and says it does not build a strategy. Occasionally sits out a big speech or event [B 1:27:49, D 3:00:11]. **Prop firms are stricter:** the Eightcap challenge forbids opening a trade within 10 minutes before or after news (2 minutes in 2022); see 3.10 [V10 0:15:00].
+- **Small-account timing (video 8).** Never trade on Sunday (low volume, extra swap). No new trade from Thursday on: "if you do not enter your trade by 8 in the morning or latest 9 in the morning Thursday you cannot take a trade". Main focus Monday to Wednesday, London session. Entering at 1:00 AM New York time gives full volume until about 11 AM; the earliest he would enter is "11 pm EST onwards" (unclear, see section 6) [V8 0:34:42 to 0:38:58]. The 11 AM end and the Thursday 8 to 9 AM cutoff are loose one-off statements next to the many 1:00 to 10:30 AM ones.
 
 ### 3.3 Market structure (the core)
 
@@ -108,6 +123,8 @@ Taught across E, F, G. This is fully rule-based and the most reliable part.
 - A break counts only on a **candle body close** beyond the level. Touches, wicks, near misses and "three touches" do not. A small body-close break still counts. The candle must be closed [E 3:20:44, 3:43:57, 3:48:04].
 - Structure is read from candle **bodies**, never wicks. The line chart (closes) is the cleaner way to spot elbows, then the lines are moved to the bodies [E 3:58:22, F 4:18:12, G 5:20:18].
 - Structure differs on every timeframe [F 4:15:27].
+- **Inside one timeframe, bullish and bearish cannot coexist** (no LL together with HH, no HL together with LH). Different timeframes can differ [V9 0:08:44 to 0:09:25, board 0:11:55].
+- **Always take HH/HL (or LL/LH) from the most recent price action**, not from an old swing two months back; run the snake trick from the current head [V9 0:15:00 to 0:15:41].
 
 **State machine**
 ```
@@ -137,10 +154,14 @@ bullish: HH, HL                       bearish: LL, LH
 - Run 3.3 on **weekly, daily and 4H** separately [G 5:07:08].
 - **Two consecutive timeframes must agree** (weekly+daily, or daily+4H). Bullish/bearish/bullish does not count [G 4:59:36, 5:00:18].
 - All three agreeing = "not a high-risk trade". Weekly+daily agree while 4H disagrees: either take the risk or wait for 4H to turn [G 5:01:41]. In practice he says he trades "with all the time frames in my favour" [K 8:55:07] and that weekly+daily "double check" the trend [J 7:41:00].
+- **Three risk labels (video 8, whiteboard)**: weekly, daily and 4H all the same direction = **pro-trend, low risk**; weekly and daily agree but the 4H has turned against them during a pullback = **"mid risk"**, "probably not" worth taking, wait for the 4H to shift back so all three are in sync; trade against the weekly = **counter-trend, high risk** [V8 0:24:20 to 0:28:28, board 0:27:40]. Adopt these labels in the report.
+- **Weighted vote (video 9, newer).** The top-down count includes the LT sector (2H, 1H, 30m, 15m). The weekly and daily together are "far stronger" than the lower ones together: with weekly bull, daily bull, 4H bear, 2H bear, 1H bull he still has a buy bias (2 reasons to sell, 3 to buy, "buying with the higher time frames"). A bias that agrees across the sectors "eliminates 50% of the work" (the sell button). He does not give a minimum count or say what happens when the 1H alone disagrees [V9 0:16:22 to 0:17:24, 0:37:56 to 0:38:57, board 0:38:40]. He mentions a "more complex" variant (buy with the higher timeframes, sell with the lower) and says it comes later; it is never explained. Default: pass on W+D or D+4H as before, grade by agreement, and show the LT bias as an extra, not a gate.
 - Then write the HH/HL (or LH/LL) of each timeframe on the chart to "trap price" into a zone; only look inside it [G 5:03:23, 5:06:47]. Weekly points are copied onto the lower charts at the same price [F 4:35:37].
 - Bias must be stated per timeframe even if weekly and daily differ; when the daily has moved on inside the weekly structure, use recent daily action for the daily call [F 4:16:28].
 - Trade only with the trend. He calls counter-trend trades "degen"; the two he describes (USDCHF, EURUSD) both lost [E 3:54:16, K 9:07:07].
 - **Counter-trend against the weekly, done his way (video 6).** He also takes trades against the weekly trend, calling them aggressive. Recipe (GBPNZD win, EURAUD win): the weekly is bearish and "overdue" a deep retracement toward a weekly AOI; wait for the **daily** to shift (daily above its EMA, break and retest of structure) **and the 4H to agree**, enter on the retest after the candle closes, stop beyond the AOI/daily structure point, **target 1:2 placed at the weekly AOI** where the weekly may react. This matches the two-consecutive-timeframes rule (D+4H in sync, weekly against) in 3.4 and is higher risk [V6 8:14 to 12:19, 15:24 to 17:51].
+- **Small account: no counter-weekly trades** (video 8, older than video 6). His example: weekly bearish, daily and 4H bullish, price buying into a weekly resistance AOI. For a small account that "would not make any sense... absolutely pointless"; wait for the daily and then the 4H to shift bearish and trade with the trend. A weekly candle takes 5 to 7 days to form, so it outweighs a daily or 4H candle [V8 0:28:30 to 0:31:15]. The general mode keeps the video 6 recipe above.
+- **Weekly counter-trend lesson from a real trade (video 10, newest):** GBPCHF sold counter-weekly off the right shoulder of a 4H head and shoulders lost to a wick and price then went to the 1:2 target without him. He calls it "premature", a "massive counter trend trade" and says the neckline break and retest should have been waited for [V10 0:53:47 to 0:57:56].
 - **Do not buy while below a weekly level** (and by mirror, do not sell while above one): his NZDCAD loss bought below a weekly resistance, off a choppy 4H accumulation, with only a decent daily; "I should have stayed away" [V6 12:19 to 13:41].
 
 ### 3.5 Area of Interest (AOI)
@@ -153,8 +174,10 @@ A valid AOI is:
 - **5 to 60 pips tall**, tight is better, sweet spot 20 to 35 pips; do not stretch the box to collect touches [H 5:38:54, 5:40:56, 6:01:38];
 - built from **body elbows, never wicks** [G 5:20:18];
 - counted first on the **line chart**, then checked on candles; unclean touches are dropped, and if 3 clean ones remain it stands [H 5:53:44];
-- drawn on the **weekly and daily only** (no AOI on the 4H) [H 5:50:41, on-screen "4hr NO AOI"]. Weekly AOI inside the weekly zone; daily AOI inside the daily zone;
-- kept to "maybe one, maybe two, max three" [H 5:51:22]. Far AOIs that price must break through first can be dropped [H 6:00:38].
+- drawn on the **weekly and daily first**; the 4H is lower priority. The 2025 course said "no AOI on the 4H" [H 5:50:41, on-screen "4hr NO AOI"]. Newer videos say otherwise: "I personally only look for areas of interest on the weekly, daily and 4 hour", with the 4H and daily AOIs the "most respected" [V9 0:53:13 to 0:53:59], and a live trade uses a "minor 4H AOI" at a neckline [V10 1:01:03]. Default: draw W and D AOIs; allow 4H AOIs and mark them "minor". Weekly AOI inside the weekly zone; daily AOI inside the daily zone;
+- kept to "maybe one, maybe two, max three" [H 5:51:22]; video 9 says "typically two to three" inside the daily zone [V9 0:28:14]. Far AOIs that price must break through first can be dropped [H 6:00:38];
+- looked for **at least two years back** ("whatever happened in the past can very clearly happen again"), timeframe not named [V10 0:59:00]. This sits beside the lookbacks in 3.3 (structure read) and does not replace them;
+- the answer to **"where"**, never "when": once the AOI is drawn, wait for price to come back into it and only then look for the entry signal [V9 0:19:28, 0:30:45]. He also lists "key area" and "liquidity zone" as other names for the same thing [V9 0:20:09]. Keep the chart clean; too many lines overwhelm [V9 0:28:56].
 
 Combining: where a weekly and a daily AOI overlap, merge them into one tight box that still has at least 3 touches on both. Overlap = timeframes "in sync" = higher probability [H 6:00:58].
 
@@ -162,8 +185,10 @@ Using it:
 - **No AOI reached, no trade** [G 5:17:53, H 5:44:05].
 - Buy at support, sell at resistance. Never buy at resistance or sell at support. To buy from a level, price must be above it [G 5:28:55, 5:30:40].
 - Resistance becomes support (and the reverse) **only** after a break and a retest [G 5:13:23].
-- If price breaks below a buy AOI, do not buy it; wait for a break back above and a retest from above [G 5:34:06].
-- A retracement into an AOI respected 4 to 5 times is more likely to react than one touched once [G 5:31:23].
+- If price breaks below a buy AOI, do not buy it; wait for a break back above and a retest from above [G 5:34:06]. Video 9 (newer) says a broken AOI "technically gets removed completely" and only the next AOI is treated; it does not mention reusing the broken box [V9 0:28:14, 0:36:33]. Default: drop a broken AOI from the candidate list; it may return only as a flipped zone after a body-close break and retest (the pattern in 3.6).
+- **Nearest AOI first; every AOI is its own trade.** Treat the nearest AOI to price as the first. Do not favour "AOI one" over "AOI two", and do not rank them by number of taps. Once price is at an AOI, act as if no other AOI exists. If that trade loses and price runs on to the next AOI, treat it as a brand-new trade [V9 0:34:09 to 0:36:13].
+- A retracement into an AOI respected 4 to 5 times is more likely to react than one touched once [G 5:31:23]. Video 9 softens it: more taps "should" be respected more, "but that's never always the case" [V9 0:34:30]. Use touch count as a soft score, not a hard rank.
+- **A level that does not reach three touches is not an AOI**, and the entry-signal step cannot begin [V9 0:40:43, 1:04:27].
 
 Things that add to an AOI (confluence, from his live trades): previous daily structure level, a round psychological number (e.g. 157.500, 1.12500), the daily/weekly/1H EMA, a head-and-shoulders or double-top neckline [K 8:49:57, 9:26:35].
 
@@ -182,6 +207,13 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - Wait for the signal candle to **close** before acting [E 3:25:16, F 4:02:07].
 - **Wait for a retracement; never buy the high or sell the low.** After a big push do not enter with hype or FOMO ("the move already happened"); wait for the pullback ("the discount") and then your confirmation. Applies to scalp, day and swing trades [V7 4:04 to 5:27]. For the app: flag an entry as a chase when price is at or near the latest swing extreme without a pullback.
 - If a trade is entered too early and the AOI can still be retested, he closed it, waited, and re-entered later at a worse price [L 9:56:22]. Entering before confirmation is a flagged mistake.
+- **The entry signal is allowed only when price is inside, at or on the AOI.** Touching the edge counts as "at". Price outside the AOI means no trade yet; price on its way to the AOI is just "the trade on the way to the area". No pip tolerance for "at" is stated [V9 0:41:03 to 0:42:07, 1:05:07, board 0:41:40: "You can only move to Step 3 when you are Inside the AOI"].
+- **Confirmation entries only.** Anticipation (entering before the candle closes) is "the most degenerate way of trading" and the cause of "the least amount of success" [V9 0:45:56 to 0:47:01, board 0:49:15].
+- **Entry price and order of actions.** Wait for the signal candle to close, then enter at the **open of the next candle** (market entry). He accepts the worse price as the cost of having a signal. Do not click buy at once: **set the stop loss first** ("the most important step"), **then the take profit**, then enter [V9 0:49:07, 1:06:48 to 1:08:32, board 1:11:50].
+- **Wick means rejection.** The bigger or stronger the wick, the better; no wick on the other side is even better. A candle's final shape is known only at its close [V9 0:58:14 to 1:02:26]. His names are loose: he once calls a long lower-wick rejection at support a "shooting star"; the frame shows a hammer shape, so keep the hammer definition below.
+- **Wait for a better entry when the first touch is not clean.** On AUDCHF the 4H turned bullish at the AOI and a round number, but he waited for a pullback that formed an inverted head and shoulders with a 4H morning star as the right shoulder; first position R:R 1:2.66 [V10 1:00:22 to 1:01:03].
+- **Scale-in on the same idea (video 10).** After the inverted H&S neckline broke, he bought a second position on the neckline retest. His conditions: a minor 4H AOI at the neckline, price above a rising EMA, the daily closing with clean upside momentum, and a morning star or engulfing on the retest candle. Size and risk of the second position are not stated [V10 1:01:03 to 1:02:26]. This sits awkwardly with "one position at a time" (3.10); his reading is not given.
+- **Re-enter if the idea returns.** If price wicks out the stop and then gives another rejection candle in the zone, enter again there [V10 1:11:00, 1:14:03], as in the video 4 example.
 
 **Entry candles (his versions, used only at an AOI, in the trend direction)** [H 6:21:56 to 6:40:32, I 6:40:52 to 6:45:40]
 - **Bullish engulfing:** the last candle's body closes beyond the bodies of the **last two** candles (wicks ignored; a hairline excess counts). Mirror for bearish [H 6:30:31, I 6:42:56].
@@ -236,11 +268,14 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 ### 3.7 Stop loss and target
 
 - **Stop:** just beyond the level that, if broken, proves the idea wrong. His wording: "a little bit above this level" (sell) [K 9:09:29]. On the NZDUSD recorded trade: "10 to 15 pips above the wick", about 20 pips from entry [J 7:48:37]. Stops seen on his examples run from about 20 to 50 pips. No fixed pip rule. Rule of thumb he states for pre-trade sanity: the stop sits "at a point where if it gets hit you are completely wrong" [D V3, low confidence, from an on-chart note].
-- **Target:** the next structure point / previous swing low or high (next 4H low), not the furthest one ("we're not going to be greedy") [L 10:09:52, J 7:48:37].
+- **Stop beyond the whole AOI (video 9, newer).** Place the stop below the whole AOI for a buy (above it for a sell, implied; he draws only the buy), not at the bottom of the signal candle's wick, because if price goes down through the AOI "you are technically wrong about the position as a whole". Buffer: **5 to 10 pips beyond the AOI edge**. He prefers a big stop to a tight one ("if you have a big enough stop loss and you're right about the direction, you probably won't ever lose"). Place the stop on the **4H** and the take profit on the **daily** (if the AOI is on the daily, try for a daily stop and a daily take profit); he calls that loose, "this is where you tweak the rules" [V9 1:10:40 to 1:12:03, 1:18:44 to 1:19:26]. Not stated whether the 5 to 10 pips is for FX or for gold (the board says gold).
+- **Stop in his real challenge trades (video 10, newest):** deliberately tight, just above the AOI or structure point, **so that 1:2 to the next structure point still works**; a higher stop "would have messed up the 1:2". He accepts being wicked out and re-enters on a new rejection candle. On GBPCHF he says he should have allowed more room above the structure point but would not place "a massive stop loss" either [V10 0:56:13 to 0:57:56, 1:11:00 to 1:11:40, 1:13:00]. Reconciled default: stop = beyond the whole AOI plus a buffer (5 to 10 pips, user-tunable); if that stop makes the target less than 1:2 away, the setup fails the R:R gate and is skipped, not squeezed (app default).
+- **Target:** the next structure point / previous swing low or high (next 4H low), not the furthest one ("we're not going to be greedy") [L 10:09:52, J 7:48:37]. Video 9: the take profit goes at the nearest structure point, "the checkpoint" or flag, the last area from which the market reacted, on any timeframe, with a minimum of 1:2 "always" (he adds "the take profit I don't really care about" as long as it is at least 1:2). What to do when the nearest structure point is closer than 1:2 is not stated [V9 1:12:25, 1:16:38 to 1:18:23].
+- **Win-rate maths (video 9):** 10 trades at 1:2 with 5 wins and 5 losses is -5 + 10 = +5 R; at a 30% win rate and 1:4, 3 wins and 7 losses is +12 - 7 = +5 R. He says 30% is "quite common" and that he probably has about 50% [V9 1:12:46 to 1:16:16].
 - **Stop philosophy (video 6):** put the stop where, if it is hit, the idea is clearly wrong; "not the tightest stop"; where it is very difficult for the market to hit it if you are right. He accepts stops that get hit and then reverse (GBPCAD: straight to the stop, then broke above the area and went up): "these are the type of losses I don't mind" [V6 14:43 to 15:24]. An EURAUD short shows a 45.1-pip stop, 98.5-pip target, R:R 2.18 [V6 frame 17:20].
 - **Minimum 1:2, and where to stop reaching (video 7):** every trade has at least 1:2 (his "second base"). The maths: lose 5 of 10 at -1 = -5, win 5 at +2 = +10, net +5 at a 50% win rate. Once at 1:2 he may hold for 1:3 or 1:4; **at 1:4 the trade is done** ("home run"). Do not close at 1:1 to lock in profit: that was not the plan. Do not try to maximise every trade [V7 12:20 to 16:07].
 - **Exit at 1:2 by default:** "My plan is always the same. Get out at a 1:2. If you're at a 1:2 and it makes sense to continue to hold, you do that then." He exited an EURAUD short at 1:2 that later reached about 1:6 and did not dwell on it, because a reaction was expected from the area [V6 17:51 to 18:32].
-- **Risk:reward:** always at least **1:2**; set the trade up so 1:4 is possible; hold for it [K 8:37:51 to 8:39:37]. Wording conflicts ("minimum of 1:4" vs "aim for potential 1:4"); read as potential. Seen: 1:2 to 1:3.5 typical, 1:5 to 1:11 on a few [K R34, L 10:03:14].
+- **Risk:reward:** always at least **1:2**; set the trade up so 1:4 is possible; hold for it [K 8:37:51 to 8:39:37]. Wording conflicts ("minimum of 1:4" vs "aim for potential 1:4"); read as potential. Seen: 1:2 to 1:3.5 typical, 1:5 to 1:11 on a few [K R34, L 10:03:14]. Video 10 says 1:2.5 is "even better" for a challenge [V10 0:37:32]; video 8 asks for **1:3 or more** on a small account, with 1:2 to about 1:2.5 "normal" for other accounts [V8 0:05:34, 0:04:53].
 - Use the TradingView long/short position tool to read the ratio before entering [C 2:13:41].
 - His average take profit is about **80 to 100 pips** [V2 17:26].
 - **Match the take profit to the entry timeframe** (video 5). The same head-and-shoulders entry on the 4H needed a smaller stop and reached a 1:2 target in about 1.5 days; on the daily the stop was much larger and 1:2 took about 5 days; on the 1H about 10 hours. Same direction; only stop and target placement change. Never enter on a 1H and use a day-trade target, or the reverse: a winner for that timeframe turns into a loser [V5 10:40 to 13:41].
@@ -257,12 +292,18 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
   - Examples in teaching: $10 on $100, $50 on $1,000 [A 0:27:57, D 2:34:40].
   - Video 6: exiting at 1:2 instead of about 1:6 he says "I missed out on an extra 3%" [V6 17:31]. That loosely implies about 0.75% risk per 1R (inference only; compare video 4's about 1%). He states no risk rule.
   - A live break-and-retest example "lost 1%" then "made back 6%" [V4 21:19]. That implies about 1% risk per trade on that example (inferred; he states no risk rule) and a reward of about 6 times the risk.
+  - **Small account (video 8):** below about $25,000 he plays a "money game" (a fixed dollar risk per trade) and above it a "percentage game" (1 to 2%, prop style). Examples: $250 or $350 risk on a $1,000 account, "at least four or five trades in you" before the account is gone (the guest picked $350 = 35%, which is under three trades, so his own rule and example disagree), then lower the dollar risk as the account grows ($150 to $200 on the way to $10,000). "High risk does not equal high reward": put more risk on low-risk (high-probability) trades. There is "no proper strategy on when you should risk more, risk less depending on the technicals" [V8 0:06:36 to 0:20:35, 0:22:18]. This is a high-risk account-flipping plan for people with experience; not a rule to copy.
+  - **Prop challenge (video 10, newest):** risk **2% on the first trade** (a "Strong Start") and then **the same percentage on every trade**: do not drop to 1% after a loss or raise it after a win; "stick to the risk management that you start your account with". He calls this industry standard. On a funded account: "why would you risk more than 1 to 2%?" [V10 0:36:10, 0:41:46 to 0:42:50, 0:10:25]. Risk on trade 2 and later is not stated as a number other than "the same". Implied about 1% per R in one remark ("an extra 2%" for an extra 2R on a weekend hold [V10 0:19:57], inference).
+  - **Never raise risk after a loss or after reaching a goal.** Greed is raising risk and trading more because a goal was reached; after a loss, "next trade I'll risk a little bit more" is the failure he names [V8 0:45:11, 0:47:17].
+  - **Leverage (video 8):** use 1:500 for a personal broker account. With 1:100 and a $100 risk he could only risk $40 to $50 after losing 3 to 4 trades because margin ran short; leverage is only access to margin and "there's no risk behind this" with the risk rules above [V8 0:32:18 to 0:34:42]. A prop firm sets its own cap (1:100 at Eightcap, 3.10).
   - **This ladder is a stunt, not a rule to copy.** Risking 100% of an account on a trade means one miss ends it, and his own earlier attempt went $100 to about $330,000 and then blew up in one week [J 8:20:41]. The app should take the user's own risk % and not use his ladder.
-- **Frequency:** "one and done" in the challenge: one trade a week, win or lose [K 8:32:59]. His normal swing/day mix is a few trades a month [A 0:30:42].
+- **Frequency:** "one and done" in the challenge: one trade a week, win or lose [K 8:32:59]. His normal swing/day mix is a few trades a month [A 0:30:42]. Video 8 (small account) calls it 1 to 2 trades a week at most and rejects a "done for the week" lockout (3.1); video 10 gives "one good setup a week, maybe two" and a cap of one trade a day in a challenge (3.10). The "punch card" idea: imagine about 20 trades for your whole life, so each must count [V8 0:10:50 to 0:12:13].
 
 ### 3.9 Management and exit
 
 - **Holding through sessions and the weekend (video 5):** hold a London entry through Sydney and Tokyo if the market still gives every indication it can reach the target (for example halfway to target, momentum fading, to be pushed by the next London). Close before the weekend if the trade is losing and about halfway to the stop, because the Sunday-open spread can stop you out. If halfway to the stop but still rejecting, he holds. "Doing nothing is doing something" [V5 17:51 to 19:54].
+- **Weekend rule in video 10 (newest, challenge context).** Hold over the weekend **only a trade that is already at or past its take profit**. A trade that is merely running toward the target is closed late on Friday if price is running into a resistance (for a buy) while still far from the take profit, because of weekend fees and spread and the risk that the Monday open retraces. He did this on AUDCHF (closed about 1:1 to 1:1.3) and USDCHF (closed "$30 away from passing"), and says in hindsight holding AUDCHF might have paid about 1:5 per position, but "every single trade is different... don't force it" [V10 1:02:46 to 1:04:32, 1:06:13 to 1:08:37]. This is the opposite emphasis from video 5 (hold if the market still shows signs of reaching the target). Newer wins for a challenge account; offer a setting (see section 6).
+- **After a skipped trade or a loss (video 8).** If a trade leaves without you, "if it leaves you, it leaves you... you move on to the next trade"; you will miss opportunities "100%". Do not fill the wait for a pro-trend setup (it can take "one or two days") with a counter-trend trade, and do not raise risk after a loss. Take a trade only from what the market shows, never from what you need or feel [V8 0:43:47 to 0:48:42].
 - **Set and forget:** after entry do nothing until the stop or target is hit. Exceptions about 1 in 20 [J 7:52:46 to 7:53:07, L 10:17:35]. Do not let post-entry emotion change the decision [J 7:53:27]. Expect an immediate small drawdown from the spread [C 1:43:40].
 - Alerts at key structure points (e.g. a 4H body close beyond a structure point) then wait [J 7:55:10, L 10:05:41].
 - Discretionary exits he describes (optional, for a short; mirror for a buy): a 30-minute break above the last structure point; at a structure point near the target, watch the candle close (closes back above the line: close; closes under it: hold); a clear structure shift; if the daily closes under a previous structure level, hold "for a long time" [J 8:01:05, K 9:01:56, 8:53:44].
@@ -271,6 +312,60 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - **Streaks and discipline (video 6):** there is **no plan B**: do not change the strategy or the risk management in a losing streak to win losses back. Treat every trade as independent of the last 10. To scale a winning streak, do not tighten stops, lengthen targets or chase sniper entries; keep the same sessions and timeframe that got you there. Quality over quantity: four trades in three weeks. Pre-calculate risk so a loss is never a surprise [V6 2:05 to 5:49, 18:52 to 19:56].
 - Wick-outs are inevitable and accepted ("if you want to avoid a wick out, don't trade") [J 8:05:11]. They still happen to him about once every 2 weeks; he takes the next trade and does not let it affect it [V3 17:33 to 17:53].
 - Split larger positions into several orders to limit slippage [K 9:39:04].
+
+### 3.10 Account modes: small account and prop challenge
+
+These rules belong to one kind of account. The app should apply them only when the user picks that mode. Rules in 3.1 to 3.9 still hold unless a line below says otherwise.
+
+**Small-account mode** (video 8, 2026-02-22; $500 to $2,000)
+- Treat the deposit as already lost, so you do not revenge-trade or force trades [V8 0:03:10].
+- 1 to 2 trades a week at most; "if you can even take one, even better". Three open at once "literally blow the account" [V8 0:03:51].
+- **Minimum R:R 1:3**, larger is better. (Other accounts: 1:2 to about 1:2.5.) [V8 0:05:34]
+- Risk is a fixed dollar amount ("money game") below about $25,000; see 3.8 for his examples. Start higher and lower the dollar risk as the balance grows [V8 0:08:42].
+- Take only the low-risk trade: weekly, daily and 4H all in sync; wait for the pullback to a weekly or daily AOI and for the 4H to realign; no counter-weekly trades (3.4).
+- Leverage 1:500; no Sunday trades; no new trade from Thursday after 8 to 9 AM New York; Monday to Wednesday in London (3.2).
+- It is "not for learning a strategy": for someone with experience and some profit and loss history [V8 0:12:54].
+
+**Prop-challenge mode** (video 10, 2026-09-06; Eightcap 5K one-step, passed in about 3 weeks)
+
+*Firm rules* (set by the firm; the app should hold them as a profile the user edits, because firms change them):
+
+| Item | Eightcap one-step | Eightcap two-step |
+|---|---|---|
+| Max daily loss | 4% | 5% |
+| Max total loss | 8% | 10% |
+| Profit target | 10% | 9% (assessment), then 5% (qualification) |
+| Minimum trading days | 5 | 3 |
+| Max leverage | 1:100 | 1:100 |
+| Profit split | 80% | 80% |
+| Funded: payout cap per request | 5% | 10% |
+| Funded: "profit distribution" | 30% | 35% |
+
+Values are from the firm's table shown on screen in September 2026 [V10 0:25:40, 0:26:45, 0:08:40]. In 2022 the two-step had a 10% first target, a 70/30 split and time limits (30 days, then 60 trading days); there is now **no time limit**.
+- **News:** no entering a trade within **10 minutes before or after** news (2 minutes each side in 2022). A trade opened earlier and still open through the news is fine. Which news tier counts is not stated, nor whether closing inside the window is allowed [V10 0:15:00 to 0:16:02, board 0:15:50].
+- **Profit distribution** (funded stage only): profit must be spread over days, so you cannot take the whole payout cap in one day or one trade; payouts roughly every 3 days (he also says "5% in 5 days"). He never says exactly what the 30% or 35% measures; it looks like a per-day or consistency cap (my reading, not stated). Check the firm's own rules before coding it [V10 0:06:57 to 0:12:53].
+- Weekend holding, EAs and bots, scalping and day trading are now allowed (all banned in 2022) [V10 0:18:53].
+
+*His four rules for the 5K one-step challenge* ("our top four rules" [V10 0:39:41]):
+1. **Strong Start ("SS rule").** Wait for the strongest possible setup for the first trade, not the nearest or fastest (he would not trade for a month if the first chance is not the strongest) and risk **2%** on it. 2% is half of the 4% daily loss limit, in his words. What makes a setup "strongest" is not defined [V10 0:34:47 to 0:36:31].
+2. **One trade per day at most**, and **one position open at a time**: you cannot take more than one position at the same moment "because then we would hit the total loss". If two setups appear together, choose the better one [V10 0:36:31 to 0:37:12, 0:41:03 to 0:41:46]. He does not square this with the AUDCHF scale-in (3.6).
+3. **Minimum 1:2 on every trade**; 1:2.5 even better. "You don't need to win more than you lose. You just need to make more than you lose" [V10 0:37:32].
+4. **Only trade on daily confirmations.** The daily candle takes 24 hours to form, so it is stronger than a 1-hour candle. He says 4H and 1H trades can still be great, so this is his preference for the challenge [V10 0:38:59]. In his five trades the trigger candle was usually a 4H candle with weekly or daily context first (e.g. daily morning star, then a 4H morning star), so "daily confirmation" most likely means the daily/weekly context candle, with a 4H entry candle allowed (my reading from the trades; he does not say it in those words).
+- **Same risk on every trade** (3.8). Choosing the account: a 9-to-5 worker should take a one-step or two-step challenge rather than an instantly funded account; swing trades are held "a day or two".
+- **Two-step adjustments** he allows: up to two trades a day (more room, 5% daily limit) and 4H confirmations. Strong start, the same risk and the 1:2 minimum never change [V10 0:48:57 to 0:50:20].
+- Rules stack: personal rules plus the firm's make trading harder, so adapt the personal ones to the challenge. He does not list which personal rules he drops [V10 0:34:06].
+
+*The five challenge trades* (all his claims; pips and lot sizes not stated; about a 50% hit rate, 3 wins and 2 losses):
+
+| Pair, direction | Setup in short | Result |
+|---|---|---|
+| GBPCHF sell | Counter-weekly sell off a 4H H&S right shoulder, tight stop | Loss (-$99); price then hit the 1:2 target |
+| AUDCHF buy | Weekly range break and retest, daily morning star, 4H inverted H&S with morning star, scale-in on neckline retest; round number 0.56500 | Win, closed Friday at about 1:1 to 1:1.3 (potential much more) |
+| USDCHF buy | Weekly bullish, daily morning star and engulfing at the AOI, 4H support | Win, closed late Friday before reaching the target |
+| EURGBP sell | Weekly bearish, daily double top and engulfing at an AOI, neckline retest, 4H rejection candle, tight stop | Loss (wick-out); "10 out of 10 times" he would take it |
+| GBPNZD sell | Daily zone, double top and bearish engulfing, 4H shift of structure, retracement, 4H evening star | Win |
+
+[V10 0:53:26 to 1:15:26]. These are usable as test cases once their charts are fetched; the video gives no entry, stop or target prices.
 
 ---
 
@@ -288,6 +383,8 @@ Extras that raise quality (none mandatory, no minimum count):
 - round psychological number at the AOI
 - previous daily structure level at the AOI
 - an AOI with many touches
+- a minor 4H AOI at a neckline, with price above a rising EMA (used as a scale-in condition [V10 1:01:03])
+- the lower-timeframe (LT) bias agreeing with the weekly and daily [V9 0:37:56]
 
 His own examples, as test cases:
 - AUDCHF sell note: weekly/daily/4H bearish; at weekly resistance; weekly evening star; under daily S/R at 0.69000; rejection from the daily EMA; under the 4H EMA and structure [C 2:05:55].
@@ -312,7 +409,7 @@ His own examples, as test cases:
 3. What counts as one "touch" (distance tolerance, candles per touch).
 4. AOI box placement (the "happy medium" merge and which three touches to pick).
 5. When a retracement has "stopped" (confirms an HH/LL).
-6. Stop buffer beyond the wick (his 10 to 15 pips on one example).
+6. Stop buffer: 5 to 10 pips beyond the AOI edge [V9 1:11:43] versus 10 to 15 pips beyond a wick on one older example [J 7:48:37]. Make it a user-tunable parameter; the stop must keep R:R at least 1:2 or the setup is skipped.
 7. Daily and weekly candle boundaries: aggregate with the New York 5 PM close, since body-close tests are boundary-sensitive (my inference from his "market closes 5:00 PM EST").
 
 **Proposed report fields (per pair)**: time window pass/fail; W/D/4H bias with HH/HL/LH/LL prices; alignment grade (none / two / three); zone; weekly and daily AOIs with touch count and pips, merged boxes, price relative to nearest AOI; EMA side per timeframe; latest candle signal at the AOI; pattern state (H&S/double top: potential vs neckline broken vs retested); proposed stop, target, R:R; lot size for the user's risk; confluence checklist with pass/fail; "no trade" reason when a gate fails; red-folder news in the next hours (needs a calendar feed).
@@ -323,24 +420,35 @@ His own examples, as test cases:
 
 | Topic | What he said | Default |
 |---|---|---|
-| Trend alignment | "Two consecutive timeframes" [G]; "all three"/"majority" [F]; "weekly and daily" [J] | Pass on W+D or D+4H; grade A when all three agree |
-| AOI timeframes | W/D/4H identify AOI [F 4:40:52] vs AOI only weekly and daily, "4hr NO AOI" [H] vs AOI concept valid on all timeframes [J 7:26:14] | Draw AOIs on W and D only (the later, explicit teaching) |
-| AOIs per chart | "Four and five" [G 5:26:54] vs "one, maybe two, max three" [H 5:51:22] | Keep up to 3 |
+| Trend alignment | "Two consecutive timeframes" [G]; "all three"/"majority" [F]; "weekly and daily" [J]; W+D with 4H against is "mid risk", wait for all three [V8 0:27:25]; weighted vote where W+D outweigh 4H+2H+1H, so a mixed lower side still gives a buy [V9 0:37:56] | Pass on W+D or D+4H; grade A (low risk) when all three agree, grade B ("mid risk") when W+D agree and the 4H disagrees; show the LT bias as an extra. Small-account mode requires all three [V8]. Newer video 9 is more permissive than video 8; the grade keeps both |
+| AOI timeframes | W/D/4H identify AOI [F 4:40:52] vs AOI only weekly and daily, "4hr NO AOI" [H] vs AOI concept valid on all timeframes [J 7:26:14] vs "I personally only look for areas of interest on the weekly, daily and 4 hour" [V9 0:53:13] and a "minor 4H AOI" [V10 1:01:03] | Draw AOIs on W and D; allow 4H AOIs marked "minor". Newer videos 9 and 10 win over the 2025 on-screen note |
+| AOIs per chart | "Four and five" [G 5:26:54] vs "one, maybe two, max three" [H 5:51:22] vs "typically two to three" [V9 0:28:14] | Keep up to 3 |
+| What happens when an AOI breaks | Resistance becomes support after a break and a retest; a broken buy AOI is revisited from above [G 5:34:06] vs a broken AOI "gets removed completely" and the next one is treated [V9 0:28:14] | Remove a broken AOI from the candidates; reuse it only as a flipped zone after a body-close break and retest. Newer video 9 wins for the candidate list |
+| Several AOIs | Overlap of weekly and daily AOIs is higher probability [H 6:00:58]; more taps react more [G 5:31:23] vs each AOI is an independent trade, no favourites, more taps "never always" [V9 0:34:09] | Treat each AOI as its own trade; use touch count and overlap only as a soft score |
+| Stop distance | "A little bit above this level", 10 to 15 pips above the wick on one trade, 20 to 50 pips seen [J 7:48:37]; "not the tightest stop" [V6 14:43] vs 5 to 10 pips beyond the whole AOI, prefers a wide stop [V9 1:11:43] vs deliberately tight so 1:2 holds, accepts wick-outs [V10 0:56:13, 1:11:40] | Stop = beyond the whole AOI plus a user-tunable buffer (5 to 10 pips from video 9); if R:R to the next structure point falls under 1:2, skip the trade rather than tighten the stop inside the AOI (app default). Videos 9 and 10 agree that the stop sits just beyond the AOI; video 10 (newest) adds the 1:2 check |
+| Entry-signal gate | Entry signal is not tied to being inside the AOI in video 1's wording, only "at an AOI" [H, J] vs not allowed until price is inside or at the AOI [V9 0:41:03] | Require price inside or at the AOI before the signal counts |
 | Window end | "10:00" vs "about 10:30" [B] | 10:30 AM New York |
 | Window start vs Sydney/Tokyo | He trades from 1:00 AM, but his session graphic has Sydney to 2 AM and Tokyo to 4 AM [B] | Start 1:00 AM; his rule is "pre-London counts" |
 | Mandatory confluences | "No minimum" [J 7:35:29] vs "if the plan isn't checked, don't trade" [J 7:45:08] | The core three are mandatory; extras are not |
 | Close before SL/TP | "Never" [J] vs closes early in a few live trades [K, L] | Default hold to SL/TP; flag early-exit ideas as manual |
 | Stop and target in teaching samples | Spoken ratios differ from the position tool on screen (AUDJPY: "1 to 2, 118 pips" vs tool 2.71 [H 6:38:45]; NZDJPY: said 2 vs tool 2.47 [D V9]) | Use the stop/target the app derives; do not copy these samples |
-| Risk % | 100% to 35% ladder, "50 to 75%" at $3 to 5K, "lower risk 25 to 50% as account grows" | Not his rule to copy; user-set |
+| Risk % | 100% to 35% ladder, "50 to 75%" at $3 to 5K, "lower risk 25 to 50% as account grows" [K, L]; fixed dollar risk below $25,000 ($250 to $350 on $1,000), 1 to 2% from $25,000 [V8 0:08:42]; 2% on the first challenge trade, the same % on every trade, "why would you risk more than 1 to 2%" on a funded account [V10 0:36:10, 0:42:06, 0:10:25]; about 0.75 to 1% hints [V4, V6] | Not his rule to copy; user-set. Offer presets: standard (user %, 1% suggested as a neutral starting point is an app default, not his), small-account (fixed dollars), prop (2% first trade, same % after). Newest (V10) says never change the % after a win or a loss |
+| Trades per week / lockout | "One and done": one trade a week, win or lose [K 8:32:59]; max 1 to 2 a week, one is better [V8 0:03:51]; no "done for the week" lockout after a win or loss, take any real opportunity [V8 0:40:39]; one trade a day and one position at a time in a challenge [V10 0:36:31, 0:41:03]; "one good setup a week, maybe two" [V10 0:41:03] | No automatic lockout. Warn above 2 new trades a week (small-account mode), cap open positions at 1 in prop mode, cap 1 trade a day in prop mode. The video 1 "one and done" was a stunt tied to the 100% ladder |
+| Minimum R:R | 1:2 [K, V7] vs 1:3 or more for a small account [V8 0:05:34] vs 1:2, with 1:2.5 even better, in a challenge [V10 0:37:32] | 1:2 floor by default; 1:3 in small-account mode; show 1:2.5 as a bonus grade |
+| Weekend hold | Hold through the weekend if the target still looks reachable; close only a losing trade halfway to the stop [V5 17:51] vs hold only a trade already at or past its take profit, otherwise close late Friday if price runs into a resistance far from the target [V10 1:02:46, 1:08:17] | Setting with two values. Default to the newer video 10 rule in prop mode; keep video 5 as the optional "hold" value. Note his hindsight in video 10 that holding AUDCHF would have paid more |
+| Entry timeframe in a challenge | Entry signal on 2H, 1H, 30m, 15m (also 4H, daily) [F, J, L, V5] vs daily confirmations only [V10 0:38:59], yet the five trades were triggered on 4H candles | Setting. Prop mode: daily/weekly context candle required, 4H entry candle allowed (my reading). Standard mode: 4H or lower entry with the usual top-down |
+| Anticipation | Wait for the candle to close [V2, V9 0:45:56] vs "on the 4 hour I can very cleanly anticipate that we're going to be reacting from this support level. So enter our position right here" on the USDCHF trade [V10 1:05:53] | Closed candle only. The USDCHF line is unresolved: the video does not say which 4H candle he entered on |
 | Engulfing definition | Must cover the last **two** bodies [H 6:30:31, I 6:42:56] vs body-close beyond the **last** candle, even a tiny one [V2 3:43]. Video 5 agrees with the minimum of one and adds "the more candles it engulfs, the better" (examples engulfing 4 and 10 candles; a pin-bar engulfing one candle counts) [V5 21:17 to 23:22] | Valid minimum: beyond the last candle's body. Grade by the number of candles engulfed (1 = valid, 2 or more = stronger, a whole consolidation = his favourite) |
 | Target cap | Video 7: at 1:4 the trade is done [V7 15:26]. Earlier trades planned 1:5 to 1:11 [K] and 1:6 was mentioned [V6] | Minimum 1:2, normal exits 1:2 to 1:4; anything beyond the next structure point is the user's option |
 | Target: 1:2 exit vs hold for 1:4 | "Set it up so 1:4 is possible; hold" [K 8:37:51] vs "always get out at a 1:2; if it makes sense to continue to hold, do that then" [V6 17:51] | Target at the next structure point with at least 1:2. Offer an "exit at 1:2" setting; the app reports whether the next structure/AOI is beyond 1:2 |
-| Counter-trend | Video 1 calls counter-trend trades "degen" and both lost [E, K]; video 6 takes counter-weekly trades with the daily and 4H aligned toward a weekly AOI, target 1:2 [V6] | Allow only the video 6 form (D+4H aligned, target at the weekly AOI), flagged higher risk |
+| Counter-trend | Video 1 calls counter-trend trades "degen" and both lost [E, K]; video 6 takes counter-weekly trades with the daily and 4H aligned toward a weekly AOI, target 1:2 [V6]; video 8 (older) blocks them on a small account [V8 0:30:35]; video 10 (newest) loses a counter-weekly GBPCHF sell and calls it premature [V10 0:53:47] | Allow only the video 6 form (D+4H aligned, target at the weekly AOI), flagged higher risk. Block it in small-account mode. Never sell off an H&S right shoulder |
 | Back-testing | "I actually hate back testing" [C 2:07:52] vs "do a little bit of back testing" to pick your entry signal [V5 20:57] | Allow back-testing as the user's own choice (the app could back-test signals); do not treat either as a rule |
 | One or three timeframes | Top-down on W/D/4H is the method [F, G]; video 5 says one timeframe only is simpler and "more advanced" is top-down [V5 8:13] | Support both modes |
 | Entry timing | Pre-London entries from 1:00 AM [B] vs "wait until right before London" if the confirmation printed before Sydney [V2 16:25] | Same window; a confirmation that prints outside a session waits for the pre-London hour, then enters |
 | Retest entry | Video 1: wick or body rejection on the retest is the confirmation [H 6:13:37]; breakout entry allowed about 30% of the time [H 6:12:35]. Video 4 ranks entry on the breakout and entry on the retest without a rejection candle as least favourite [V4 23:02] | Require a rejection candle on the retest; breakout entry is an option the user can switch on |
-| Weekday | No weekday rule in video 1 (challenge trades on various days) vs Monday to Wednesday only [V2 17:26] | Mon to Wed by default; user can relax it, and he allows exceptions |
+| Weekday | No weekday rule in video 1 (challenge trades on various days) vs Monday to Wednesday only [V2 17:26] vs Monday to Wednesday, Thursday only if entered by 8 to 9 AM New York, never Sunday [V8 0:35:05 to 0:36:51]; challenge scale-in taken "around Thursday" [V10 1:02:26] | Mon to Wed by default; Thursday before 9 AM New York as an allowed exception; no Sunday entries; user can relax it, and he allows exceptions |
+| Window start | 1:00 AM New York [B] vs "11 pm EST onwards. So almost midnight for you" and full volume 1 to 11 AM [V8 0:38:36] | Keep 1:00 AM to 10:30 AM. The "11 pm" figure may be the guest's clock or a slip (an 11 PM New York entry would be a Sunday-evening entry, which he forbids in the same video); unresolved |
+| News | Looks at red folders, sits out a big event, does not change the approach [B, D] vs no entry within 10 minutes before or after news [V10 0:15:00] | Standard mode: show red-folder events as information. Prop mode: block new entries within 10 minutes either side (firm rule, editable) |
 | Break wording | He once says a body close "above the higher high or the higher low" shifts structure [E 3:21:05]. His examples and on-screen notes show: beyond the extreme moves the labels, beyond the **protecting** point (HL when bullish, LH when bearish) flips the bias | Use the state machine in 3.3 |
 
 ---
@@ -351,8 +459,13 @@ His own examples, as test cases:
 - Numeric limits for a rejection doji (body size, wick ratio) and for "first thing Monday morning" [V2].
 - EMA **length is only given once** (50 EMA) and is not tied to a timeframe rule [J 7:21:50]. Earlier segments said "later"; no other value appears.
 - A numeric definition of a significant swing, an elbow, a touch, "slowdown", doji body size, wick ratios.
-- His normal (non-challenge) risk % (video 4's "lost 1%, made 6%" example hints at about 1% but is not a stated rule), max trades, daily/weekly loss limits, withdrawals, journaling. His "Perfect Trade Checklist" sheet exists but is never shown [L 10:26:57].
-- A news filter beyond "look at the red folders".
+- His normal (standard-account) risk %. Video 4's "lost 1%, made 6%" hints at about 1% but is not a stated rule. Videos 8 and 10 give small-account dollar risk and a 2% challenge figure (3.8, 3.10) only. Still missing: his own weekly loss limit, his own daily loss limit beyond the one-trade cap, risk on the second and later challenge trades other than "the same", withdrawals, journaling. His "Perfect Trade Checklist" sheet exists but is never shown [L 10:26:57].
+- A news filter for the standard mode beyond "look at the red folders". The only number is the prop firm's 10-minute window (3.10), with the news tier and whether closing inside the window is allowed not stated.
+- What makes a setup the "strongest" for the Strong Start rule [V10 0:34:47]; what a "daily confirmation" is exactly, and when to enter after it [V10 0:38:59].
+- What to do when the nearest structure point is closer than 1:2 [V9 1:12:25]; the pip tolerance for "at the AOI" [V9 0:41:03]; whether the 5 to 10 pip stop buffer applies to FX or gold [V9 1:11:43].
+- The "buy with the higher timeframes, sell with the lower" variant promised in video 9 [V9 0:38:57]; whether the LT bias is a gate or only a tiebreaker.
+- What the prop firm's "profit distribution" percentage measures [V10 0:06:57]; size and risk of a scale-in position and how it fits the one-position-at-a-time rule [V10 1:01:03].
+- Videos not yet studied that may answer some of the above: `1dL3xmxA2e0` (swing strategy, 27 min), `pD1vAUMbSjw` (top-down, 33 min) and `hb7ot1_szWI` ($50 start). Their study agents hit the account session limit before writing notes.
 - Any statistics: no back-test; win-rate claims are loose and inconsistent (e.g. 60 to 65% swing, 70% on 7 trades) [A 0:32:06, K 8:25:11].
 - He says the YouTube challenge series and other videos explain more.
 
@@ -363,7 +476,12 @@ His own examples, as test cases:
 - For the build: read `docs/BUILD-PLAN.md` (the plan) and `docs/ANALYSIS-SPEC.md` (the app-ready rules and parameters), with this file as the source behind them. Where each topic is taught: structure state machine in parts E, F, G; AOI in G, H; candles and patterns in H, I, J; entry/exit/risk in practice in J, K, L; tooling and setup in B, C, D.
 - When more videos are studied (see `docs/WORKFLOW.md`), update the sections here and list any change in a "changed by video N" line so differences between teachers stay visible.
 
-**Changelog**
+**Changelog** (newest upload first)
+- **Videos 8, 9 and 10 (studied 2026-10-09; uploaded 2026-02-22, 2026-06-28 and 2026-09-06):**
+  - *Video 10 (newest):* new section 3.10 (prop-challenge mode: Eightcap table, 10-minute news window, profit distribution, his four challenge rules, five real trades); 2% first-trade risk and same risk on every trade (3.8); stop kept tight so 1:2 holds and re-entry after a wick-out (3.7); wait for a better entry and a scale-in recipe (3.6); weekend rule hold only at or past TP (3.9); AOI looks back two years, minor 4H AOI (3.5); frequency one good setup a week (3.1).
+  - *Video 9:* the three steps in order with the entry signal allowed only inside or at the AOI (section 1, 3.6); fourth "LT" sector and weighted vote (3.4); AOIs on W, D and 4H, nearest first, each independent, broken AOI removed (3.5); enter at the next candle open, stop then take profit then entry (3.6); stop 5 to 10 pips beyond the whole AOI, stop on the 4H and take profit on the daily, win-rate maths (3.7). Changes the "4hr NO AOI" rule of video 1.
+  - *Video 8 (older than videos 2 to 7):* small-account mode (3.10): fixed-dollar risk, 1:3 minimum, all three timeframes in sync, no counter-weekly trades, 1:500 leverage, no Sunday and no Thursday after 8 to 9 AM; the low, mid and high risk labels (3.4); no lockout after a win or loss and the psychology rules (3.1, 3.9).
+  - Conflicts table (section 6) gained rows for AOI breaks, several AOIs, stop distance, entry gate, trades per week, minimum R:R, weekend hold, entry timeframe in a challenge, anticipation, window start and news, and rewrote the trend-alignment, AOI-timeframe, risk, weekday and counter-trend rows. Gaps (section 7) updated.
 - **Video 7 (2026-10-09):** added Sunday bias held all week and weekly goals (3.1), wait for a retracement and never chase (3.6), the 1:2 minimum with 1:4 as a "done" point (3.7), accepting losses and the 50 to 60% win-rate figure (3.9), and a conflicts row on the 1:4 cap. No charts or entry rules in this video.
 - **Video 6 (2026-10-09):** added the counter-weekly trade recipe and the rule against buying below a weekly level (3.4), stop philosophy and the 1:2 exit default (3.7), the no-plan-B and streak discipline rules (3.9), a loose risk hint (3.8, inferred), and two conflicts rows (1:2 exit vs 1:4, counter-trend).
 - **Video 5 (2026-10-09):** added the simplified one-pair/one-timeframe/one-session/one-signal mode (section 1), session by market and entry timing (3.2), take profit matched to the entry timeframe (3.7), holding through sessions and the weekend (3.9), the "more candles engulfed, the better" grading, and conflict rows for back-testing and one vs three timeframes.
