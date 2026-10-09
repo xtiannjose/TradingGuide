@@ -49,7 +49,7 @@ def main():
         mt5.shutdown()
 
     pip_value = info.trade_tick_value * pip_size(info.currency_profit) / info.trade_tick_size
-    risks = [a.risk] if a.risk else [0.25, 0.5, 1.0, 2.0]
+    risks = [a.risk] if a.risk else [0.5, 1.0, 2.0, 5.0, 10.0, 20.0]
     print(f"{sym}, stop {a.stop:g} pips, balance {balance:,.2f} {ccy}, one pip = {pip_value:.2f} {ccy} per lot")
     print(f"{'risk %':>7} {'risk amount':>13} {'lots':>7}   account after 5 / 10 stops in a row")
     for r in risks:
