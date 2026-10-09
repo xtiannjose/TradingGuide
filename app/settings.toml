@@ -1,0 +1,59 @@
+# TradingGuide app settings. Phase 0 holds only what the data layer needs.
+# Parameters from docs/ANALYSIS-SPEC.md section 10 are added as the phases need them.
+
+display_tz = "Asia/Manila"
+
+# His "Blue list" (strategy/strategy.md section 2). Edit freely.
+pairs = [
+  "USDCHF", "NZDUSD", "GBPUSD", "AUDCHF", "NZDJPY", "EURGBP", "GBPCHF",
+  "USDCAD", "GBPCAD", "AUDCAD", "AUDJPY", "GBPNZD", "EURJPY", "NZDCAD",
+  "USDJPY", "CADJPY", "EURAUD", "GBPJPY", "GBPAUD", "EURUSD", "AUDUSD",
+]
+
+# Your risk per trade, the same % on every trade. 1.0 is a placeholder until you choose;
+# `python app/lotsize.py EURUSD --stop 25` prints a table of options.
+risk_pct = 1.0
+
+# Price alerts for `python app/alerts.py`: a pop-up when the bid crosses `price`.
+# These are the edges of your reference boxes (docs/REFERENCE-AOIS.md). Add or edit freely.
+[[alert]]
+pair = "GBPUSD"
+price = 1.32199
+note = "top edge of your daily box"
+
+[[alert]]
+pair = "GBPUSD"
+price = 1.31598
+note = "bottom edge of your daily box"
+
+[[alert]]
+pair = "AUDUSD"
+price = 0.70890
+note = "bottom edge of your daily box (resistance above price)"
+
+[[alert]]
+pair = "AUDUSD"
+price = 0.71255
+note = "top edge of your daily box"
+
+[[alert]]
+pair = "AUDJPY"
+price = 110.580
+note = "top edge of your daily box"
+
+[[alert]]
+pair = "AUDJPY"
+price = 110.002
+note = "bottom edge of your daily box"
+
+[structure]
+# P-SWING-ATR: a swing point is confirmed when closes reverse by this many ATR(14).
+# 0.5 reproduces the course's EURUSD 4H and AUDJPY 4H/weekly examples (1.0 was too coarse).
+swing_atr = 0.5
+
+[data]
+# Broker server time minus New York time, in hours. 7 means broker midnight = 5 PM New York.
+# `python app/phase0.py` checks this against the weekly open and close, and against a live tick.
+server_ny_offset_hours = 7
+# Added to every pair name if the broker uses endings such as ".m".
+symbol_suffix = ""

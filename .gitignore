@@ -12,3 +12,5 @@ work/
 # never commit secrets
 .env
 *.key
+.pytest_cache/
+app/out/
