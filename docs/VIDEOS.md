@@ -11,6 +11,19 @@
 
 | 5 | "How Trading Dumb Made Me a Millionaire Trader (You Can Too)" (`KPVVOa6c6dY`) https://www.youtube.com/watch?v=KPVVOa6c6dY | fxalexg | 28:12 | 2026-10-09 | Merged (simple one-pair/timeframe/session/signal mode, session by market, TP matched to timeframe, holding rules). Cited as `[V5 mm:ss]` |
 
+| 6 | "This trading strategy is boring, but it makes me $150,000/week" (`1fGzVHI7rN0`) https://www.youtube.com/watch?v=1fGzVHI7rN0 | fxalexg | 21:13 | 2026-10-09 | Merged (no plan B, counter-weekly recipe, stop philosophy, 1:2 exit). Cited as `[V6 mm:ss]` |
+
+## Video 6: what it teaches
+
+Talk plus four recent trade reviews on TradingView (GBPNZD 1W, GBPCAD 1D, EURAUD 4H). Dollar results are his claims.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 7:54 | Losing and winning streaks: no plan B, every trade independent, redefine the trader not the strategy, ego |
+| 7:54 to 12:19 | GBPNZD counter-weekly buy (win): daily and 4H aligned toward a weekly AOI, 1:2 target |
+| 12:19 to 15:24 | NZDCAD loss (bought below a weekly level) and GBPCAD loss (stop hit then reversed) |
+| 15:24 to 19:56 | EURAUD sell (win at 1:2); target rule; quality over quantity; pre-calculated risk |
+
 ## Video 5: what it teaches
 
 Chart talk on TradingView (EURUSD 1D, 1H, 4H). 0:00 to 26:09 is content; the end is promotion.

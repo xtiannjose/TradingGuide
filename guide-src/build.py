@@ -120,8 +120,8 @@ COVER = """
 <h1>The Confluence<br>Trading Guide</h1>
 <div class="sub">Market structure, areas of interest and entry confirmation, explained step by step.</div>
 <div class="line"></div>
-<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos on entry confirmation, liquidity, price action and a simple version. Every rule has a picture, an example, and a place on the final checklist.</div>
-<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.4</div>
+<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up videos (entry confirmation, liquidity, price action, a simple version, and recent trades). Every rule has a picture, an example, and a place on the final checklist.</div>
+<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.5</div>
 </div>
 """
 
@@ -382,6 +382,7 @@ P6 = """
 <tr><td>Weekly</td><td><span class="pill g">Bullish</span></td><td>HH about 98.0, HL about 95.4</td></tr>
 <tr><td>Daily</td><td><span class="pill g">Bullish</span></td><td>HH about 98.4, HL about 96.6</td></tr>
 <tr><td>4-hour</td><td><span class="pill r">Bearish</span></td><td>LH about 98.1, LL about 97.8 (price about 97.88)</td></tr></tbody></table><p style="margin-top:2mm">Weekly and daily are in sync, so the market is worth watching for buys. The 4-hour disagrees, so he either takes the extra risk or waits for the 4-hour to turn bullish. He stressed that agreement means "it makes sense to buy", not "buy now". You still need an AOI and an entry signal.</p>}}
+{{CALL:ex|Trading against the weekly: his recipe|<p>He sometimes trades <b>against</b> the weekly trend and calls it aggressive. His GBPNZD buy (a win) and EURAUD sell (a win) followed the same steps:</p><ol style="margin:0 0 0 5mm"><li>The weekly is bearish but "overdue" for a deep retracement toward a weekly AOI.</li><li>The <b>daily</b> shifts (above its EMA, break and retest of structure) and the <b>4-hour agrees</b>. This is the "daily + 4H in sync" case from the table above.</li><li>Enter on the retest after the candle closes. Stop beyond the AOI or daily structure point.</li><li><b>Target 1:2, placed at the weekly AOI</b>, where the weekly may react.</li></ol><p style="margin-top:2mm">He also showed a loss: an NZDCAD buy taken <b>below</b> a weekly resistance, off a choppy 4-hour, which he says he "should have stayed away" from. Do not buy while price is below a weekly level.</p>}}
 {{CALL:warn|Common top-down mistakes|<ul><li>Comparing the weekly with the 4-hour and skipping the daily.</li><li>Using the 2-hour or lower charts to decide the trend. They are for entries only.</li><li>Treating agreement as a buy signal. It is only permission to keep looking.</li><li>Forgetting that each timeframe has its own HH, HL, LH and LL.</li></ul>}}
 """
 
@@ -510,12 +511,13 @@ P8 = """
 P9 = """
 <h2>Step 1: the stop loss</h2>
 <p>Put the stop <b>just beyond the level that would prove the idea wrong</b>. For a sell, a little above the zone or wick; for a buy, a little below. On his recorded NZDUSD trade he put it "10 to 15 pips above the wick", which made the stop about 20 pips from entry. Stops in his examples range from about 20 to 50 pips. There is no fixed pip rule, so the chart decides.</p>
+<p>He does <b>not</b> hunt for the tightest stop. He wants a level that is very hard for price to reach if the idea is right. Sometimes price hits the stop, then reverses and goes your way; he accepts those losses ("I'm entirely wrong about the direction, and that is totally fine").</p>
 <h2>Step 2: the target</h2>
 <p>Place the target at the <b>next structure point</b>: the previous swing low (for a sell) or high (for a buy), or the next 4-hour low. He picks a realistic one, not the furthest one ("we're not going to be greedy").</p>
 <p><b>Match your target to your entry chart.</b> The same head-and-shoulders entry on the 4-hour chart needed a smaller stop and reached a 1:2 target in about a day and a half. On the daily chart the stop was much larger and 1:2 took about 5 days; on the 1-hour about 10 hours. Never enter on a 1-hour chart and use a daily-chart target (or the reverse): a winner for that timeframe can turn into a loser.</p>
 <h2>Step 3: check the reward is worth the risk</h2>
 {{D:plan}}
-{{CALL:rule|Risk to reward|<ul><li>Every trade needs at least <b>1:2</b> (the reward at least twice the risk). "No ifs, ands or buts."</li><li>Set it up so that <b>1:4</b> is possible, and let it run to there.</li><li>Use TradingView's long/short position tool to read the ratio before you enter: the red box is your risk, the green box is your reward.</li></ul>}}
+{{CALL:rule|Risk to reward|<ul><li>Every trade needs at least <b>1:2</b> (the reward at least twice the risk). "No ifs, ands or buts."</li><li>Set it up so that <b>1:4</b> is possible, and let it run to there. In a later video his default is to <b>get out at 1:2</b> unless it clearly makes sense to hold on (for example when the target he chose sits at an area where he expects a reaction). Decide which rule you follow and keep it the same every time.</li><li>Use TradingView's long/short position tool to read the ratio before you enter: the red box is your risk, the green box is your reward.</li></ul>}}
 <h2>Real examples from his charts</h2>
 <div style="break-inside:avoid">
 <table>
@@ -524,6 +526,9 @@ P9 = """
 <tr><td>NZDUSD sell</td><td>20.2 pips</td><td>About 1:2</td><td>Ran far past the target; he closed at about 1:5</td></tr>
 <tr><td>USDCAD sell</td><td>20 pips</td><td>70 pips (1:3.5)</td><td>Hit the target</td></tr>
 <tr><td>GBPCHF sell</td><td>about 35 pips</td><td>Next 4-hour low</td><td>Closed at the target: about 1:2.7 (+102 pips)</td></tr>
+<tr><td>GBPNZD buy (against the weekly)</td><td>Below the AOI / daily structure</td><td>1:2 at the weekly AOI</td><td>Hit the target (about 5 days)</td></tr>
+<tr><td>EURAUD sell (H&amp;S at resistance)</td><td>45 pips</td><td>98.5 pips (R:R 2.18)</td><td>Closed at 1:2; price later went to about 1:6</td></tr>
+<tr><td>GBPCAD sell (perfect setup)</td><td>Above the area</td><td>-</td><td><b>Stopped out</b>, then price rose</td></tr>
 <tr><td>NZDCAD sell (H&amp;S)</td><td>about 37 to 39 pips</td><td>-</td><td><b>Stopped out (a loss)</b></td></tr>
 <tr><td>USDJPY sell (H&amp;S)</td><td>-</td><td>-</td><td><b>Loss</b>: up about 1:1, then price returned through the stop</td></tr>
 </tbody></table>
@@ -573,9 +578,8 @@ P10 = """
 <li><b>Missed profit is not a loss.</b> If the target is hit and price keeps going, you made money and you move on.</li>
 <li><b>Never try to catch up for lost time.</b> It "puts you in a deeper hole".</li>
 <li>No trade is guaranteed. Ten reasons can still lose.</li>
-</ul>
-{{CALL:ex|Example: scaling in with one target|<p>On a GBPCHF sell he entered three times: on the breakout of a tight range, then on a 15-minute pullback after an engulfing candle, then at the bottom of a rejection candle. All three shared the same stop and the same target, and he let it run to the target (about 1:2.7). He also split larger positions into several orders to limit slippage (poor fills) on the exit.</p>}}
-"""
+<li><b>No plan B.</b> In a losing streak do not change the strategy or your risk to win losses back. Every trade is independent of the last ten. To grow a winning streak, keep the same sessions and timeframe that got you there; do not start tightening stops or stretching targets.</li>
+</ul>"""
 
 P11 = """
 <h2>Once a week: pick your pairs</h2>
@@ -757,18 +761,12 @@ PC = """
 <table>
 <thead><tr><th style="width:34mm">Video time</th><th>What is taught</th></tr></thead>
 <tbody>
-<tr><td>0:00 to 0:56</td><td>Markets, trading styles, currency pairs, chart types, first look at TradingView</td></tr>
-<tr><td>0:56 to 1:29</td><td>Timeframes, candles and wicks, trading sessions, platforms, news calendar</td></tr>
-<tr><td>1:29 to 2:15</td><td>Broker and MetaTrader demo, TradingView setup, alerts, watchlist, drawing tools</td></tr>
-<tr><td>2:15 to 3:12</td><td>More tools, lot size, order types, fundamentals vs price action, first definition of structure</td></tr>
-<tr><td>3:12 to 4:01</td><td>Market structure: HH/HL/LL/LH, body closes, snake trick</td></tr>
-<tr><td>4:01 to 4:45</td><td>Structure replay, confirmed vs current, first top-down analysis</td></tr>
-<tr><td>4:45 to 5:35</td><td>Structure on AUDJPY, two timeframes in sync, the zone, AOI basics</td></tr>
-<tr><td>5:35 to 6:40</td><td>AOI rules in full, break of structure, break and retest, candlestick patterns</td></tr>
-<tr><td>6:40 to 7:14</td><td>Engulfing and star candles, head and shoulders</td></tr>
+<tr><td>0:00 to 1:29</td><td>Markets, trading styles, currency pairs, chart types, timeframes, candles and wicks, sessions, platforms, news calendar</td></tr>
+<tr><td>1:29 to 3:12</td><td>Broker and MetaTrader demo, TradingView setup, alerts, watchlist, drawing tools, lot size, order types, first definition of structure</td></tr>
+<tr><td>3:12 to 5:35</td><td>Market structure (HH/HL/LL/LH, body closes, snake trick), top-down analysis, the zone, AOI basics</td></tr>
+<tr><td>5:35 to 7:14</td><td>AOI rules in full, break of structure, break and retest, candlestick patterns, head and shoulders</td></tr>
 <tr><td>7:14 to 8:25</td><td>Head and shoulders wrap-up, the 50 EMA, confluence trading, a recorded NZDUSD trade, trade management</td></tr>
-<tr><td>8:25 to 9:48</td><td>The $100 to $1M challenge: risk ladder, risk:reward, weeks 1 to 8</td></tr>
-<tr><td>9:48 to 10:36</td><td>Challenge weeks 9 to 14, short recap, close</td></tr>
+<tr><td>8:25 to 10:36</td><td>The $100 to $1M challenge: risk ladder, risk:reward, weeks 1 to 14, short recap</td></tr>
 </tbody></table>
 <h2>Follow-up videos</h2>
 <ul>
@@ -776,6 +774,7 @@ PC = """
 <li>"How to Master Liquidity in Trading (Advanced Guide)" (19 min): <b>https://www.youtube.com/watch?v=Rua24ytuHuY</b>. The AOI as a liquidity zone and why he does not trade sweeps (Parts 7 and 8).</li>
 <li>"Price Action Trading Was Hard, Until I Discovered This" (25 min): <b>https://www.youtube.com/watch?v=WEyJ-zKAEoA</b>. Strong versus weak candles, wick fill, patterns as extra confluence, and the three break-and-retest entries (Part 8).</li>
 <li>"How Trading Dumb Made Me a Millionaire Trader (You Can Too)" (28 min): <b>https://www.youtube.com/watch?v=KPVVOa6c6dY</b>. The simple one-pair, one-timeframe, one-session version, session choice and matching targets to timeframes (Parts 1, 4, 9, 10). The title's "millionaire" is marketing.</li>
+<li>"This trading strategy is boring, but it makes me $150,000/week" (21 min): <b>https://www.youtube.com/watch?v=1fGzVHI7rN0</b>. Streak discipline and four recent trades (Parts 6, 9, 10). His dollar results are claims, not verified.</li>
 </ul>
 <h2>Credits and notes</h2>
 <ul>
