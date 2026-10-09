@@ -1,6 +1,6 @@
 # Build plan: the chart-analysis app
 
-Status: planned, not built. This file is the plan; `docs/ANALYSIS-SPEC.md` is what to build; `strategy/strategy.md` is where the rules come from.
+Status: phases 0 and 1 built (2026-10-10; phase 1 awaits the owner's chart check), phases 2 to 10 planned. What the owner still has to do is tracked in the to-do list in `docs/NEXT-STEPS.md`. This file is the plan; `docs/ANALYSIS-SPEC.md` is what to build; `strategy/strategy.md` is where the rules come from.
 
 ## 1. The goal
 

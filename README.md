@@ -19,6 +19,8 @@ Educational only. Not financial advice. Unofficial: not affiliated with the crea
 | `docs/AGENT-PROMPT.md` | The prompt template used for the study agents. |
 | `scripts/` | `setup.ps1` (check or install tools), `study-video.ps1` (download + captions + frames), `segment.py` (clean and split captions). |
 | `guide-src/` | Source that builds the PDF (HTML + SVG diagrams, printed by Edge). |
+| `app/` | The chart-analysis app (Python, reads MT5 candles): candle store, market structure, chart pictures, lot size calculator, price alerts, tests. See `docs/SETUP.md`. |
+| `docs/REFERENCE-AOIS.md` | The owner's hand-drawn boxes (the answer key for tuning) and Claude's separate draft ideas with confluences. |
 | `CLAUDE.md` | Standing instructions for Claude Code sessions in this repo. |
 
 ## Quick start
@@ -49,7 +51,7 @@ Then see `docs/WORKFLOW.md` to study another video, or `docs/BUILD-PLAN.md` to b
 - The PDF guide (version 1.7) covers all thirteen videos, with a new part for the three account plans (small account, prop challenge, $50 start).
 - See `docs/VIDEOS.md` for all thirteen, with upload dates and the rule that the newer upload wins. More candidate videos are listed there.
 - App v1 scope: the core rule set only (`strategy/strategy.md` section 1). Account modes and optional variants are parked so it runs his method the same way every time.
-- App: not built yet. The plan is in `docs/BUILD-PLAN.md` (its 7 decisions are confirmed: the defaults, starting with an MT5 demo on a Windows PC) and the exact rules are in `docs/ANALYSIS-SPEC.md`.
+- App: phases 0 and 1 built (candles, market structure, charts), plus a lot size calculator and price alerts; later phases follow. The plan is in `docs/BUILD-PLAN.md` (its 7 decisions are confirmed: the defaults, starting with an MT5 demo on a Windows PC) and the exact rules are in `docs/ANALYSIS-SPEC.md`.
 - More videos are expected. Each one is merged into `strategy/strategy.md`, with differences between teachers kept visible.
 
 ## Source credit

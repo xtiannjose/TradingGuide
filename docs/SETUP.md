@@ -16,6 +16,22 @@ One-time setup on a Windows machine. Run `.\scripts\setup.ps1` first: it checks 
 
 If `winget` says "No available upgrade found", the tool is already installed and current.
 
+## The app (`app/`)
+
+Needs the MetaTrader 5 terminal installed, open and logged in (a demo account works), on this same Windows PC.
+
+```powershell
+python -m pip install --user -r app/requirements.txt
+python -m pytest app          # tests, no terminal needed
+python app/phase0.py          # connects to MT5, pulls EURUSD, checks the New York 5 PM boundary
+python app/chart.py EURUSD    # structure read of W, D and 4H, pictures in app/out/
+python app/lotsize.py EURUSD --stop 25            # lot size and a table of risk levels
+python app/alerts.py --test                       # one pop-up, to check pop-ups work
+python app/alerts.py                              # watch the [[alert]] levels in settings.toml
+```
+
+Broker settings (server offset, pair-name ending) are in `app/settings.toml`. Never put a login there.
+
 ## The `watch` plugin (video to captions and frames)
 
 In Claude Code:

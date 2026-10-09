@@ -207,9 +207,9 @@ One image per timeframe that matters (weekly, daily, signal timeframe), embedded
 | `P-TZ` | Clock and candle boundary | America/New_York, 5 PM close | course (inferred) |
 | `P-WINDOW` | Entry window | 01:00 to 10:30 | course |
 | `P-DAYS` | Entry days | Mon to Wed | course |
-| `P-SWING-ATR` | ZigZag reversal threshold | 1.0 x ATR(14) | app default |
-| `P-SOFT-BODY` | Single-candle pullback counts if body at least | 1.0 x ATR | app default |
-| `P-CONFIRM-ATR` | Retrace to confirm an HH/LL | 1.0 x ATR | app default |
+| `P-SWING-ATR` | ZigZag reversal threshold | 0.5 x ATR(14) | app default, tuned in phase 1: reproduces the EURUSD 4H flip (HL 1.1713, close 1.1698) and the AUDJPY 4H and weekly reads; 1.0 was too coarse. The AUDJPY daily HL (a 0.28 dip) needs about 0.4 and is left to the owner's chart check |
+| `P-SOFT-BODY` | Single-candle pullback counts if body at least | not used | A one-candle pullback of at least `P-SWING-ATR` is already a swing |
+| `P-CONFIRM-ATR` | Retrace to confirm an HH/LL | same as `P-SWING-ATR` | An extreme is confirmed when its swing point is |
 | `P-LOOKBACK` | W / D / 4H | 6y / 2y / 12mo | course |
 | `P-AOI-MIN-TOUCH` | Touches for an AOI | 3 | course |
 | `P-AOI-MIN-PIPS`, `P-AOI-MAX-PIPS` | AOI height | 5, 60 (sweet spot 20 to 35) | course |
