@@ -12,8 +12,49 @@
 | 8 | "How to Grow a Small Trading Account From Scratch in 2026" (`LwMsai2ppKc`) https://www.youtube.com/watch?v=LwMsai2ppKc | fxalexg | 52:32 | 2026-10-09 | Merged (small-account mode: fixed-dollar risk, 1:3 minimum, three timeframes in sync, no Sunday/Thursday entries, psychology). Uploaded 2026-02-22, older than videos 2 to 7. Cited as `[V8 h:mm:ss]` |
 | 9 | "This is Boring, But it'll make your first $100,000 Trading" (`MhWSZp4yS2c`) https://www.youtube.com/watch?v=MhWSZp4yS2c | fxalexg | 1:23:24 | 2026-10-09 | Merged (three steps in order, LT sector and weighted vote, AOI rules, entry gate, stop 5 to 10 pips beyond the AOI). Whiteboard only. Uploaded 2026-06-28. Cited as `[V9 h:mm:ss]` |
 | 10 | "The Prop Firm Industry is Going to Hate Me For This Free Course" (`7QNdSEwQUJE`) https://www.youtube.com/watch?v=7QNdSEwQUJE | fxalexg | 1:18:24 | 2026-10-09 | Merged (prop-firm rules, his four challenge rules, five real trades). Newest video studied, uploaded 2026-09-06. Cited as `[V10 h:mm:ss]` |
+| 11 | "The Only Trading Strategy You Need To Be Profitable \| Swing Trading" (`1dL3xmxA2e0`) https://www.youtube.com/watch?v=1dL3xmxA2e0 | fxalexg | 27:19 | 2026-10-09 | Merged (Sunday analysis, daily shift shows the weekly retracement, stop at a level, weekly-close hold, GBPNZD trade). Says it is not his entry method. Uploaded 2026-05-25. Cited as `[V11 mm:ss]` |
+| 12 | "Best Top Down Analysis Strategy for 2026 \| Forex Trading Guide" (`pD1vAUMbSjw`) https://www.youtube.com/watch?v=pD1vAUMbSjw | fxalexg | 33:01 | 2026-10-09 | Merged (four sectors and a score, HL always behind HH, AOI on W and D, wait or take the risk when the 4H turns). Uploaded 2026-02-02, the oldest after video 1. Cited as `[V12 mm:ss]` |
+| 13 | "How to Start Trading with Just $50" (`hb7ot1_szWI`) https://www.youtube.com/watch?v=hb7ot1_szWI | fxalexg | 37:12 | 2026-10-09 | Merged ($50-start mode: 1 to 2 intraday trades a week, majors, 4H head and shoulders only, cheat sheet, 0.5 to 1% on a challenge). Uploaded 2026-07-26. First download had Arabic captions; studied from the en-orig redo. Cited as `[V13 mm:ss]` |
 
-**Precedence.** The newer upload wins when two videos disagree. Order, oldest first: video 1, video 8 (2026-02-22), videos 2 to 7 (about April to June 2026, exact order among them unconfirmed), video 9 (2026-06-28), video 10 (2026-09-06). Dates come from the video page or the channel listing (the listing is approximate). Videos 8 to 10 were merged while three others (`1dL3xmxA2e0`, `pD1vAUMbSjw`, `hb7ot1_szWI`) were still unstudied.
+**Precedence.** The newer upload wins when two videos disagree. Exact upload dates (yt-dlp, checked 2026-10-09), oldest first: video 1 (2025-09-28), video 12 (2026-02-02), video 8 (2026-02-22), video 7 (2026-04-05), video 2 (2026-04-16), video 6 (2026-04-21), video 11 (2026-05-25), video 3 (2026-06-04), video 4 (2026-06-09), video 5 (2026-06-14), video 9 (2026-06-28), video 13 (2026-07-26), video 10 (2026-09-06). Videos 11 to 13 were studied directly (short videos, no study agents) from the cleaned captions plus 8 frames each.
+
+## Video 13: what it teaches
+
+Talking head with on-screen cards, plus TradingView (EURAUD 4H). 0:00 to 34:12 is content; the end is promotion.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 4:07 | Be realistic: $50 is the learning phase, not the scaling phase |
+| 4:07 to 9:15 | 1 to 2 trades a week; intraday (target same or next day); majors only, but scan all of them |
+| 9:56 to 19:42 | Prop challenge vs broker account; his path: pass, take the payout, scale a personal account (partly promotion) |
+| 19:42 to 27:39 | The head and shoulders: never anticipate, valid only on the structure shift, enter on the neckline retest |
+| 27:39 to 31:06 | 4H only on the majors; EURAUD examples; stop above the wick, target next structure, closed at 1:2; tunnel vision |
+| 31:06 to 34:12 | Cheat sheet: one setup, confirmation, psychological levels, 1% or 0.5% fixed risk, 1:2 minimum |
+
+## Video 12: what it teaches
+
+Chart tutorial on TradingView (GBPUSD weekly, daily, 4H, line chart). 0:00 to 31:40 is content; the end is promotion.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 2:25 | Why top-down analysis applies to every style |
+| 2:25 to 7:56 | Four sectors (W foundation, D walls, 4H concrete, 2H to 15m inside); top to bottom; overall score; one weekly candle = five daily |
+| 7:56 to 20:22 | Structure: HH/HL, LH/LL, breaks, new HH brings new HL, bodies not wicks, line-chart hack |
+| 20:22 to 25:31 | GBPUSD W, D, 4H all bullish; the HL is always behind the HH |
+| 25:31 to 29:39 | "Big reset": AOI only inside the zone, only on W and D, overlap labelled "weekly and daily AOI" |
+| 29:39 to 31:40 | The 4H turns against you on the pullback: wait or take the risk; entry on rejection candles or an engulfing |
+
+## Video 11: what it teaches
+
+Talk, then TradingView (GBPNZD weekly and daily). 0:00 to 26:00 is content; the end is promotion.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 7:31 | Swing vs day vs scalp: hold times, trades per period, win rates; the weekly close decides; day trades inside a swing |
+| 7:31 to 11:16 | Patience is the main difficulty; retracements after entry are normal |
+| 11:16 to 17:50 | GBPNZD: weekly shifted bearish, expect the lower-high leg; daily shift shows it; levels above/below; "the ABCs", not his entry |
+| 17:50 to 22:36 | EMA side, lower-timeframe entry, stop at a level (never a pip number), target at the weekly area above 2.3000, closed at 1:2; missed the short |
+| 22:36 to 26:00 | Sunday analysis with the market closed; remove trades that make no sense |
 
 
 ## Video 10: what it teaches
@@ -152,21 +193,29 @@ Citations in `strategy/strategy.md` use these part letters, for example `[E 3:44
 
 Add each new video as a new row above and its own part table below, using `docs/WORKFLOW.md`.
 
-### Candidates on the same channel (found 2026-10-09; studied since: `LwMsai2ppKc`, `MhWSZp4yS2c`, `7QNdSEwQUJE`)
+### Candidates on the same channel (found 2026-10-09; studied since: `LwMsai2ppKc`, `MhWSZp4yS2c`, `7QNdSEwQUJE`, `1dL3xmxA2e0`, `pD1vAUMbSjw`, `hb7ot1_szWI`)
 
-The channel has about 200 videos. These are the ones most likely to fill the gaps listed in `strategy/strategy.md` section 7. Titles are as listed on the channel; the video id goes after `watch?v=`. Priority 1 fills a gap the app needs.
+The channel has about 200 videos. These are the ones most likely to fill the gaps listed in `strategy/strategy.md` section 7. Titles are as listed on the channel; the video id goes after `watch?v=`. Priority 1 fills a gap the app needs. Upload dates were checked with yt-dlp on 2026-10-09.
 
-| Priority | Fills this gap | Video (id, length) |
-|---|---|---|
-| 1 | Base risk % | "Best Risk Management Strategy to Make Millions with Trading" (`VzMlFZbWA0Y`, 12:38) |
-| 1 | EMA settings and use | "How to Trade FOREX with Moving Averages. Part 1" (`R24MdNFjAGU`, 10:07); "How to Trade GBPJPY with EMA. Pt. 2" (`P4pHJaDGkHU`, 12:59) |
-| 1 | AOI definition (box size, touches) | "Learn How THIS Forex AOI SECRET Bought Me A $200,000 Watch" (`urX1iWvHc5g`, 9:16); "Support & Resistance Trading Strategy Was Hard, Until I Understood This" (`7KedELXv68I`, 21:32) |
-| 1 | The fuller entry signal | "Live Forex Session With 965 Traders - Full Strategy Reveal (Pt. 1)" (`frXFCucMp6w`, 12:22); "The Only Trading Strategy You Need To Be Profitable | Swing Trading" (`1dL3xmxA2e0`, 27:20) |
-| 2 | Top-down analysis routine | "Best Top Down Analysis Strategy for 2026" (`pD1vAUMbSjw`, 33:01); the 2025 version (`FmKJDOSUAUY`, 27:30) |
-| 2 | Structure and swing definition | "Simplifying Advanced Market Structure in 20 Minutes" (`sZAE_lqdeno`, 20:45); "Easiest Forex Trading Strategy... | Shift of Structure" (`X0Ua4XeA2Xo`, 19:46) |
-| 2 | News filter | "How to Use the News to Make Money Trading Forex | Fundamental Analysis" (`x7Ki7QV7USU`, 7:45) |
-| 3 | Candle shape numbers | "EVERY Candlestick Pattern YOU Need to Know to Trade Forex" (`kLLMCoPb6h0`, 32:50); "6 Reversal Candlestick Patterns" (`ibgnOrk9MLo`, 8:57) |
-| 3 | Test cases and evidence | "Live Forex swing trade breakdown with the students # Sunday Swings" (`c5PdraC8KkA`, 9:12); "Live Swing Trading Forex At Its SIMPLEST Market BREAKDOWN" (`Yn6Yltqnk9Q`, 16:52); "How I Made $58K Trading in 60 Days - Full Strategy + Track Record" (`S5n1Jmhbydo`, 17:12) |
-| 3 | Head and shoulders detail | "How this Trading Strategy Made Me $70,000 in 1 Day | Head And Shoulders Pattern" (`JA4N8nlycXY`, 13:00) |
+**All of these are older than every video already studied** (the oldest studied is video 1, 2025-09-28). Under "newer wins" they can only fill a gap (something the studied videos never state); where they disagree with a studied video, the studied video's rule stays and the older one goes into the conflicts table as history.
 
-Most of the 200 are vlogs, challenges and promotions; skip those. Studying priority 1 and 2 is about 3.5 hours of video.
+| Priority | Fills this gap | Video (id, length) | Uploaded |
+|---|---|---|---|
+| 1 | Base risk % | "Best Risk Management Strategy to Make Millions with Trading" (`VzMlFZbWA0Y`, 12:38) | 2024-01-28 |
+| 1 | EMA settings and use | "How to Trade FOREX with Moving Averages. Part 1" (`R24MdNFjAGU`, 10:06) | 2022-04-26 |
+| 1 | EMA settings and use | "How to Trade GBPJPY with EMA. Pt. 2" (`P4pHJaDGkHU`, 12:58) | 2022-07-12 |
+| 1 | AOI definition (box size, touches) | "Learn How THIS Forex AOI SECRET Bought Me A $200,000 Watch" (`urX1iWvHc5g`, 9:15) | 2022-11-29 |
+| 1 | AOI definition | "Support & Resistance Trading Strategy Was Hard, Until I Understood This" (`7KedELXv68I`, 21:32) | 2023-12-17 |
+| 1 | The fuller entry signal | "Live Forex Session With 965 Traders - Full Strategy Reveal (Pt. 1)" (`frXFCucMp6w`, 12:22). (`1dL3xmxA2e0` is now video 11; it did not reveal the entry.) | 2022-02-07 |
+| 2 | Top-down analysis routine | "The Best Top Down Analysis Strategy for 2025" (`FmKJDOSUAUY`, 27:30). (`pD1vAUMbSjw` is now video 12.) | 2024-06-20 |
+| 2 | Structure and swing definition | "Simplifying Advanced Market Structure in 20 Minutes" (`sZAE_lqdeno`, 20:44) | 2025-02-10 |
+| 2 | Structure and swing definition | "Easiest Forex Trading Strategy to be Profitable in 2025 \| Shift of Structure" (`X0Ua4XeA2Xo`, 19:46) | 2024-01-22 |
+| 2 | News filter | "How to Use the News to Make Money Trading Forex \| Fundamental Analysis" (`x7Ki7QV7USU`, 7:45) | 2023-11-01 |
+| 3 | Candle shape numbers | "EVERY Candlestick Pattern YOU Need to Know to Trade Forex" (`kLLMCoPb6h0`, 32:50) | 2024-03-03 |
+| 3 | Candle shape numbers | "6 Reversal Candlestick Patterns You Need To Know Before Starting Trading" (`ibgnOrk9MLo`, 8:56) | 2023-09-28 |
+| 3 | Test cases and evidence | "Live Forex swing trade breakdown with the students # Sunday Swings" (`c5PdraC8KkA`, 9:12) | 2021-04-26 |
+| 3 | Test cases and evidence | "Live Swing Trading Forex At Its SIMPLEST Market BREAKDOWN" (`Yn6Yltqnk9Q`, 16:52) | 2021-05-11 |
+| 3 | Test cases and evidence | "How I Made $58K Trading in 60 Days - Full Strategy + Track Record" (`S5n1Jmhbydo`, 17:11) | 2022-02-14 |
+| 3 | Head and shoulders detail | "How this Trading Strategy Made Me $70,000 in 1 Day \| Head And Shoulders Pattern" (`JA4N8nlycXY`, 12:59) | 2024-02-07 |
+
+Most of the 200 are vlogs, challenges and promotions; skip those. Studying priority 1 and 2 is about 2.6 hours of video.

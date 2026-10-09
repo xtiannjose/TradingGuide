@@ -1,6 +1,6 @@
 # Analysis spec v1: what the app computes
 
-This is the app-ready version of `strategy/strategy.md`: the rules turned into inputs, steps, parameters, outputs and tests. `strategy/strategy.md` explains where each rule comes from and how sure we are. This file says exactly what to build.
+This is the app-ready version of the **core rule set** in `strategy/strategy.md` section 1: the rules turned into inputs, steps, parameters, outputs and tests. One rule set, no modes; parked extras are listed in section 13. `strategy/strategy.md` explains where each rule comes from and how sure we are. This file says exactly what to build.
 
 Where the videos give a number, it is used and marked **course**. Where they leave a choice to the eye, the value here is an **app default**: my suggestion, adjustable in a settings file, to be checked against real charts (see `docs/BUILD-PLAN.md`).
 
@@ -31,19 +31,10 @@ Where the videos give a number, it is used and marked **course**. Where they lea
 | Setting | Meaning | Default |
 |---|---|---|
 | `pairs` | List of forex pairs to analyse | the 21 pairs of his "Blue list" |
-| `mode` | `full` (weekly, daily, 4H top-down) or `simple` (one pair, one timeframe, one session) | `full` |
-| `simple.timeframe` / `simple.session` | For simple mode | `4H`, `London` |
-| `risk_pct`, `account_balance`, `account_currency` | For lot size | `risk_pct` has no course default; placeholder 1.0, user must confirm |
-| `weekdays` | Allowed entry days | Mon, Tue, Wed |
-| `window` | Allowed entry hours, New York | 01:00 to 10:30 |
+| `risk_pct`, `account_balance`, `account_currency` | For lot size. The same % on every trade (videos 8, 10, 13) | `risk_pct` has no course default; placeholder 1.0, user must confirm |
 | `display_tz` | Second clock shown next to New York time everywhere | `Asia/Manila` |
-| `exit_policy` | `next_structure` or `rr2` (see 8.2) | `next_structure` |
-| `strict_engulfing` | Engulfing must cover two bodies | off |
-| `account_mode` | `standard`, `small_account` (videos 8: fixed-dollar risk, R:R at least 1:3, all three timeframes in sync, no counter-weekly, no Sunday, no Thursday after 09:00) or `prop` (video 10: news block, one position at a time, one trade a day, same risk every trade) | `standard` |
-| `news_block_min` | Block new entries this many minutes before and after news (needs a calendar feed) | `prop`: 10; otherwise off |
-| `weekend_policy` | `hold_if_reaching` (video 5) or `hold_only_at_tp` (video 10, newest) | `hold_only_at_tp` in `prop`, otherwise `hold_if_reaching` |
-| `aoi_4h` | Allow minor 4H AOIs (videos 9 and 10) | on |
-| `lt_vote` | Show the lower-timeframe (2H/1H/30m/15m) bias as an extra (video 9) | on |
+
+There are deliberately no switches between rule versions: app v1 runs one core rule set (`strategy/strategy.md` section 1). Everything that used to be a mode or an option is listed in section 13 (parked).
 
 ## 2. Data needed per pair
 
@@ -61,11 +52,10 @@ The 50 EMA is computed on each timeframe from closes (course). Candles must be g
 1. Convert "now" (or the candle time being analysed) to New York time.
 2. **T1** Sydney/Tokyo-only hours are closed (course).
 3. **T2** Entry window: 01:00 to 10:30 New York (course; he says "10:00" in places).
-4. **T3** Weekdays: Monday to Wednesday (course, with exceptions he allows). Never Sunday; Thursday only before 09:00 New York (video 8, `small_account` mode and as a standard exception).
-5. **T4** Session by market (simple mode): London unless the market is the S&P or gold (New York) (course).
-6. **T5** If a confirmation prints outside the window, the verdict is `WAIT_FOR_SESSION` until the hour before London (course).
-7. **T6** Not the first minutes of Monday's open nor the last 3 hours before the weekly close (course, no exact minutes: app default 3 hours at the close, 1 hour at the open).
-8. Output: `time_gate: pass | fail(reason)`.
+4. **T3** Weekdays: Monday to Wednesday only (video 2). Sunday, Thursday and Friday fail with `weekday`. (His rare Thursday exceptions are discretionary and not coded.)
+5. **T5** If a confirmation prints outside the window, the verdict is `WAIT_FOR_SESSION` until the hour before London (course).
+6. **T6** Not the first minutes of Monday's open nor the last 3 hours before the weekly close (course, no exact minutes: app default 3 hours at the close, 1 hour at the open).
+7. Output: `time_gate: pass | fail(reason)`.
 
 ## 4. Module B: market structure (per timeframe)
 
@@ -94,9 +84,10 @@ otherwise -> no change (touches, wicks, small swings)
 
 - Use **bodies**: for the break test compare the close (and, for drawing lines, body tops/bottoms) with the level. Wicks never count.
 - A new HH always creates a new HL; a new LL always creates a new LH.
+- The paired point is always **earlier in time** than its extreme: `HL.time < HH.time`, `LH.time < LL.time` (video 12: "the higher low could never be in the future"). A pullback low after the current HH is not the HL until a new HH forms.
 - **Snake trick:** from the new extreme at candle i, walk back; the first pivot of the opposite type that passes the pivot filter is the paired point. Soft bumps that fail the filter are skipped; a clearly strong single candle can count (app default: a single-candle pullback counts only if its body is at least `P-SOFT-BODY` of ATR).
 - An extreme is **current** while its candle is open or price is still pushing, and **confirmed** once its candle has closed and price has pulled back at least `P-CONFIRM-ATR x ATR`. Report both.
-- **Initial anchor:** start from the most obvious highest high in the lookback (course) and replay forward; the state after the last closed candle is the answer. Do not re-read history each day: store the state and update it on each new closed candle.
+- **Initial anchor** (app default; the course starts by eye from "the most obvious highest high"): take the first confirmed pivot high H0 and pivot low L0 in the lookback; the first body close above H0 starts the state as bull (HH from that push, HL by the snake trick), the first body close below L0 starts it as bear. Replay forward from there; the state after the last closed candle is the answer, and the same candles always give the same state. Do not re-read history each day: store the state and update it on each new closed candle.
 - Never infer the trend from price level.
 
 ### 4.3 Output example (one timeframe)
@@ -109,11 +100,11 @@ otherwise -> no change (touches, wicks, small swings)
 ## 5. Module C: alignment, zone, weekly bias
 
 1. Run Module B on weekly, daily and 4H.
-2. **C1 Alignment** (course): pass if weekly and daily agree, or daily and 4H agree. Weekly and 4H alone do not count. **Grade A ("low risk", video 8)** when all three agree; **grade B ("mid risk")** when weekly and daily agree and the 4H disagrees (video 8: probably wait for the 4H to realign; video 9: the weekly and daily outweigh the lower sectors, so it still passes). In `small_account` mode only grade A passes. Report the **LT bias** (2H, 1H, 30m, 15m) as an extra vote (video 9); it never decides the gate.
-3. **C2 Higher-risk flags**: weekly against daily/4H ("counter-weekly", label "high risk"; allowed only in his video-6 form, see 8.4, and blocked in `small_account` mode); weekly+daily agree but 4H differs ("take the risk or wait").
+2. **C1 Alignment**: pass only if the **weekly and daily agree**; that sets the direction. Risk label **`low`** when the 4H agrees too; **`mid`** when the 4H is against, which is normal while price pulls back into the AOI (videos 8, 9, 12).
+3. **C2 Counter-trend**: daily (and 4H) against the weekly is his "high risk" counter-trend case: verdict `NO_TRADE(counter_trend)`, reported so the user sees it. Weekly and daily disagreeing in any other way: `NO_TRADE(no_alignment)`.
 4. **C3 Zone** per timeframe: between HH and HL (bull) or LH and LL (bear). Price must be inside the zone of the timeframe being used; if price is outside, the state would already have flipped.
-5. **C4 Weekly bias** (video 7): fixed at Sunday 5:00 PM New York from the weekly/daily/4H states and stored. During the week it changes only when a state flip from Module B changes the higher-timeframe alignment. The bias is shown in every report.
-6. **C5** Do not buy while price is below a weekly level, nor sell while above one (video 6).
+5. **C4 Weekly bias** (video 7): fixed at Sunday 5:00 PM New York from the weekly and daily states and stored. During the week it changes only when a state flip from Module B changes the higher-timeframe alignment. The bias is shown in every report.
+6. **C5 Weekly level in the way** (video 6: do not buy below a weekly level, nor sell above one): if an opposing weekly AOI (resistance for a buy, support for a sell) starts between the entry and the 2R point, the verdict is `NO_TRADE(against_weekly_level)`.
 
 ## 6. Module D: areas of interest
 
@@ -122,7 +113,7 @@ Input: weekly and daily candles, their zones. Output: up to `P-AOI-MAX-COUNT` AO
 1. **Candidates**: cluster the structure pivots (closes/bodies) that lie inside the zone. A box is a price band whose height is at most `P-AOI-MAX-PIPS` and at least `P-AOI-MIN-PIPS` (course 60 and 5), as tight as possible while containing the touches (do not stretch for more touches). Sweet spot 20 to 35 pips (course).
 2. **Touch** (app default): a pivot whose body extreme lies inside the box expanded by `P-TOUCH-TOL`; two touches must be at least `P-TOUCH-GAP` candles apart. Support and resistance touches may be mixed (course). Wicks do not create touches (course).
 3. **Valid** if touches >= `P-AOI-MIN-TOUCH` (3, course). More touches rank higher ("more than three" ideal, video 3).
-4. **Inside the zone** only (course): drop any box outside the HH-HL (bull) or LH-LL (bear) zone of its timeframe. Weekly AOIs are checked against the weekly zone, daily against the daily zone. Weekly and daily AOIs first. Videos 9 and 10 (newer than the 2025 note "4hr NO AOI") allow AOIs on the 4H as well; with `aoi_4h` on, draw them and mark `minor=true`, ranked below weekly and daily. Look back at least two years for AOIs (video 10).
+4. **Inside the zone** only (course): drop any box outside the HH-HL (bull) or LH-LL (bear) zone of its timeframe. Weekly AOIs are checked against the weekly zone, daily against the daily zone. Weekly and daily AOIs first. Videos 9 and 10 (newer than the 2025 note "4hr NO AOI") allow AOIs on the 4H as well: draw them, mark `minor=true`, rank them below weekly and daily. Look back at least two years for AOIs (video 10).
 5. **Merge** a weekly and a daily AOI that overlap into one box that still has at least 3 touches on both; mark `overlap=true` (course).
 6. Keep at most 3 (video 9: typically 2 to 3), preferring nearness to price, then touches (a soft score: more taps are not a hard rank, video 9); drop boxes far behind another zone (course). Rank by nearness: the nearest AOI is the first.
    - **Independent AOIs** (video 9): evaluate each AOI as its own trade; a lost trade at one does not affect the next AOI.
@@ -143,61 +134,40 @@ For a bullish setup (mirror for bearish), with `range = high - low`:
 - **Doji**: body <= `P-DOJI-BODY` x range.
 - **Rejection**: body <= `P-REJ-BODY` x range and the rejection-side wick >= 2 x body and >= 50% of range. Includes dragonfly doji and hammer.
 - **Hammer**: rejection candle with an upper wick <= 10% of range. **Inverted hammer / wick fill**: upper wick >= 50% of range, lower wick <= 10%.
-- **Engulfing**: the last candle's body closes beyond the bodies of the previous N candles; **N >= 1** is valid (course, videos 2 and 5); grade = N (N >= 2 is "strong"; whole consolidation = his favourite). If `strict_engulfing`, require N >= 2. Wicks ignored; a hairline excess counts.
+- **Engulfing**: the last candle's body closes beyond the bodies of the previous N candles; **N >= 1** is valid (course, videos 2 and 5); grade = N (N >= 2 is "strong"; whole consolidation = his favourite). Wicks ignored; a hairline excess counts.
 - **Morning / evening star**: a doji or hammer candle followed by an engulfing candle that covers it and the one before (his form).
 - Rejected and ignored: piercing line, three soldiers/crows, dark cloud cover.
-- **Confirmation**: a rejection and/or an engulfing at the AOI. Both together or several dojis first score higher. Higher timeframe scores higher (daily > 4H > 1H > 30m).
+- **Confirmation**: a rejection and/or an engulfing at the AOI. Both together or several dojis first score higher. Higher timeframe scores higher (daily > 4H > 2H > 1H > 30m > 15m).
+- **Which candle counts** (app default, so every run picks the same one): check the daily, 4H, 2H, 1H, 30m and 15m. A confirmation counts only if it is the **latest closed candle** of its timeframe (video 9 enters at the next candle's open, so an older one is stale). If several timeframes confirm at once, report the highest timeframe.
 - **Strength by location**: the same candle away from an AOI is weak and ignored (video 4).
-- **Wick fill (informational)**: a daily candle with a long lower (upper) wick where the 4H inside the day went against, then made a higher low (lower high): flag `wick_fill`; do not cancel the setup because of one contrary candle when the AOI has 3+ touches (video 4).
 
 ### 7.2 Patterns (all optional extras, never a trade by themselves)
 
-- **Break and retest**: (1) price at an AOI; (2) a body close beyond the box; (3) within `P-RETEST-WINDOW` entry-timeframe candles price returns into the box; (4) a rejection candle there; then enter on the far side of the box. Ranked entries: on the breakout (off by default), retest without a rejection (off), retest with a rejection (default). If the retest never comes, `missed`.
+- **Break and retest**: (1) price at an AOI; (2) a body close beyond the box; (3) within `P-RETEST-WINDOW` entry-timeframe candles price returns into the box; (4) a rejection candle there; then enter on the far side of the box. Only the retest with a rejection candle counts (his favourite). If the retest never comes, `missed`.
 - **Head and shoulders (and inverse)**: five alternating pivots (left shoulder, trough, head higher than both shoulders, trough, right shoulder) on bodies; neckline is horizontal at the previous higher low; **valid only after a body close below the neckline** (structure shift); then wait for the retest of the neckline (which should coincide with an AOI) and a confirmation candle. **Never signal on a potential pattern or the right shoulder.** Mirror for the inverse. Double top/bottom uses the same neckline rule.
-- **Consolidation breakout**: a tight range at an AOI, breakout by body close, quick retest, rejection or engulfing.
-
-### 7.3 Chase flag
-
-If price is at or within `P-CHASE-ATR` x ATR of the latest swing extreme and has not pulled back at least 1 x ATR from it, flag `chase` and downgrade (course: never buy the high or sell the low, videos 3 and 7).
-
 ## 8. Modules F and G: verdict, plan, size
 
 ### 8.1 Verdict
 
 States:
 
-- `NO_TRADE(reason)`: a gate failed. Reasons: `time`, `weekday`, `no_alignment`, `no_aoi`, `price_not_at_aoi`, `no_confirmation`, `against_weekly_level`, `chase`, `rr_below_2`, `news_block` (prop mode), `account_rule` (mode-specific limit such as open position or daily trade cap).
+- `NO_TRADE(reason)`: a gate failed. Reasons: `time`, `weekday`, `no_alignment`, `counter_trend`, `no_aoi`, `price_not_at_aoi`, `no_confirmation`, `against_weekly_level`, `rr_below_2`.
 - `WATCH`: structure and alignment pass and an AOI exists, but price is not at it (or the confirmation is not closed yet). The report gives the AOI edges as alert levels and says what is awaited.
-- `WAIT_FOR_SESSION`: a confirmation closed outside the time gate; enter in the pre-London hour (T5).
+- `WAIT_FOR_SESSION`: a confirmation closed outside the time gate; enter in the pre-London hour (T5). Only if that hour falls on Monday to Wednesday (otherwise `NO_TRADE(weekday)`), and only while price is still inside or at the AOI with no body close beyond its far edge (app default).
 - `SIGNAL`: every core gate passes and a confirmation has closed. Carries the plan below.
 
-Core (mandatory): trend (alignment), AOI at price, closed confirmation. Extras (never mandatory): all three timeframes aligned, weekly+daily AOI overlap, break and retest, a pattern neckline at the AOI, higher-timeframe candle, EMA rejection, round number, previous daily level, many touches. **Grade (app default)**: A = core + three-timeframe alignment + at least two extras; B = core + at least one extra; C = core only. The course gives no weights; show the checklist and let the user judge.
+Core (mandatory): trend (weekly and daily aligned), AOI at price, closed confirmation. Extras (never mandatory): the 4H aligned too, weekly+daily AOI overlap, break and retest, a pattern neckline at the AOI, higher-timeframe candle, EMA rejection, round number, previous daily level, many touches. **Grade (app default)**: A = core + risk `low` (4H agrees) + at least two extras; B = core + at least one extra; C = core only. The course gives no weights; show the checklist and let the user judge.
 
 ### 8.2 Plan (course numbers where given)
 
-- **Stop** (video 9, newer): beyond the **whole AOI** (the far edge), not the signal candle's wick, plus `P-STOP-BUFFER` (5 to 10 pips from the AOI edge; the older NZDUSD example was 10 to 15 pips beyond a wick). Video 10 keeps the stop tight on purpose so that 1:2 holds. If the target is then closer than 1:2 the setup is skipped (`rr_below_2`), not squeezed inside the AOI. Stop and target are set on the entry timeframe (video 9: stop on the 4H and target on the daily when the AOI is on the daily).
-- **Order of actions and entry price** (video 9): the signal candle closes; set stop, then take profit; enter at the **next candle's open** (market entry).
-- **Target**: the next structure point or opposing AOI edge. Let `R_next` = distance to it divided by the stop distance.
-  - `R_next < 2` -> `NO_TRADE(rr_below_2)` (course: minimum 1:2).
-  - `exit_policy = next_structure`: target at the next structure point, capped at `P-RR-CAP` (4, video 7: "at 1:4 the trade is done").
-  - `exit_policy = rr2`: target at exactly 2 R (video 6: "always get out at a 1:2" unless it clearly makes sense to hold); also report where the next structure sits.
-- **Target and entry timeframe must match** (video 5): derive stop and target from the same timeframe as the entry candle, and show the expected time to target as a note (4H about 1.5 days, daily about 5 days in his example).
+- **Entry** (video 9): the signal candle closes; set stop, then take profit; enter at the **next candle's open** (market entry). Before that candle opens the report uses the signal close as the estimate.
+- **Stop** (video 9, newer): beyond the **far edge of the AOI box** the signal formed at (weekly, daily, merged or minor 4H), plus `P-STOP-BUFFER` (5 to 10 pips). It does not depend on the signal candle's timeframe or wick. Video 10 keeps the stop tight on purpose so that 1:2 holds: if the target is then closer than 1:2 the setup is skipped, never squeezed inside the AOI.
+- **Target** (videos 9 and 13: "the nearest structure point", the last place the market reacted from; app default for which one): the nearest of (a) the latest confirmed swing pivot beyond the entry in the trade direction on `P-TARGET-TF` (daily and 4H), and (b) the near edge of the nearest opposing AOI. Let `R_next` = distance to the target divided by the stop distance.
+  - `R_next < 2` -> `NO_TRADE(rr_below_2)` (every video: minimum 1:2).
+  - `R_next > 4` -> target capped at 4R (`P-RR-CAP`, video 7: "at 1:4 the trade is done").
+- Video 5's rule "match stop and target to the entry timeframe" belonged to its single-timeframe mode; video 9's stop beyond the whole AOI (newer) replaces it. Show the expected time to target only as a note.
 - **Lot size** = risk amount / (stop pips x pip value per lot). Risk amount = `account_balance` x `risk_pct`. Pip value is computed from the quote currency and the current rate to the account currency. Verified cases: EURUSD, $100, 10%, 20 pips -> 0.05 lot; GBPUSD, $20, 25 pips -> 0.08 lot. A yen pair must use the yen conversion (his NZDJPY calculator example of 0.17 lot for $50 at 30 pips is not standard; at USDJPY near 147 it is about 0.25 lot).
-- Output also: R:R, stop pips, target pips, risk amount, lot size, and the reminder "set and forget". Mark an R:R of 2.5 or more as a bonus grade (video 10).
-
-### 8.3 Simple mode (video 5)
-
-Skip the three-timeframe alignment. Use only `simple.timeframe` (default 4H): read its structure (Module B) as the direction; run Modules D (AOI from the same timeframe's pivots), E and G with that timeframe; session gate = `simple.session`. Same checklist, fewer gates, labelled `mode: simple`.
-
-### 8.4 Counter-weekly trades (video 6)
-
-Allowed only when the weekly is against, the daily has shifted (above/below its EMA, break and retest), the 4H agrees, a weekly AOI lies ahead in the trade direction, and the target is placed at that weekly AOI. Flag `higher_risk`.
-
-### 8.5 Account modes (videos 8 and 10)
-
-- `standard`: everything above; risk is the user's own.
-- `small_account` (video 8): fixed-dollar risk set by the user (his examples are stunts, not defaults); `P-RR-MIN` 3.0; all three timeframes in sync; counter-weekly blocked; no Sunday entry; no entry on Thursday after 09:00 New York; warn when more than 2 new trades a week; no lockout after a win or loss; never raise risk after a loss or a goal.
-- `prop` (video 10): firm profile editable (daily loss, total loss, target, minimum days, leverage; Eightcap one-step is 4%, 8%, 10%, 5 days, 1:100); `news_block_min` 10; max one open position (a scale-in on the same idea is allowed only if the user turns it on, video 10 does not reconcile them); max one trade a day; the same risk % on every trade, first trade 2% ("Strong Start") as a preset; `P-RR-MIN` 2.0 with 2.5 shown as better; require a daily or weekly context candle at the AOI, 4H entry candle allowed (my reading of his trades); `weekend_policy = hold_only_at_tp`. Warn when the planned risk would use more than half of the daily loss limit.
+- Output also: R:R, stop pips, target pips, risk amount, lot size, and the reminder "set and forget".
 
 ## 9. Outputs
 
@@ -205,11 +175,11 @@ Allowed only when the weekly is against, the daily has shifted (above/below its 
 
 ```json
 {
- "pair": "EURUSD", "mode": "full", "asof": "2026-10-12T05:30:00-04:00",
+ "pair": "EURUSD", "asof": "2026-10-12T05:30:00-04:00",
  "time_gate": {"pass": true},
  "weekly_bias": "bearish",
  "tf": {"W": {...}, "D": {...}, "4H": {...}},
- "alignment": {"pass": true, "grade": "A"},
+ "alignment": {"pass": true, "risk": "low"},
  "aois": [{"tf": "W+D", "low": 1.1650, "high": 1.1685, "pips": 35, "touches": 4, "role": "resistance", "extras": ["ema","round_number"]}],
  "signal": {"type": "bearish_engulfing", "n_engulfed": 3, "tf": "1H", "closed_at": "..."},
  "verdict": "SIGNAL", "grade": "B",
@@ -228,7 +198,7 @@ Allowed only when the weekly is against, the daily has shifted (above/below its 
 
 ### 9.3 Annotated chart (PNG or interactive HTML)
 
-Candles (blue up, red down), 50 EMA, the structure lines (HH, HL, LH, LL) per timeframe, AOI boxes, the signal candle highlighted, the stop and target boxes. This is the main way the user verifies the app against TradingView.
+One image per timeframe that matters (weekly, daily, signal timeframe), embedded as PNG in the report, plus an interactive version (TradingView's open-source Lightweight Charts library, with its required attribution). Drawn: candles (blue up, red down), the 50 EMA, the structure lines and labels (HH, HL, LH, LL) per timeframe, the zone shading, AOI boxes with a dot on each counted touch and a label (timeframe, touches, pips), a round-number line and a neckline when present, the signal candle highlighted, the stop (red) and target (green) boxes with the R:R. Each confluence gets a **numbered marker** on the chart that matches its line in the checklist. No other indicators (his method uses only the 50 EMA). This is the main way the user verifies the app against TradingView.
 
 ## 10. Default parameters
 
@@ -252,24 +222,26 @@ Candles (blue up, red down), 50 EMA, the structure lines (HH, HL, LH, LL) per ti
 | `P-REJ-BODY` | Rejection candle body | at most 30% of range, wick at least 2 x body | app default |
 | `P-ENGULF-MIN` | Candles engulfed | 1 (2 = strong) | course |
 | `P-RETEST-WINDOW` | Candles allowed for the retest | 20 | app default |
-| `P-CHASE-ATR` | Chase flag distance | 0.5 x ATR | app default |
-| `P-STOP-BUFFER` | Beyond the AOI edge | 7 pips (range 5 to 10; older example 10 to 15 beyond a wick) | video 9 (the 7 is an app default inside his range) |
-| `P-RR-MIN` | Minimum reward to risk | 2.0 (3.0 in `small_account`) | course; video 8 |
+| `P-STOP-BUFFER` | Beyond the AOI edge | 7 pips (range 5 to 10) | video 9 (the 7 is an app default inside his range) |
+| `P-RR-MIN` | Minimum reward to risk | 2.0 | every video |
 | `P-RR-CAP` | Normal exit ceiling | 4.0 | course (video 7) |
+| `P-TARGET-TF` | Timeframes whose swing pivots can be the target | daily, 4H | app default (videos 9, 13: nearest structure point) |
 | `P-EMA` | EMA length | 50 | course |
-| `risk_pct` | Risk per trade | user-set (placeholder 1.0; `prop` preset 2.0 first trade and the same after) | not a course rule; video 10 for the prop preset |
-| `P-NEWS-MIN` | Minutes blocked around news | 10 (prop) | video 10 |
+| `risk_pct` | Risk per trade | user-set, the same every trade (placeholder 1.0) | not a course rule |
 | `P-AOI-LOOKBACK` | AOI look-back | 2 years minimum | video 10 |
 
 ## 11. Test plan
 
-1. **Unit tests on hand-built candle series** for every rule above: state machine flips (bull to bear to bull), wick-only breaks do nothing, soft bumps skipped, snake trick, alignment grades, AOI touch counting and the 5/60-pip limits, outside-zone AOIs dropped, engulfing grades, H&S valid only after the neckline break, break-and-retest ordering, time gate and weekday, R:R and lot-size maths.
+1. **Unit tests on hand-built candle series** for every rule above: state machine flips (bull to bear to bull), wick-only breaks do nothing, soft bumps skipped, snake trick, initial anchor gives the same state on every run, alignment risk labels, signal freshness (only the latest closed candle counts), target selection and the 4R cap, AOI touch counting and the 5/60-pip limits, outside-zone AOIs dropped, engulfing grades, H&S valid only after the neckline break, break-and-retest ordering, time gate and weekday, R:R and lot-size maths.
 2. **Golden examples from the videos** (real prices are fetched later; compare approximately):
    - EURUSD 4H replay: bullish with HL near 1.1713, a close near 1.1697 flips bearish [video 1, part F].
    - AUDJPY (Sept 2025): weekly bullish (HH about 98.0, HL about 95.4), daily bullish (98.4 / 96.6), 4H bearish (LH about 98.1, LL about 97.8) -> alignment W+D, 4H against; merged AOIs about 97.25 to 97.55 and 96.62 to 96.93 [parts G, H].
    - NZDUSD short: entry 0.59267, stop 0.59469 = 20.2 pips, 1:2 target 0.58862 [part J].
-   - EURAUD 4H short: stop 45.1 pips, target 98.5 pips, R:R 2.18 [video 6].
+   - EURAUD 4H short: stop 45.1 pips, target 98.5 pips, R:R 2.18 [video 6]. R:R maths only: it was a counter-weekly trade, so the verdict must be `NO_TRADE(counter_trend)`.
    - Video 10 challenge trades (Sept 2026, dates not stated; fetch the weeks around the Eightcap challenge): AUDCHF weekly range break and retest with a 4H inverted H&S (round number 0.56500, first R:R 1:2.66); GBPCHF counter-weekly sell off a right shoulder (the app must NOT signal it); EURGBP, USDCHF and GBPNZD as listed in `strategy/strategy.md` 3.10. No prices are given in the video, so these are shape checks only.
+   - GBPUSD (late January 2026): weekly, daily and 4H bullish; W+D AOI overlap about 1.351 to 1.358, below the 4H HL (about 1.368) [video 12].
+   - GBPNZD daily buy (March 2026): weekly bearish after a shift, daily shifted bullish; entry about 2.279, stop about 2.269 under a support box, target about 2.302 at a weekly zone just above 2.3000; closed at 1:2 [video 11, read from the frame]. Counter-weekly, so the verdict must be `NO_TRADE(counter_trend)`; the levels still check the stop and target logic.
+   - EURAUD 4H head and shoulders sell (early April 2026): HL break, neckline retest, sell, closed at 1:2 [video 13]. Shape check for H&S detection (an extra).
    - Lot sizes above.
    Data from different brokers differs by a few points, so tests use tolerances.
 3. **Visual checks**: for 3 to 5 pairs, render the annotated chart and compare with TradingView. Differences are resolved by adjusting parameters, not by special-casing.
@@ -278,4 +250,21 @@ Candles (blue up, red down), 50 EMA, the structure lines (HH, HL, LH, LL) per ti
 
 ## 12. Out of scope (for now)
 
-Placing or managing orders; reading screenshots with a vision model (candle data is exact; screenshots are not); live news feed; the creator's unpublished "entry signal"; anything marked as a gap in `strategy/strategy.md` section 7.
+Placing or managing orders; reading screenshots with a vision model (candle data is exact; screenshots are not); live news feed; the creator's unpublished "entry signal"; anything marked as a gap in `strategy/strategy.md` section 7; everything in section 13.
+
+## 13. Parked (not in app v1)
+
+Kept in `strategy/strategy.md` as his teaching, left out of the app so it runs one consistent rule set. Add one back only if testing shows the core misses something he clearly does.
+
+| Parked item | Source | Why parked |
+|---|---|---|
+| Small-account mode (fixed-dollar risk, 1:3, Thursday before 9 AM, 2 trades a week) | video 8 | One account type |
+| Prop-challenge mode (news block, 1 position, 1 trade a day, 2% Strong Start, weekend only at TP, firm profile) | video 10 | One account type |
+| $50 plan (4H head and shoulders only, majors) | video 13 | One account type |
+| Single-timeframe "trading dumb" mode | video 5 | Second version of the method |
+| Counter-weekly recipe | video 6 | High risk; against "trade with the trend"; reported as `counter_trend` instead |
+| Lower-timeframe (2H to 15m) vote | video 9 | Never decides a trade |
+| Exit at exactly 1:2, weekly-close hold, weekend policy, early exits, scale-ins, re-entries | videos 5, 6, 10, 11 | Trade management; the app does not manage trades |
+| Breakout entry without retest, strict two-candle engulfing, Thursday exceptions | course, videos 2, 4 | Second versions of a rule |
+| Chase flag, wick-fill flag, consolidation breakout | videos 3, 4, 7, course | Covered by the AOI gate, or an extra that never decides |
+| News feed | course, video 10 | Information only in his standard method |

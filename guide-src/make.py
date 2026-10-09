@@ -7,6 +7,8 @@ from pathlib import Path
 
 import pymupdf
 
+from build import PARTS
+
 HERE = Path(__file__).parent
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 html = HERE / "guide.html"
@@ -22,7 +24,7 @@ def render():
 
 def toc_pages():
     doc = pymupdf.open(pdf)
-    ids = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12", "p13", "pa", "pb", "pc"]
+    ids = [pid for pid, _, _ in PARTS]
     found = {}
     for ln in doc[1].get_links():
         dest = ln.get("nameddest")

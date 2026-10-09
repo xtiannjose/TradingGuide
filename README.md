@@ -8,8 +8,9 @@ Educational only. Not financial advice. Unofficial: not affiliated with the crea
 
 | Path | What it is |
 |---|---|
-| `Confluence-Trading-Guide.pdf` | 35-page beginner guide (version 1.6) to the strategy of videos 1 to 7. Start here if you want to learn it. |
+| `Confluence-Trading-Guide.pdf` | 42-page beginner guide (version 1.7) to the strategy of all thirteen videos. Start here if you want to learn it. |
 | `strategy/strategy.md` | The merged rule set: exact definitions, numbers, conflicts, gaps. The source of truth for the app. |
+| `docs/NEXT-STEPS.md` | Current status, your next steps, and how to continue on another device. Read this first. |
 | `docs/BUILD-PLAN.md` | The plan for the chart-analysis app: study digest, architecture, data options, phases, decisions needed. |
 | `docs/ANALYSIS-SPEC.md` | App-ready spec: exact rules, parameters, outputs and tests the app must implement. |
 | `docs/VIDEOS.md` | Videos studied, and which video time range each study part covers. |
@@ -42,10 +43,13 @@ Then see `docs/WORKFLOW.md` to study another video, or `docs/BUILD-PLAN.md` to b
 - Video 8 studied: fxalexg, "How to Grow a Small Trading Account From Scratch in 2026" (52 min, uploaded 2026-02-22): small-account mode and psychology.
 - Video 9 studied: fxalexg, "This is Boring, But it'll make your first $100,000 Trading" (1h23m, 2026-06-28): the three steps in order, AOI rules, stop beyond the AOI.
 - Video 10 studied: fxalexg, "The Prop Firm Industry is Going to Hate Me For This Free Course" (1h18m, 2026-09-06): prop-firm rules, his four challenge rules, five real trades.
-- Not yet studied (the study agents hit the session limit): `1dL3xmxA2e0`, `pD1vAUMbSjw`, `hb7ot1_szWI`.
-- The PDF guide still covers videos 1 to 7; videos 8 to 10 are in `strategy/strategy.md` and will go into the next PDF version.
-- See `docs/VIDEOS.md` for all ten, with upload dates and the rule that the newer upload wins.
-- App: not built yet. The plan is in `docs/BUILD-PLAN.md` (with 8 decisions waiting on the owner) and the exact rules are in `docs/ANALYSIS-SPEC.md`.
+- Video 11 studied: fxalexg, "The Only Trading Strategy You Need To Be Profitable | Swing Trading" (27 min, 2026-05-25): Sunday analysis, the weekly retracement, stops at a level.
+- Video 12 studied: fxalexg, "Best Top Down Analysis Strategy for 2026" (33 min, 2026-02-02): four sectors, the HL behind the HH, AOI on the weekly and daily.
+- Video 13 studied: fxalexg, "How to Start Trading with Just $50" (37 min, 2026-07-26): the 4H head-and-shoulders plan for a $50 start.
+- The PDF guide (version 1.7) covers all thirteen videos, with a new part for the three account plans (small account, prop challenge, $50 start).
+- See `docs/VIDEOS.md` for all thirteen, with upload dates and the rule that the newer upload wins. More candidate videos are listed there.
+- App v1 scope: the core rule set only (`strategy/strategy.md` section 1). Account modes and optional variants are parked so it runs his method the same way every time.
+- App: not built yet. The plan is in `docs/BUILD-PLAN.md` (its 7 decisions are confirmed: the defaults, starting with an MT5 demo on a Windows PC) and the exact rules are in `docs/ANALYSIS-SPEC.md`.
 - More videos are expected. Each one is merged into `strategy/strategy.md`, with differences between teachers kept visible.
 
 ## Source credit

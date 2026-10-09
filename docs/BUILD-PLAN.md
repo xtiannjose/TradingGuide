@@ -10,7 +10,7 @@ What it is not: a signal seller, an auto-trader, or proof that the strategy make
 
 ## 2. What the study material gives us (digest)
 
-Ten videos by one creator (fxalexg), merged into one rule set. When two videos disagree, the newer upload wins and both sides are kept in `strategy/strategy.md` section 6.
+Thirteen videos by one creator (fxalexg), merged into one rule set. When two videos disagree, the newer upload wins and both sides are kept in `strategy/strategy.md` section 6.
 
 | # | Video | What it contributed |
 |---|---|---|
@@ -18,32 +18,35 @@ Ten videos by one creator (fxalexg), merged into one rule set. When two videos d
 | 2 | Entry confirmation (22 min) | The confirmation candle, closed candles only, Monday to Wednesday, wait for the session |
 | 3 | Liquidity (19 min) | Liquidity zone = AOI; ignore sweeps; round numbers |
 | 4 | Price action (25 min) | Strength comes from location; wick fill; ranked break-and-retest entries |
-| 5 | "Trading dumb" (28 min) | A simple mode: one pair, one timeframe, one session, one signal |
-| 6 | Recent trades (21 min) | Counter-weekly recipe; stop philosophy; exit at 1:2; no plan B |
+| 5 | "Trading dumb" (28 min) | Session by market, target matched to the entry timeframe (its one-timeframe mode is parked) |
+| 6 | Recent trades (21 min) | Stop philosophy; no plan B; do not buy below a weekly level (its counter-weekly recipe is parked) |
 | 7 | Mindset (18 min) | Weekly bias fixed on Sunday; wait for retracement; 1:2 minimum, done at 1:4 |
-| 8 | Small account (52 min, Feb 2026) | Small-account mode: fixed-dollar risk, 1:3 minimum, three timeframes in sync, no Sunday or late-Thursday entries, no lockout after a win |
+| 8 | Small account (52 min, Feb 2026) | Low/mid/high risk labels, never Sunday, same risk every trade (its small-account mode is parked) |
 | 9 | Three-step walkthrough (1:23, Jun 2026) | Entry signal only inside the AOI; AOIs on W/D/4H, each independent; stop 5 to 10 pips beyond the whole AOI; next candle open |
-| 10 | Prop-firm course (1:18, Sep 2026) | Prop mode: 10-minute news block, one position at a time, 2% first trade then the same risk; five real trades; weekend rule |
+| 10 | Prop-firm course (1:18, Sep 2026) | Stop kept so 1:2 holds, AOIs looked for 2+ years back, five real trades as test cases (its prop mode is parked) |
+| 11 | Swing trading (27 min, May 2026) | Sunday analysis with the market closed; daily shift shows the weekly retracement; stop at a level, never a pip number; GBPNZD test case |
+| 12 | Top-down analysis (33 min, Feb 2026) | Four sectors and an overall score; the HL is always behind the HH; AOI on W and D, overlap labelled; GBPUSD test case |
+| 13 | $50 start (37 min, Jul 2026) | Head and shoulders restated, target at the next structure point (its $50 plan is parked) |
 
 **The strategy in ten lines**
 
 1. Read market structure (higher highs/lows or lower highs/lows) from candle bodies on the weekly, daily and 4-hour charts.
-2. Two timeframes in a row must agree; that fixes the direction. The bias is set on Sunday and held all week.
+2. The weekly and daily must agree; that fixes the direction (the 4H agreeing too is the best grade). Never trade against the weekly. The bias is set on Sunday and held all week.
 3. Price is trapped in a zone (between HH and HL, or LH and LL); only look inside it.
 4. Find areas of interest (AOI) on the weekly and daily (4H as a minor extra): at least 3 touches, 5 to 60 pips, inside the zone.
 5. Trade only when price is at an AOI, buying at support and selling at resistance.
 6. Wait for a closed confirmation candle there (rejection or engulfing), in the trend direction. Never anticipate, never chase.
 7. Break and retest, head and shoulders and similar patterns add confidence but are never enough alone.
 8. Enter only in his window (about 1:00 to 10:30 AM New York) and on Monday to Wednesday.
-9. Stop just beyond the whole AOI (5 to 10 pips); target the next structure point; at least 1:2 (1:3 on a small account), normally done by 1:4; lot size from your own risk amount.
+9. Stop just beyond the whole AOI (5 to 10 pips); target the next structure point; at least 1:2, done by about 1:4; lot size from your own risk amount.
 10. Set it, forget it, accept the losses.
 
 **How sure we are**
 
 - Solid and computable: the structure rules, alignment, zones, the AOI numbers, the candle names, the time and weekday gates, the stop/target/R:R maths.
 - Judgement the course leaves to the eye (the app must choose and expose a setting): what counts as a significant swing, what counts as one touch, where to place the AOI box, when a retracement has stopped, the exact candle shapes.
-- Not given for a standard account: his base risk % (small accounts use fixed dollars, a prop challenge uses 2% on the first trade and the same after, and the 1% hints are inferred), a news filter outside prop mode (the firm's 10-minute window), the full "entry signal" he keeps for his livestream, and any back-test evidence.
-- Three account modes follow from the newer videos: `standard`, `small_account` and `prop` (`docs/ANALYSIS-SPEC.md` 8.5).
+- Not given for a standard account: his base risk % (only special-account numbers and inferred 1% hints exist; the app uses yours, the same every trade), a news filter, the full "entry signal" he keeps for his livestream, and any back-test evidence.
+- **One rule set, no modes.** The app builds only the core rule set (`strategy/strategy.md` section 1). Account modes, the one-timeframe mode, counter-weekly trades and the rule-version switches are parked (`docs/ANALYSIS-SPEC.md` section 13), so the app runs his method the same way every time.
 - The course also disagrees with itself in small ways (engulfing size, window end, target cap). `strategy/strategy.md` section 6 lists each and the default chosen.
 
 ## 3. How the app works (concept)
@@ -135,12 +138,12 @@ Each phase ends with something you can run and check. Sizes: S (small), M (mediu
 |---|---|---|---|
 | **0 Foundation** | `app/` folder, Python environment, settings file, data connector for the chosen source, candle store with the New York 5 PM day/week boundary, test setup | You can pull EURUSD candles for all seven timeframes and the daily candle close time is 5 PM New York | M |
 | **1 Structure** | Module B: pivots, the state machine, snake trick, confirmed vs current; plus a first annotated chart | The EURUSD 4H and AUDJPY examples from the videos reproduce within tolerance; wick-only breaks do nothing; your TradingView agrees on 3 to 5 pairs | L |
-| **2 Alignment, zone, bias** | Module C: two-in-a-row alignment, grades, zones, weekly bias stored on Sunday | W/D/4H reads and zones match the AUDJPY example; bias does not flip mid-week without a break | S |
+| **2 Alignment, zone, bias** | Module C: weekly+daily alignment, counter-trend flag, grades, zones, weekly bias stored on Sunday | W/D/4H reads and zones match the AUDJPY example; bias does not flip mid-week without a break | S |
 | **3 AOI finder** | Module D: candidates, touches, 5 to 60 pips, inside-zone, merging, roles, extras | AUDJPY merged AOIs near 97.25 to 97.55 and 96.62 to 96.93 appear; invalid ones are dropped with a reason | L |
-| **4 Signals and patterns** | Module E: candle shapes, engulfing grades, break and retest, head and shoulders, chase flag | Synthetic tests pass; no signal ever uses an unclosed candle; patterns only after the structure shift | L |
+| **4 Signals and patterns** | Module E: candle shapes, engulfing grades, break and retest, head and shoulders | Synthetic tests pass; no signal ever uses an unclosed candle; patterns only after the structure shift | L |
 | **5 Verdict and plan** | Module F/G: gates, verdicts, grades, stop, target, R:R, lot size, checklist | The NZDUSD and EURAUD numbers and the lot-size cases reproduce; every "no trade" names its gate | M |
 | **6 Report** | HTML report and summary table, JSON, annotated charts for all pairs in the Blue list | One command produces the full report for 21 pairs | M |
-| **7 Simple mode and settings** | Single-timeframe mode; all parameters in the settings file | Switching modes changes only the gates described in the spec | S |
+| **7 Settings file** | All parameters in one settings file (no rule switches) | Changing a parameter changes only the value it names | S |
 | **8 Validation** | Side-by-side checks with your charts; replay test; a back-test harness that counts signals and R outcomes | You trust the structure and AOI output on real pairs; signal frequency looks sane; no look-ahead | M |
 | **9 Automation and alerts** | Scheduled Sunday and daily runs; alert levels pushed to you | Reports appear without you running anything; alerts fire at AOI edges and closed signals | M |
 | **10 UI and extras** | Small local UI; news calendar flag; new videos folded in | Only if you want it | M |
@@ -172,18 +175,17 @@ Code location: a folder `app/` in this repository, so the study, the spec and th
 | The creator's unpublished "entry signal" | Marked as a gap; the app uses the public confirmation only |
 | Public repository | The repo is public; keep settings, keys and personal data out. Consider making it private before adding app code |
 
-## 10. Decisions I need from you
+## 10. Decisions
 
-Recommended defaults are in bold; say "go with the defaults" to accept them all.
+**Confirmed 2026-10-09: the owner chose the defaults (in bold) for all seven.**
 
 1. **Data source:** **MetaTrader 5 demo** or OANDA practice? Which broker do you use or plan to use?
 2. **Where it runs:** **your Windows PC** (the MT5 route needs it) or an always-on cloud machine later?
 3. **First output:** **HTML report with annotated charts**, then notifications, then a UI.
 4. **Pairs:** **the 21 pairs on his Blue list** (editable) or your own list?
-5. **Starting mode:** **both modes**, full first.
-6. **Risk per trade and account mode:** your number and which mode (`standard`, `small_account`, `prop`). The videos give none for a standard account; the prop preset is 2% first trade then the same; I will use a placeholder until you confirm.
-7. **Run schedule:** **Sunday 5 PM New York for the weekly bias (Monday 5 AM Manila in US summer, 6 AM in winter), then each trading day at 12:30 AM New York (12:30 PM Manila in summer, 1:30 PM in winter)**, just before his 1:00 AM window, plus on demand. Both clocks are shown in every report. Display zone: Asia/Manila (confirmed).
-8. **Repository:** keep it **public** and put code in `app/`, or make it private first?
+5. **Risk per trade:** your number, the same on every trade. The videos give none for a standard account; I will use a 1% placeholder until you confirm.
+6. **Run schedule:** **Sunday 5 PM New York for the weekly bias (Monday 5 AM Manila in US summer, 6 AM in winter), then each trading day at 12:30 AM New York (12:30 PM Manila in summer, 1:30 PM in winter)**, just before his 1:00 AM window, plus on demand. Both clocks are shown in every report. Display zone: Asia/Manila (confirmed).
+7. **Repository:** keep it **public** and put code in `app/`, or make it private first?
 
 ## 11. First steps once you confirm
 

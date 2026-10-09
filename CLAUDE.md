@@ -1,6 +1,6 @@
 # TradingGuide: instructions for Claude Code
 
-This repo is a study project: trading-strategy videos become a guide (PDF) and an app specification. Read `README.md` for the map.
+This repo is a study project: trading-strategy videos become a guide (PDF) and an app specification. Read `README.md` for the map and `docs/NEXT-STEPS.md` for the current status and what to do next.
 
 ## Ground rules
 

@@ -561,6 +561,26 @@ def trade_plan():
     return svg(720, 305, b, "Trade plan")
 
 
+def stop_aoi():
+    b = ""
+    b += rect(40, 172, 460, 30, BLUE, BLUE, 0.16, 0, 1.2)
+    b += txt(48, 192, "Support AOI (3+ touches)", 12, BLUE, "start", "700")
+    b += poly([(40, 140), (130, 62), (185, 150), (232, 122), (282, 186)], NAVY, 2.6)
+    b += line(130, 62, 330, 62, GREY, 1.2, "3 4")
+    b += candle(292, 184, 178, 200, 194, 12) + candle(310, 196, 166, 199, 170, 14)
+    b += badge(310, 150, 1)
+    b += rect(330, 62, 170, 108, GREEN, GREEN, 0.15) + rect(330, 170, 170, 54, RED, RED, 0.15)
+    b += line(322, 170, 500, 170, NAVY, 2)
+    b += line(330, 224, 500, 224, RED, 2, "6 3") + line(330, 62, 500, 62, GREEN, 2, "6 3")
+    b += txt(415, 120, "REWARD", 13, GREEN, weight="700") + txt(415, 214, "RISK", 13, RED, weight="700")
+    b += txt(510, 58, "3 TARGET at the next\nstructure point (2 x risk)", 12, GREEN, "start", "700")
+    b += txt(510, 166, "4 ENTRY at the open\nof the next candle", 12, NAVY, "start", "700")
+    b += txt(510, 222, "2 STOP below the whole\nAOI + 5 to 10 pips", 12, RED, "start", "700")
+    b += note(40, 262, "1 the signal candle closes inside the AOI; 2 set the stop; 3 then the target; 4 then enter.", 11.5)
+    b += note(40, 278, "A buy; a sell is the mirror image. Schematic, not real prices.", 11.5)
+    return svg(720, 288, b, "Stop beyond the whole AOI")
+
+
 def zones_levels():
     b = ""
     x0, x1 = 120, 700
@@ -599,5 +619,6 @@ ALL = {
     "hs": head_shoulders,
     "candles": candles_panels,
     "plan": trade_plan,
+    "stopaoi": stop_aoi,
     "sessions": sessions,
 }
