@@ -1,8 +1,10 @@
 # fxalexg confluence strategy: consolidated spec
 
-Source: "The Trading Industry Will Hate Me for This FREE 10+ Hour Course" by fxalexg (Swing Trading Lab), https://www.youtube.com/watch?v=grw58BIzotU, 10:35:59 long. Studied on 2026-10-08 from the auto-captions plus video frames, in 12 parts.
+Sources, both by fxalexg (Swing Trading Lab), studied from auto-captions plus video frames:
+- **Video 1:** "The Trading Industry Will Hate Me for This FREE 10+ Hour Course", https://www.youtube.com/watch?v=grw58BIzotU, 10:35:59 long, studied 2026-10-08 in 12 parts.
+- **Video 2:** "The ONLY confirmation YOU need to make $1000/day Trading Forex", https://www.youtube.com/watch?v=BcWxqfcjk9A, 22:03 long, studied 2026-10-09. Teaches the entry confirmation and entry timing. Cited as `[V2 mm:ss]`.
 
-Citations look like `[E 3:44]` = study part E of that video, video time 3:44 (h:mm:ss or mm:ss). Part letters follow the time ranges in `docs/VIDEOS.md`. The detailed per-part study notes (quotes, numbers, worked examples, open questions) are kept locally and are not published here. This file is the merged rule set and the source of truth for the app.
+Citations look like `[E 3:44]` = study part E of video 1, video time 3:44 (h:mm:ss or mm:ss). Part letters follow the time ranges in `docs/VIDEOS.md`. The detailed per-part study notes (quotes, numbers, worked examples, open questions) are kept locally and are not published here. This file is the merged rule set and the source of truth for the app.
 
 Wording convention: "(app default)" marks something I chose to fill a gap. It is not his rule.
 
@@ -12,7 +14,8 @@ Wording convention: "(app default)" marks something I chose to fill a gap. It is
 
 - Captions are machine-made. Frames confirmed many points; a few numbers stay uncertain and are flagged.
 - The video description's chapter titles do not match where topics are taught. "Confluence Trading" (2:28:00 to 4:01:40) is actually market-structure basics. I merged by content, not by chapter.
-- **He withholds his "entry signal".** He says it is only explained on his livestream [L 10:14:48]. What is documented below is the confirmation candles and patterns he shows at the area of interest.
+- **His "entry signal" is only partly public.** In video 1 he says a specific entry signal is explained only on his livestream [L 10:14:48]. Video 2 teaches an "entry confirmation" in the open (closed rejection or engulfing candle at a support/resistance zone, with the trend, at the right session and weekday). That is the best public statement of it and is documented in 3.6, but he never says it is the same thing he withholds.
+- Video 2's title and intro quote income figures ($500 to $1,000 a day). Those are marketing claims, not evidence.
 - The course never gives a base risk %, a numeric rule for what counts as a "significant" swing or a "touch", or a news filter. See section 7.
 - Trade results and win rates in the video are his own claims. Nothing was back-tested (he opposes back-testing [C 2:07:52]). This is a description of his method, not evidence that it makes money.
 
@@ -79,6 +82,9 @@ Decision pipeline, in order. A failed gate means "no trade, next pair".
 - Reference times: pre-London analysis from 1:00 AM; London opens 3:00 AM; New York opens 8:00 AM; London ends about 12:00 PM; market closes 5:00 PM.
 - USD pairs: the dollar side wakes at the New York open, so these get "double volatility" from London into New York [B 1:15:34].
 - Being inside the window is not a trade trigger; the strategy still has to say yes [B 1:16:16].
+- **Weekday and wait-for-session rules (video 2):** enter only on **Monday, Tuesday and Wednesday**. After Wednesday there is not enough time to reach a take profit (his average TP is about 80 to 100 pips; Thursday New York offers only about 5 hours, about 14 to 15 hours of decent volume remain). He breaks this only for a shorter TP, a very strong confirmation or strong momentum [V2 17:26 to 18:28].
+- If the confirmation prints **before a session** (for example before Sydney), do not enter yet: **wait until right before London** and enter inside the session. "That's the black and white rule." Waiting may cost a better or worse price; he accepts it because the confirmation then has proven itself. Do not enter just because a confirmation printed first thing Monday morning or in the last 3 hours before the weekly close [V2 14:41 to 19:30].
+- He avoids entries where there would be only about an hour of volume followed by about 9 hours of none [V2 15:22].
 - News: Forex Factory, red-folder events only, as information. He does not change his approach for news and says it does not build a strategy. Occasionally sits out a big speech or event [B 1:27:49, D 3:00:11].
 
 ### 3.3 Market structure (the core)
@@ -168,6 +174,18 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - Higher timeframe = stronger formation (daily doji at an AOI is "amazing", 4H good, 1H okay) [H 6:26:45].
 - In his challenge he says plainly "you need an engulfing candlestick to enter a sell or a bullish engulfing to enter a buy" [K 8:50:58].
 
+**The entry confirmation, in his own summary (video 2)** [V2 0:00 to 21:13]
+- **Confirmation, not anticipation.** Wait for the candle to **close** (any timeframe, 1 minute to monthly). One second before the close it is still anticipation and can reverse [V2 1:02, 2:43].
+- Two types: **(a) a rejection candle** (doji or small body with a long wick, also "wick fill") and **(b) an engulfing candle** (bullish to buy, bearish to sell). Together they are stronger; several dojis in a row then an engulfing at support is better. A small candle then an engulfing also works. No rejection and no engulfing means no entry [V2 1:42 to 4:24].
+- The engulfing must **body-close beyond the last candle** (even a tiny one counts). This is looser than video 1's "last two bodies" (see section 6) [V2 3:43 to 4:04].
+- **Higher timeframe = stronger** [V2 4:04].
+- Only **at a support/resistance zone** (supply/demand, order block). Bullish confirmation at support, bearish at resistance. Mid-chart confirmations are ignored [V2 8:31 to 9:32].
+- He may enter on the rejection alone or wait for the engulfing too. It depends on the strategy, level strength, timeframe, days left in the week, R:R and other confluences ("extra extra extra confirmations"). Waiting avoids losses but misses trades; he accepts both [V2 9:52 to 11:36].
+- **Pro-trend only.** A confirmation points the same way as the trend. A counter-direction engulfing does not flip the bias; bias does not change overnight, and on intraday/swing it holds for almost a month. Entering the opposite engulfing is "gambling" [V2 11:56 to 14:21].
+- **Wick fill (daily vs 4H):** a daily candle with a long lower wick can be a wick fill rather than a plain rejection if the 4H within that day went bearish into the area and then made a higher low. The next daily bullish engulfing is then the entry. He quotes "almost 70%" chance of a bullish push the day after a strong daily confirmation [V2 5:06 to 7:28].
+- **Everything must line up.** A perfect setup on a Tuesday at the London open still gets no trade without the confirmation [V2 19:30 to 20:12].
+- His own recap: candle closed; rejection or engulfing (stronger with more rejections and one strong engulfing); at a strong support/resistance zone; at the right time [V2 20:12 to 21:13].
+
 **Break and retest** (his favourite continuation pattern) [H 6:10:12 to 6:19:52, I 6:47:46]
 1. Price is held at an AOI. A **body close** beyond the zone is the confirmed break (wicks do not count).
 2. Price returns into the zone and gets rejected from it (wick or body rejections).
@@ -192,6 +210,7 @@ Core gate [J 7:45:08, L 10:19:20]: trend + AOI + entry signal. No minimum count 
 - **Target:** the next structure point / previous swing low or high (next 4H low), not the furthest one ("we're not going to be greedy") [L 10:09:52, J 7:48:37].
 - **Risk:reward:** always at least **1:2**; set the trade up so 1:4 is possible; hold for it [K 8:37:51 to 8:39:37]. Wording conflicts ("minimum of 1:4" vs "aim for potential 1:4"); read as potential. Seen: 1:2 to 1:3.5 typical, 1:5 to 1:11 on a few [K R34, L 10:03:14].
 - Use the TradingView long/short position tool to read the ratio before entering [C 2:13:41].
+- His average take profit is about **80 to 100 pips** [V2 17:26].
 
 ### 3.8 Risk and position size
 
@@ -274,13 +293,17 @@ His own examples, as test cases:
 | Close before SL/TP | "Never" [J] vs closes early in a few live trades [K, L] | Default hold to SL/TP; flag early-exit ideas as manual |
 | Stop and target in teaching samples | Spoken ratios differ from the position tool on screen (AUDJPY: "1 to 2, 118 pips" vs tool 2.71 [H 6:38:45]; NZDJPY: said 2 vs tool 2.47 [D V9]) | Use the stop/target the app derives; do not copy these samples |
 | Risk % | 100% to 35% ladder, "50 to 75%" at $3 to 5K, "lower risk 25 to 50% as account grows" | Not his rule to copy; user-set |
+| Engulfing definition | Must cover the last **two** bodies [H 6:30:31, I 6:42:56] vs body-close beyond the **last** candle, even a tiny one [V2 3:43] | Valid minimum: beyond the last candle's body. Grade higher when it covers the last two bodies (his "morning/evening star" form) |
+| Entry timing | Pre-London entries from 1:00 AM [B] vs "wait until right before London" if the confirmation printed before Sydney [V2 16:25] | Same window; a confirmation that prints outside a session waits for the pre-London hour, then enters |
+| Weekday | No weekday rule in video 1 (challenge trades on various days) vs Monday to Wednesday only [V2 17:26] | Mon to Wed by default; user can relax it, and he allows exceptions |
 | Break wording | He once says a body close "above the higher high or the higher low" shifts structure [E 3:21:05]. His examples and on-screen notes show: beyond the extreme moves the labels, beyond the **protecting** point (HL when bullish, LH when bearish) flips the bias | Use the state machine in 3.3 |
 
 ---
 
-## 7. Gaps: not given in this video
+## 7. Gaps: not given in the videos studied
 
-- **His entry signal** (withheld; livestream only) [L 10:14:48].
+- **His full "entry signal"** (video 1 says it is livestream only [L 10:14:48]). Video 2 gives the public entry confirmation (3.6) but does not say it is the same thing.
+- Numeric limits for a rejection doji (body size, wick ratio) and for "first thing Monday morning" [V2].
 - EMA **length is only given once** (50 EMA) and is not tied to a timeframe rule [J 7:21:50]. Earlier segments said "later"; no other value appears.
 - A numeric definition of a significant swing, an elbow, a touch, "slowdown", doji body size, wick ratios.
 - His normal (non-challenge) risk %, max trades, daily/weekly loss limits, withdrawals, journaling. His "Perfect Trade Checklist" sheet exists but is never shown [L 10:26:57].
@@ -294,3 +317,6 @@ His own examples, as test cases:
 
 - For the build: read this file and `docs/APP-PLAN.md`. Where each topic is taught: structure state machine in parts E, F, G; AOI in G, H; candles and patterns in H, I, J; entry/exit/risk in practice in J, K, L; tooling and setup in B, C, D.
 - When more videos are studied (see `docs/WORKFLOW.md`), update the sections here and list any change in a "changed by video N" line so differences between teachers stay visible.
+
+**Changelog**
+- **Video 2 (2026-10-09):** added the entry confirmation rules (3.6), Monday to Wednesday and wait-for-session timing (3.2), average TP of 80 to 100 pips (3.7), three rows in the conflicts table (engulfing definition, entry timing, weekday), and updated the gaps. Everything else in video 1's rules is unchanged and consistent with video 2 (same creator).

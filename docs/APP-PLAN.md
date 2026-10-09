@@ -9,7 +9,7 @@ For each pair, run the strategy in `strategy/strategy.md` against recent candles
 
 ## Report fields (per pair)
 
-- Time window pass or fail (1:00 to 10:30 AM New York)
+- Time window pass or fail (1:00 to 10:30 AM New York), and weekday pass or fail (Monday to Wednesday); if a confirmation printed before a session, "wait until the hour before London"
 - Weekly, daily and 4-hour bias, with the HH, HL, LH, LL prices
 - Agreement grade: none, two in a row, all three
 - The zone (HH-HL or LH-LL) and the weekly and daily AOIs: touches, height in pips, merged boxes, distance from price to the nearest AOI
@@ -35,8 +35,9 @@ For each pair, run the strategy in `strategy/strategy.md` against recent candles
 4. When a retracement has "stopped" (confirms an HH or LL).
 5. Stop buffer beyond the wick (his one example: 10 to 15 pips).
 6. Whether structure on closes (line chart) matches his body-based lines. With the "No gaps candles" indicator each open equals the previous close, so it should; verify on real data.
-7. The entry signal beyond engulfing and star candles: the creator withholds it. More videos may fill this in.
-8. Tech stack, how the report is delivered (file, web page, app), and how often it runs. Ask the user when the build starts.
+7. The full entry signal. Video 2 gives the public entry confirmation (closed rejection or engulfing at an AOI, with the trend, right session, Monday to Wednesday), which the app can implement. The creator still says a more specific signal is livestream only. More videos may fill this in.
+8. Weekday and wait-for-session rules (video 2): make them settings the user can relax, since the creator allows exceptions.
+9. Tech stack, how the report is delivered (file, web page, app), and how often it runs. Ask the user when the build starts.
 
 ## Suggested build order
 

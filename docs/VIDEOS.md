@@ -3,6 +3,20 @@
 | # | Video | Creator | Length | Studied | Status |
 |---|---|---|---|---|---|
 | 1 | "The Trading Industry Will Hate Me for This FREE 10+ Hour Course" (`grw58BIzotU`) https://www.youtube.com/watch?v=grw58BIzotU | fxalexg (Swing Trading Lab) | 10:35:59 | 2026-10-08 | Merged into `strategy/strategy.md` and the PDF |
+| 2 | "The ONLY confirmation YOU need to make $1000/day Trading Forex" (`BcWxqfcjk9A`) https://www.youtube.com/watch?v=BcWxqfcjk9A | fxalexg | 22:03 | 2026-10-09 | Merged (entry confirmation, entry timing). Cited as `[V2 mm:ss]` |
+
+## Video 2: what it teaches
+
+Whiteboard talk on a TradingView chart (hand-drawn candles, no real trade). 0:00 to 21:13 is the content; the end is promotion.
+
+| Video time | Taught |
+|---|---|
+| 0:00 to 1:42 | Confirmation, not anticipation; the closed candle |
+| 1:42 to 7:49 | The two confirmations (rejection, engulfing), wick fill, daily vs 4H |
+| 7:49 to 11:56 | Where they count: support/resistance only; rejection alone vs both |
+| 11:56 to 14:41 | Pro-trend only; do not flip bias on a counter candle |
+| 14:41 to 20:12 | Timing: sessions, wait for London, Monday to Wednesday only |
+| 20:12 to 21:13 | Recap |
 
 ## Video 1: study parts
 

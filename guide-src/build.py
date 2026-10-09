@@ -118,8 +118,8 @@ COVER = """
 <h1>The Confluence<br>Trading Guide</h1>
 <div class="sub">Market structure, areas of interest and entry confirmation, explained step by step.</div>
 <div class="line"></div>
-<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course. Every rule has a picture, an example, and a place on the final checklist.</div>
-<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Compiled 8 October 2026 &middot; Version 1.0</div>
+<div class="for">A plain-English guide to one complete way of trading forex, built from fxalexg's 10-hour trading course and his follow-up video on entry confirmation. Every rule has a picture, an example, and a place on the final checklist.</div>
+<div class="disc"><b style="color:#e2e8f0">Educational summary only. Not financial advice.</b> Trading leveraged products such as forex can lose you more than you expect, including all of your deposit. This is an unofficial study guide. It is not affiliated with or endorsed by the course creator. Any results mentioned are the creator's own claims and have not been verified.<br>Updated 9 October 2026 &middot; Version 1.1</div>
 </div>
 """
 
@@ -178,6 +178,7 @@ P1 = """
 <li><b>Decide before you enter.</b> The stop, the target and the amount at risk are all fixed before you click.</li>
 <li><b>Set and forget.</b> After you enter, you leave the trade alone until it hits the stop or the target.</li>
 <li><b>Use alerts, not guesses.</b> Set a price alert at the level you are waiting for, step away, and check when it rings.</li>
+<li><b>Confirmation, not anticipation.</b> Wait for the candle to close and "let the market show you its hand" before you enter.</li>
 </ul>
 """
 
@@ -276,6 +277,7 @@ P4 = """
 <li>Pairs with the US dollar get "double the volatility" from the London open into the New York open, because the dollar side wakes up at the New York open.</li>
 <li>The window applies to every pair, not only USD pairs.</li>
 </ul>
+{{CALL:rule|Which days, and what to do if the signal comes early|<ul><li><b>Enter only on Monday, Tuesday and Wednesday.</b> After Wednesday there is not enough time to reach a take profit (his average target is about 80 to 100 pips, and Thursday's New York session gives only about 5 hours). He breaks this only for a shorter target, a very strong confirmation, or strong momentum.</li><li><b>If the confirmation prints before a session</b> (for example before Sydney), <b>wait until right before London</b> and enter inside the session. He calls this the "black and white rule". You may get a worse or a better price, but the confirmation has proven itself.</li><li>Do not enter just because a confirmation printed first thing on Monday morning or in the last 3 hours before the weekly close.</li><li>Avoid entries where you would get only about an hour of volume and then roughly 9 hours of nothing.</li></ul>}}
 {{CALL:warn|Watch out|<p>Being inside the window is <b>not</b> a reason to trade. It only means you are allowed to. The strategy still has to say yes.</p><p>His own session graphic shows Sydney lasting until about 2 AM and Tokyo until about 4 AM, which overlaps his 1:00 AM start. He treats the "pre-London" hours as tradable anyway. This is one of the small inconsistencies in the course (see Part 13).</p>}}
 <h2>News</h2>
 <p>He checks a calendar called <b>Forex Factory</b> for the date, time and impact of news. Only the <b>red folder</b> (high-impact) events matter; he ignores yellow and grey, and orange is less important. He does not change his strategy around news and does not use news to create a strategy: for him, price action decides, and fundamentals are only an added reason. Occasionally he sits out a big speech or event.</p>
@@ -415,6 +417,19 @@ P7 = """
 
 P8 = """
 <p class="lead">At the AOI you wait for confirmation. This part lists the confirmations he uses. They only count <b>at an AOI</b>, <b>in the direction of the trend</b>, and on a <b>closed candle</b>.</p>
+<h2>The entry confirmation in five checks</h2>
+<p>In a follow-up video he calls this "the only confirmation you need". His core idea: <b>enter off a confirmation, not an anticipation</b>. "You want the market to show you its hand first." A confirmation is something that has already happened; an anticipation is a guess.</p>
+<ol class="steps">
+<li><b>The candle has closed.</b> This works on any timeframe, from 1 minute to monthly. One second before the close it is still anticipation: he has seen candles reverse completely in the last 5 seconds.</li>
+<li><b>It is a rejection or an engulfing.</b> A rejection is a doji or small-bodied candle with a long wick. An engulfing is a candle whose body closes beyond the last candle (bullish to buy, bearish to sell). Having both is stronger, and several dojis in a row before an engulfing is stronger still. If you have neither, you do not enter.</li>
+<li><b>It is at a support or resistance zone</b> (your AOI). Confirmations in the middle of the chart are everywhere and mean nothing.</li>
+<li><b>It points the same way as the trend.</b> A bullish confirmation at support in an uptrend; a bearish one at resistance in a downtrend.</li>
+<li><b>The time is right.</b> The right session and the right weekday (Part 4).</li>
+</ol>
+{{CALL:ex|Rejection alone, or wait for the engulfing too?|<p>He may enter on the rejection alone, or wait for the engulfing as well. It depends on how strong the level is, the timeframe, how many days are left in the week, the risk-to-reward, and your other reasons. Waiting avoids some losses but misses some good trades. He calls these the "extra extra extra confirmations" and says either choice is fine as long as you understand the trade and are comfortable with the risk.</p>}}
+{{CALL:warn|Do not flip on a counter-direction candle|<p>If a bearish engulfing appears after a bullish setup, you do <b>not</b> switch sides. Direction does not change every day; on swing and day trades it often holds for almost a month. Entering the opposite candle "is not a strategy, that's gambling". Skip that trade and wait for the next setup that fits your plan.</p>}}
+<h3>Reading a daily candle with the 4-hour (the "wick fill")</h3>
+<p>A daily candle with a long lower wick looks like a rejection. Sometimes it is really a <b>wick fill</b>: inside that same day the 4-hour went down into the area, then turned up and made a higher low. The 4-hour higher low is what sets up the next daily bullish engulfing, which is your entry. He says a strong bullish daily with a strong lower rejection gives "almost 70%" odds of a push up the next day (his figure, not tested).</p>
 <h2>Candle signals</h2>
 {{D:candles}}
 <table>
@@ -423,7 +438,7 @@ P8 = """
 <tr><td><b>Doji</b> / spinning top</td><td>Almost no body (doji) or a small body with wicks on both sides</td><td>A slowdown at the AOI after a push. The next candle might engulf. A weak signal on its own.</td></tr>
 <tr><td><b>Hammer</b></td><td>Small body at the top, long lower wick, little or no upper wick</td><td>At support: sellers pushed down and buyers closed it back up. A rejection.</td></tr>
 <tr><td><b>Inverted hammer</b> ("wick fill")</td><td>Small body at the bottom, long upper wick</td><td>At support, the wick is in the trade direction. The next candle is expected to fill it.</td></tr>
-<tr><td><b>Engulfing</b></td><td>The last candle's <b>body</b> covers the bodies of the <b>last two</b> candles</td><td>Stronger than the signals above. A tiny hairline beyond the last body still counts. Wicks are ignored.</td></tr>
+<tr><td><b>Engulfing</b></td><td>The last candle's <b>body</b> closes beyond the body of the previous candle; stronger when it covers the <b>last two</b> bodies</td><td>Stronger than the signals above. A tiny hairline beyond the last body still counts. Wicks are ignored. (In the follow-up video the last candle alone is enough; in the course he wanted two. Treat two as the stronger version.)</td></tr>
 <tr><td><b>Morning star</b> / <b>evening star</b></td><td>A doji (or hammer) followed by an engulfing candle covering the last two candles</td><td>His favourite. Morning star to buy, evening star to sell. Not useful against the trend.</td></tr>
 </tbody></table>
 <ul>
@@ -457,7 +472,7 @@ P8 = """
 <li><b>Consolidation breakout.</b> Price sits in a tight range at an AOI. Do not trade inside the range. Wait for the breakout, then the quick retest with an engulfing or rejection candle, then enter in the breakout direction.</li>
 <li><b>Adding to a trade.</b> Wait for a retest (for a sell, a lower high) in the right session, then add.</li>
 </ul>
-{{CALL:bad|The entry signal he does not explain|<p>In the last hours of the course he says there is a specific "entry signal" that he does not discuss, and that he explains only on his livestream. Everything in this part is what he <b>does</b> show at the AOI: engulfing candles, stars, rejections, and breaks with retests. Expect the real signal to be something more specific that this guide cannot give you.</p>}}
+{{CALL:bad|One thing he still keeps back|<p>In the last hours of the 10-hour course he says there is a specific "entry signal" that he does not discuss, and that he explains only on his livestream. The follow-up video above teaches the entry confirmation openly, and everything in this part is what he <b>does</b> show: closed rejection and engulfing candles, stars, and breaks with retests at the AOI. He never says whether that is the same thing as the livestream signal, so the real one may be more specific than this guide.</p>}}
 <h2>What not to do</h2>
 <ul>
 <li>Do not enter just because the setup looks close. He lists several trades he skipped and "dodged" in a week.</li>
@@ -549,6 +564,7 @@ P11 = """
 <table class="tl">
 <tbody>
 <tr><td>1:00 AM</td><td>Pre-London analysis. Check your shortlist and where price is relative to the AOIs. Check the news calendar for red folders.</td></tr>
+<tr><td>Which days</td><td>Monday, Tuesday or Wednesday only. A confirmation that prints before a session waits for the hour before London.</td></tr>
 <tr><td>3:00 AM</td><td>London opens. Entries are allowed from before this time through the London session.</td></tr>
 <tr><td>8:00 AM</td><td>New York opens. The overlap adds volatility. Last good entries around 9 to 10 AM.</td></tr>
 <tr><td>10:30 AM</td><td>No new trades after this time.</td></tr>
@@ -575,7 +591,7 @@ P12 = """
 <div class="cols2">
 <div>
 <h3>A. Is it the right time and pair?</h3>
-<ul class="check"><li>Pair is on my watchlist and this week's shortlist</li><li>Time is 1:00 to 10:30 AM New York (not Sydney/Tokyo)</li></ul>
+<ul class="check"><li>Pair is on my watchlist and this week's shortlist</li><li>Time is 1:00 to 10:30 AM New York (not Sydney/Tokyo)</li><li>Day is Monday to Wednesday (rare exceptions)</li></ul>
 <h3>B. Structure (weekly, daily, 4H)</h3>
 <ul class="check"><li>HH/HL or LH/LL placed on each chart, using candle bodies</li><li>Only closed candles used; no wick breaks</li><li>Two timeframes in a row agree (W+D or D+4H)</li><li>I am trading <b>with</b> the trend</li></ul>
 <h3>C. Zone and AOI</h3>
@@ -583,7 +599,7 @@ P12 = """
 </div>
 <div>
 <h3>D. Entry signal</h3>
-<ul class="check"><li>Confirmation candle has <b>closed</b> at the AOI (engulfing, morning/evening star, rejection)</li><li>OR break and retest completed</li><li>Signal points the same way as the trend</li><li><i>Optional:</i> head and shoulders / double top neckline at the AOI</li></ul>
+<ul class="check"><li>Confirmation candle has <b>closed</b> at the AOI (engulfing, morning/evening star, rejection)</li><li>OR break and retest completed</li><li>If it printed before a session, I waited for the hour before London</li><li>Signal points the same way as the trend</li><li><i>Optional:</i> head and shoulders / double top neckline at the AOI</li></ul>
 <h3>E. Extras (optional, add quality)</h3>
 <ul class="check"><li>All three timeframes agree</li><li>Weekly and daily AOI overlap</li><li>50 EMA rejection</li><li>Round number at the AOI</li><li>Previous daily level at the AOI</li></ul>
 <h3>F. The plan</h3>
@@ -603,7 +619,7 @@ P13 = """
 <table>
 <thead><tr><th>Gap</th><th>What the course says</th></tr></thead>
 <tbody>
-<tr><td><b>The real entry signal</b></td><td>He says there is one and he does not discuss it (livestream only). The candle signals in Part 8 are what he shows.</td></tr>
+<tr><td><b>The full entry signal</b></td><td>In the course he says there is one that he explains only on his livestream. His follow-up video teaches an open entry confirmation (Part 8), but he never says whether it is the same thing.</td></tr>
 <tr><td><b>Normal risk per trade</b></td><td>Never stated. Only the challenge ladder and small teaching examples.</td></tr>
 <tr><td><b>Exact definitions</b></td><td>No numbers for a "significant" swing, a "clean elbow", a "touch", a "slowdown", or how big a doji's body can be.</td></tr>
 <tr><td><b>EMA</b></td><td>Only the 50 EMA is named, and only once. No rule ties it to a timeframe.</td></tr>
@@ -635,6 +651,8 @@ P13 = """
 GLOSSARY = [
     ("AOI (Area of Interest)", "A support/resistance zone where price has reacted before. At least 3 touches, 5 to 60 pips tall, inside the HH-HL or LH-LL zone, drawn on weekly and daily."),
     ("Alert", "A TradingView price alarm at a level you are waiting for."),
+    ("Confirmation (vs anticipation)", "Something that has already happened, such as a closed rejection or engulfing candle. Entering on a guess before the candle closes is anticipation."),
+    ("Rejection candle", "A doji or small-bodied candle with a long wick, showing price was pushed back from a level."),
     ("Base / quote currency", "The first and second currency of a pair. Price up means the base is stronger; price down means the quote is stronger."),
     ("BOS / CHoCH / shift of structure", "Three names for the same thing: the break of the HL (uptrend) or LH (downtrend), which flips the trend."),
     ("Body", "The thick part of a candle, from open to close."),
@@ -668,7 +686,7 @@ GLOSSARY = [
     ("Trap price", "Drawing the HH/HL or LH/LL lines so price is boxed in a zone."),
     ("Trend timeframes", "Weekly, daily and 4-hour: used for trend and AOIs."),
     ("Wick", "The thin line on a candle showing where price has been. Counted as rejection but not used for structure breaks."),
-    ("Wick fill", "His name for an inverted hammer: the next candle is expected to fill the upper wick."),
+    ("Wick fill", "His name for an inverted hammer (the next candle is expected to fill the upper wick). Also a daily candle with a long lower wick that the 4-hour shows is really setting up a higher low."),
     ("Zone", "The area between HH and HL, or between LH and LL, where you look for trades."),
 ]
 
@@ -720,6 +738,8 @@ PC = """
 <tr><td>8:25 to 9:48</td><td>The $100 to $1M challenge: risk ladder, risk:reward, weeks 1 to 8</td></tr>
 <tr><td>9:48 to 10:36</td><td>Challenge weeks 9 to 14, short recap, close</td></tr>
 </tbody></table>
+<h2>Follow-up video: the entry confirmation</h2>
+<p>"The ONLY confirmation YOU need to make $1000/day Trading Forex" by fxalexg, 22 minutes: <b>https://www.youtube.com/watch?v=BcWxqfcjk9A</b>. Its title and intro quote income figures; those are marketing claims and not tested. The useful part is the entry confirmation (0:00 to 21:13), used in Part 8, and the weekday and session timing used in Part 4.</p>
 <h2>Credits and notes</h2>
 <ul>
 <li>All strategy ideas and teaching examples belong to their creator, fxalexg / Swing Trading Lab. This guide is an independent summary for study. It paraphrases the course and quotes only short phrases. To learn from the source, watch the video.</li>
