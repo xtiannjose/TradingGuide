@@ -31,6 +31,7 @@ python app/alerts.py                              # watch the [[alert]] levels i
 python app/scan.py                                # analyse all 21 pairs, writes app/data (about 15 seconds)
 python app/server.py                              # the terminal, opens http://127.0.0.1:8765/
 python app/backtest.py GBPUSD --weeks 8           # replay past weeks, count signals and R
+python app/validate.py                            # rule checks and a comparison with your own boxes (after a scan)
 ```
 
 Or double-click `Start-TradingGuide.cmd` in the repo folder to open the terminal.

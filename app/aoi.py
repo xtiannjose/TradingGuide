@@ -108,15 +108,20 @@ def find_aois(frames, results, price, pip, ap, emas):
         boxes = [b for b in boxes if b["pips"] <= ap["max_pips"] + 1e-9]
         for b in boxes:
             b["_df"] = df
-        boxes.sort(key=lambda b: _dist(price, b))
-        found += boxes[:2 if tf == "4H" else ap["max_count"]]
+            b["broken"] = _broken(df, b)
+        # a broken box is removed from the candidates (video 9), so it must not use up a slot;
+        # keep two of them only so a flipped zone can still be retested
+        live = sorted((b for b in boxes if not b["broken"]), key=lambda b: _dist(price, b))
+        dead = sorted((b for b in boxes if b["broken"]), key=lambda b: _dist(price, b))
+        found += live[:2 if tf == "4H" else ap["max_count"]] + dead[:2]
     found = _merge(found, pip, ap, frames, results)
     daily = results.get("D")
     recent_daily = [pr for _, pr, _ in daily["raw"]["pivots"][-6:]] if daily else []
     out = []
     for n, b in enumerate(sorted(found, key=lambda b: _dist(price, b)), 1):
         df = b.pop("_df")
-        b["broken"] = _broken(df, b)
+        if "broken" not in b:  # a merged weekly+daily box
+            b["broken"] = _broken(df, b)
         b["role"] = ("inside" if b["low"] <= price <= b["high"]
                      else "support" if price > b["high"] else "resistance")
         if b["broken"]:  # a broken box flips role; it only comes back after a break and retest

@@ -131,7 +131,7 @@ function draw(onlyIfMoved) {
   const Y = p => candle.priceToCoordinate(p);
   const col = tf => ({ W: css('--w'), 'W+D': css('--w'), D: css('--d'), '4H': css('--h4') }[tf] || css('--muted'));
   ctx.font = '11px ' + css('--mono');
-  const badges = [];
+  const badges = [], labels = [];
 
   // reference boxes (the owner's own)
   for (const r of ((S.state && S.state.reference) || []).filter(r => r.pair === S.pair)) {
@@ -140,8 +140,8 @@ function draw(onlyIfMoved) {
     ctx.save();
     ctx.setLineDash([5, 4]); ctx.strokeStyle = css('--yours'); ctx.lineWidth = 1;
     ctx.strokeRect(0.5, Math.min(y1, y2), plotW - 1, Math.abs(y2 - y1));
-    ctx.fillStyle = css('--yours'); ctx.fillText('YOUR box ' + (r.tf || ''), 6, Math.min(y1, y2) + 12);
     ctx.restore();
+    labels.push({ y: Math.min(y1, y2) + 11, text: 'YOUR box ' + (r.tf || ''), color: css('--yours') });
   }
   // areas of interest
   const lowTf = ['4H', '2H', '1H', '30m', '15m'].includes(S.tf);
@@ -159,11 +159,20 @@ function draw(onlyIfMoved) {
     ctx.globalAlpha = 0.9; ctx.strokeStyle = c; ctx.lineWidth = b.tf === 'W+D' ? 2.5 : 1;
     if (b.broken) ctx.setLineDash([4, 3]);
     ctx.strokeRect(x1 + 0.5, top + 0.5, plotW - x1 - 1, hh);
-    ctx.globalAlpha = 1; ctx.fillStyle = c;
-    const lab = `${b.id} ${b.tf} ${b.touches}x ${b.pips.toFixed(0)}p ${b.broken ? 'broken, ' : ''}${b.role}`;
-    ctx.fillText(lab, Math.max(x1, 0) + 6, top + 12);
     ctx.restore();
+    labels.push({ y: top + 11, text: `${b.id} ${b.tf} ${b.touches}x ${b.pips.toFixed(0)}p ${b.role}`, color: c });
     if (a.candidate === b.id) badges.push([5, x1 + 4, top - 2]);
+  }
+  // box labels sit at the right edge, pushed apart so none overlap
+  labels.sort((l, m) => l.y - m.y);
+  let prev = -1e9;
+  for (const l of labels) {
+    l.y = Math.max(l.y, prev + 13); prev = l.y;
+    ctx.fillStyle = css('--bg'); ctx.globalAlpha = 0.75;
+    const wdt = ctx.measureText(l.text).width + 8;
+    ctx.fillRect(plotW - wdt - 4, l.y - 10, wdt, 13);
+    ctx.globalAlpha = 1; ctx.fillStyle = l.color;
+    ctx.fillText(l.text, plotW - wdt, l.y);
   }
   // reward and risk of the plan
   const p = a.plan, sg = a.signal;
