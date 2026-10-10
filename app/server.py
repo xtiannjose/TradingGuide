@@ -257,7 +257,8 @@ class Handler(BaseHTTPRequestHandler):
                     "display_tz": c.cfg["display_tz"], "pairs": c.cfg["pairs"],
                     "reference": c.cfg.get("reference", []),
                     "settings": {"account": c.cfg["account"], "structure": c.cfg["structure"],
-                                 "aoi": {"cluster_pips": c.cfg["aoi"]["cluster_pips"]}, "ui": c.cfg["ui"]},
+                                 "aoi": {"cluster_pips": c.cfg["aoi"]["cluster_pips"]}, "ui": c.cfg["ui"],
+                                 "plan": {"stop_min_atr_d": c.cfg["plan"].get("stop_min_atr_d", 0.0)}},
                 })
         if route == "summary":
             return self._send(200, read_json(DATA / "summary.json", {"updated": None, "pairs": []}))
@@ -303,7 +304,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, {"mt5": c.connect(), "error": c.mt5_error})
         if route == "settings":
             allowed = {"account": ("risk_pct", "balance"), "structure": ("swing_atr", "mode"),
-                       "aoi": ("cluster_pips",), "ui": ("candles",)}
+                       "aoi": ("cluster_pips",), "ui": ("candles",), "plan": ("stop_min_atr_d",)}
             upd = {s: {k: body[s][k] for k in keys if k in body.get(s, {})} for s, keys in allowed.items() if s in body}
             c.save_settings(upd)
             return self._send(200, {"ok": True})

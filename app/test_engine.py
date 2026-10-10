@@ -62,6 +62,21 @@ def test_session_verdict_waits_only_for_an_entry_day():
     assert v(ny(2026, 10, 11, 20)) == ("WAIT_FOR_SESSION", "time")         # Sunday evening: Monday 01:00
 
 
+def test_minimum_stop_widens_but_never_tightens_and_stays_beyond_the_box():
+    pl = dict(params.DEFAULTS["plan"])
+    box = {"id": "D1", "low": 1.1000, "high": 1.1010}
+    res = {"D": {"state": "bullish", "raw": {"pivots": [(1, 1.1300, "H")]}}}
+    plain = verdict._plan("buy", box, 1.1012, res, [], pl, 0.0001, None, 1.0)
+    assert plain["stop"] == 1.1000 - 7 * 0.0001 and not plain["stop_widened"]       # box edge + 7 pips
+    wide = verdict._plan("buy", box, 1.1012, res, [], pl, 0.0001, None, 1.0, min_stop=0.0040)
+    assert wide["stop"] == 1.1012 - 0.0040 and wide["stop_widened"] and wide["stop"] < box["low"]
+    tiny = verdict._plan("buy", box, 1.1012, res, [], pl, 0.0001, None, 1.0, min_stop=0.0005)
+    assert tiny["stop"] == plain["stop"] and not tiny["stop_widened"]               # never tighter than the box rule
+    sell = verdict._plan("sell", box, 1.0998, {"D": {"state": "bearish", "raw": {"pivots": [(1, 1.0700, "L")]}}},
+                         [], pl, 0.0001, None, 1.0, min_stop=0.0040)
+    assert sell["stop"] == 1.0998 + 0.0040 and sell["stop"] > box["high"]
+
+
 # ---- AOI clusters (spec 6)
 def test_cluster_is_the_tightest_window_with_three_touches():
     pts = sorted([(1.3000, 10), (1.3010, 20), (1.3020, 40), (1.3300, 60), (1.3500, 90)])

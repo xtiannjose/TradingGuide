@@ -630,6 +630,7 @@ function wire() {
     $('#sRisk').value = s.account.risk_pct; $('#sBalance').value = s.account.balance ?? '';
     $('#sSwing').value = s.structure.swing_atr; $('#sTrail').value = s.structure.mode || 'mixed';
     $('#sCluster').value = s.aoi.cluster_pips; $('#sCandles').value = s.ui.candles;
+    $('#sMinStop').value = s.plan ? s.plan.stop_min_atr_d : 0;
     $('#settingsDlg').showModal();
   };
   $('#settingsForm').addEventListener('submit', async e => {
@@ -640,6 +641,7 @@ function wire() {
       account: { risk_pct: parseFloat($('#sRisk').value) || 1, balance: bal ? parseFloat(bal) : null },
       structure: { swing_atr: parseFloat($('#sSwing').value) || 0.5, mode: $('#sTrail').value },
       aoi: { cluster_pips: parseFloat($('#sCluster').value) || 35 }, ui: { candles: $('#sCandles').value },
+      plan: { stop_min_atr_d: parseFloat($('#sMinStop').value) || 0 },
     });
     await pollState(); applyTheme(); renderPane();
     toast('Settings saved', 'Press "Scan all" so the structure and boxes use the new numbers.');

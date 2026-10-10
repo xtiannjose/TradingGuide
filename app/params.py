@@ -40,7 +40,10 @@ DEFAULTS = {
         "entry_tfs": ["D", "4H", "2H", "1H", "30m", "15m"],
         "pattern_tf": "4H",
     },
-    "plan": {"stop_buffer_pips": 7, "rr_min": 2.0, "rr_cap": 4.0, "target_tfs": ["D", "4H"]},
+    # stop_min_atr_d: the stop is at least this many daily ATRs from the entry (still beyond the box).
+    # 0 = off, the course's plain "5 to 10 pips beyond the box". Videos 6 and 9 prefer a wide stop, and in the
+    # 12-week replay every version lost on stops under 15 pips, so the app default is 0.25 (app default, not his rule).
+    "plan": {"stop_buffer_pips": 7, "stop_min_atr_d": 0.25, "rr_min": 2.0, "rr_cap": 4.0, "target_tfs": ["D", "4H"]},
     "time": {"window_start": "01:00", "window_end": "10:30", "days": [0, 1, 2]},
     "account": {"risk_pct": 1.0, "balance": None},
     "ui": {"candles": "course"},   # "course" = blue up, red down; "classic" = green up, red down

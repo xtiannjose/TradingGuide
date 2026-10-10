@@ -99,8 +99,21 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("pairs", nargs="+")
     ap.add_argument("--weeks", type=int, default=8)
+    ap.add_argument("--set", action="append", default=[], metavar="PATH=VALUE",
+                    help="override a setting for this run, e.g. plan.stop_min_atr_d=0.25 or signal.entry_tfs=[\"D\",\"4H\"]")
+    ap.add_argument("--tag", default="", help="suffix for the output files, to keep variants apart")
     a = ap.parse_args()
     cfg = params.load()
+    for item in a.set:
+        path, _, raw = item.partition("=")
+        node = cfg
+        *head, last = path.split(".")
+        for h in head:
+            node = node[h]
+        try:
+            node[last] = json.loads(raw)
+        except ValueError:
+            node[last] = raw
     off = cfg["data"]["server_ny_offset_hours"]
     if a.pairs == ["all"]:
         a.pairs = cfg["pairs"]
@@ -113,7 +126,7 @@ def main():
     allt = []
     for p, frames in data.items():
         s = run_pair(p, frames, cfg, a.weeks, off)
-        (DATA / f"backtest_{p}.json").write_text(json.dumps(s, indent=1), encoding="utf-8")
+        (DATA / f"backtest_{p}{a.tag}.json").write_text(json.dumps(s, indent=1), encoding="utf-8")
         print(f"{p}: {s['decision_points']} decision points, verdicts {s['verdict_counts']}")
         print(f"   signals {s['signals']} ({s['signals_per_week']}/week), closed {s['closed']}, wins {s['wins']}, "
               f"total {s['total_r']}R, average {s['avg_r']}R", flush=True)

@@ -91,11 +91,14 @@ def _target(side, entry, risk, res, aois, pl, pip):
     return min(cands) if cands else None
 
 
-def _plan(side, box, entry, res, aois, pl, pip, acct, risk_pct):
+def _plan(side, box, entry, res, aois, pl, pip, acct, risk_pct, min_stop=0.0):
     stop = box["low"] - pl["stop_buffer_pips"] * pip if side == "buy" else box["high"] + pl["stop_buffer_pips"] * pip
+    wide = min(stop, entry - min_stop) if side == "buy" else max(stop, entry + min_stop)  # still beyond the box
+    widened, stop = wide != stop, wide
     risk = abs(entry - stop)
     plan = {"side": side, "entry": float(entry), "stop": float(stop), "stop_pips": float(risk / pip),
-            "box": box["id"], "note": "Entry is the current price; the real fill is the next candle's open."}
+            "box": box["id"], "stop_widened": bool(widened),
+            "note": "Entry is the current price; the real fill is the next candle's open."}
     tgt = _target(side, entry, risk, res, aois, pl, pip)
     if tgt is None:
         plan.update({"target": None, "rr": None, "target_reason": "no structure point beyond the entry"})
@@ -182,7 +185,7 @@ def analyze(pair, frames, now_ny, cfg, acct=None, price=None, offset_h=7):
 
     signal = None
     if cand is not None and cand["at"]:
-        for tf in ENTRY:
+        for tf in sp["entry_tfs"]:
             if tf not in frames or len(frames[tf]) < 5:
                 continue
             # spec 7.1: a confirmation is a rejection and/or an engulfing; a bare doji alone is not one
@@ -212,7 +215,8 @@ def analyze(pair, frames, now_ny, cfg, acct=None, price=None, offset_h=7):
     else:
         # entry is the market price now (the next candle's open), not the signal close: a daily or 4H
         # confirmation can be hours old, and the stop and target are measured from where you would enter
-        plan = _plan(side, cand, px, res, aois, pl, pip, acct, risk_pct)
+        min_stop = pl.get("stop_min_atr_d", 0.0) * float(structure.atr(frames["D"]).iloc[-1])
+        plan = _plan(side, cand, px, res, aois, pl, pip, acct, risk_pct, min_stop)
         weekly = [b for b in aois if b["tf"] in ("W", "W+D") and b["id"] != cand["id"]]
         opposite = "resistance" if side == "buy" else "support"
         two_r = 2 * abs(px - plan["stop"])

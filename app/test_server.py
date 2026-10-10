@@ -13,7 +13,7 @@ class FakeCore:
     mt5 = None
     mt5_error = "test"
     cfg = {"data": {"server_ny_offset_hours": 7}, "display_tz": "Asia/Manila", "pairs": ["EURUSD"],
-           "account": {}, "structure": {}, "aoi": {"cluster_pips": 35}, "ui": {}}
+           "account": {}, "structure": {}, "aoi": {"cluster_pips": 35}, "ui": {}, "plan": {}}
     lock = threading.RLock()
     scan = {"running": False}
     prices, fired = {}, []
