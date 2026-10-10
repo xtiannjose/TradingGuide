@@ -172,7 +172,7 @@ def analyze(pair, frames, now_ny, cfg, acct=None, price=None, offset_h=7):
                     patt.append(br)
                     if br["state"] == "rejection" and cand is None:
                         cand, retest = b, br
-        patt += [pt for pt in signals.patterns(frames[sp["pattern_tf"]], structure.tf_settings(cs, sp["pattern_tf"])[0], side)]
+        patt += [pt for pt in signals.patterns(frames[sp["pattern_tf"]], structure.tf_settings(cs, sp["pattern_tf"])[0], side, sp.get("pattern"))]
 
     pdf = frames[sp["pattern_tf"]]
     for pt in patt:  # chart times and prices for the pattern drawings

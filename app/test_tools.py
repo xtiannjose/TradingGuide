@@ -40,6 +40,20 @@ def test_backtest_simulate_stop_target_and_same_candle_loss():
     assert backtest.simulate(plan, "buy", after, m15([(1.1000, 1.1010, 1.0990, 1.1005)]))[0] == "open"
 
 
+def test_backtest_pays_the_spread():
+    import backtest
+    import pandas as pd
+    df = pd.DataFrame([(1.1000, 1.1105, 1.0990, 1.1100, 20)], columns=["open", "high", "low", "close", "spread"])  # 20 points = 2 pips
+    df["ny"] = pd.date_range("2026-01-05 02:00", periods=1, freq="15min", tz="America/New_York")
+    after = pd.Timestamp("2026-01-05 02:00").to_pydatetime()
+    plan = {"stop": 1.0950, "target": 1.1100}
+    free = backtest.simulate(plan, "buy", after, df)
+    paid = backtest.simulate(plan, "buy", after, df, 0.0001)
+    assert free[0] == paid[0] == "win" and paid[1] < free[1]            # a buy fills 2 pips higher, so less R
+    sell = {"stop": 1.1050, "target": 1.0900}
+    assert backtest.simulate(sell, "sell", after, df, 0.0001)[0] == "loss"  # the ask side of the high reaches the stop
+
+
 def test_params_merge_keeps_defaults_and_overrides():
     import params
     base = {"a": {"x": 1, "y": 2}, "b": 3}

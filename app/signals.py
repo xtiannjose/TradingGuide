@@ -94,15 +94,31 @@ def break_retest(df, box, side, sp):
             "state": "rejection" if rejected else "retesting"}
 
 
-def patterns(df, k, side_hint=None):
+PATTERN_DEFAULTS = {
+    "head_min_atr": 2.0,       # the head stands at least this many ATR above the troughs: a sizeable pattern, not noise
+    "head_over": 0.15,         # the head clears the higher shoulder by this share of its own height
+    "shoulder_min": 0.30,      # each shoulder rises at least this share of the head height above the troughs
+    "shoulder_diff": 0.40,     # the two shoulders differ by at most this share of the head height
+    "trough_diff": 0.35,       # the two troughs differ by at most this share of the head height (a level neckline)
+    "double_depth_atr": 1.5,   # a double top or bottom is at least this many ATR deep
+    "double_peak_diff": 0.30,  # its two peaks differ by at most this share of that depth
+    "head_min_bars": 24,       # head and shoulders spans at least this many candles (4 days on the 4H)
+    "double_min_bars": 12,     # a double top or bottom spans at least this many candles
+}
+
+
+def patterns(df, k, side_hint=None, pp=None):
     """Head and shoulders (and inverse) and double top/bottom from the swing points of df.
 
     Valid only after a body close beyond the neckline; the right shoulder alone never signals.
+    Proportion limits are app defaults (`pp`, PATTERN_DEFAULTS): the course gives the shapes, not numbers.
     """
+    pp = {**PATTERN_DEFAULTS, **(pp or {})}
     r = structure.replay(df["close"].to_numpy(float), structure.atr(df).to_numpy(), k)
     piv = r["pivots"]
     close = df["close"].to_numpy(float)
     n = len(df)
+    atr_now = float(structure.atr(df).iloc[-1])
     out = []
 
     def state(neck, after_idx, sell):
@@ -117,31 +133,46 @@ def patterns(df, k, side_hint=None):
         retest = bool(len(back) and ((back >= neck).any() if sell else (back <= neck).any()))
         return ("retest" if retest else "neckline_broken"), b
 
+    def head_and_shoulders(p, sell):
+        """p: five swing points. Heights are measured from the mean of the two troughs."""
+        sign = 1 if sell else -1
+        ls, t1, hd, t2, rs = (x[1] * sign for x in p)   # flip so the head is always the highest
+        base = (t1 + t2) / 2
+        h = hd - base
+        if h < pp["head_min_atr"] * atr_now or p[4][0] - p[0][0] < pp["head_min_bars"]:
+            return False
+        return (hd - max(ls, rs) >= pp["head_over"] * h
+                and min(ls, rs) - base >= pp["shoulder_min"] * h
+                and abs(ls - rs) <= pp["shoulder_diff"] * h
+                and abs(t1 - t2) <= pp["trough_diff"] * h)
+
     if len(piv) >= 5:
         p = piv[-5:]
         kinds = "".join(x[2] for x in p)
-        if kinds == "HLHLH" and p[2][1] > p[0][1] and p[2][1] > p[4][1]:
+        if kinds == "HLHLH" and head_and_shoulders(p, True):
             neck = p[1][1]
             st, b = state(neck, p[4][0], True)
             out.append({"type": "head_and_shoulders", "side": "sell", "neckline": neck, "state": st,
                         "break_index": b, "points": [x[0] for x in p]})
-        if kinds == "LHLHL" and p[2][1] < p[0][1] and p[2][1] < p[4][1]:
+        if kinds == "LHLHL" and head_and_shoulders(p, False):
             neck = p[1][1]
             st, b = state(neck, p[4][0], False)
             out.append({"type": "inverse_head_and_shoulders", "side": "buy", "neckline": neck, "state": st,
                         "break_index": b, "points": [x[0] for x in p]})
     if len(piv) >= 3:
         p = piv[-3:]
-        tol = 0.5 * float(structure.atr(df).iloc[-1])
         kinds = "".join(x[2] for x in p)
-        if kinds == "HLH" and abs(p[0][1] - p[2][1]) <= tol:
-            st, b = state(p[1][1], p[2][0], True)
-            out.append({"type": "double_top", "side": "sell", "neckline": p[1][1], "state": st,
-                        "break_index": b, "points": [x[0] for x in p]})
-        if kinds == "LHL" and abs(p[0][1] - p[2][1]) <= tol:
-            st, b = state(p[1][1], p[2][0], False)
-            out.append({"type": "double_bottom", "side": "buy", "neckline": p[1][1], "state": st,
-                        "break_index": b, "points": [x[0] for x in p]})
+        depth = abs((p[0][1] + p[2][1]) / 2 - p[1][1])
+        if (depth >= pp["double_depth_atr"] * atr_now and abs(p[0][1] - p[2][1]) <= pp["double_peak_diff"] * depth
+                and p[2][0] - p[0][0] >= pp["double_min_bars"]):
+            if kinds == "HLH":
+                st, b = state(p[1][1], p[2][0], True)
+                out.append({"type": "double_top", "side": "sell", "neckline": p[1][1], "state": st,
+                            "break_index": b, "points": [x[0] for x in p]})
+            if kinds == "LHL":
+                st, b = state(p[1][1], p[2][0], False)
+                out.append({"type": "double_bottom", "side": "buy", "neckline": p[1][1], "state": st,
+                            "break_index": b, "points": [x[0] for x in p]})
     if side_hint:
         out = [x for x in out if x["side"] == side_hint]
     return out

@@ -39,6 +39,10 @@ DEFAULTS = {
         "retest_window": 20,
         "entry_tfs": ["D", "4H", "2H", "1H", "30m", "15m"],
         "pattern_tf": "4H",
+        # proportion limits for head and shoulders, double top and bottom (app defaults, see signals.PATTERN_DEFAULTS)
+        "pattern": {"head_min_atr": 2.0, "head_over": 0.15, "shoulder_min": 0.30, "shoulder_diff": 0.40,
+                    "trough_diff": 0.35, "double_depth_atr": 1.5, "double_peak_diff": 0.30,
+                    "head_min_bars": 24, "double_min_bars": 12},
     },
     # stop_min_atr_d: the stop is at least this many daily ATRs from the entry (still beyond the box).
     # 0 = off, the course's plain "5 to 10 pips beyond the box". Videos 6 and 9 prefer a wide stop, and in the

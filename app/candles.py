@@ -43,7 +43,7 @@ def to_frame(rates, offset_h):
     wall = pd.to_datetime(df["time"], unit="s") - pd.Timedelta(hours=offset_h)
     # Raises on a nonexistent or ambiguous hour; the market is closed then, so a hit means bad data.
     ny = wall.dt.tz_localize(NY)
-    out = df[["open", "high", "low", "close", "tick_volume"]].copy()
+    out = df[["open", "high", "low", "close", "tick_volume"] + (["spread"] if "spread" in df else [])].copy()
     out.insert(0, "ny", ny)
     out.insert(0, "time", ny.dt.tz_convert("UTC"))
     return out.reset_index(drop=True)

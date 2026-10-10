@@ -125,11 +125,14 @@ def test_break_and_retest_needs_a_return_and_a_rejection():
 def test_head_and_shoulders_is_forming_until_the_neckline_closes_below():
     close = np.array([100, 110, 104, 120, 104, 111, 100, 98], float)  # LS 110, head 120, RS 111, neck 104
     close = np.interp(np.linspace(0, len(close) - 1, 60), range(len(close)), close)
+    pp = {"head_min_atr": 0.0, "head_min_bars": 0}                      # synthetic data has no ATR scale
     df = pd.DataFrame({"open": close, "high": close + 0.3, "low": close - 0.3, "close": close})
     df["ny"] = pd.date_range("2026-01-01", periods=len(df), freq="4h", tz=NY)
-    pats = signals.patterns(df, 0.5)
+    pats = signals.patterns(df, 0.5, None, pp)
     hs = [p for p in pats if p["type"] == "head_and_shoulders"]
     assert hs and hs[0]["state"] in ("neckline_broken", "retest", "forming")
+    # a tiny wobble is not a pattern under the default proportions
+    assert not [p for p in signals.patterns(df, 0.5) if p["type"] == "head_and_shoulders" and p["points"][-1] - p["points"][0] < 24]
 
 
 # ---- structure + verdict on synthetic frames (spec 5 and 8)

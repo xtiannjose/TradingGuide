@@ -10,9 +10,9 @@ pairs = [
   "USDJPY", "CADJPY", "EURAUD", "GBPJPY", "GBPAUD", "EURUSD", "AUDUSD",
 ]
 
-# Your risk per trade, the same % on every trade. 1.0 is a placeholder until you choose;
-# `python app/lotsize.py EURUSD --stop 25` prints a table of options.
-risk_pct = 1.0
+# Your risk per trade, the same % on every trade. The owner chose 10 on 2026-10-10.
+# The terminal's Plan tab has a lot size calculator; `python app/lotsize.py EURUSD --stop 25` prints a table.
+risk_pct = 10.0
 
 # Price alerts for `python app/alerts.py`: a pop-up when the bid crosses `price`.
 # These are the edges of your reference boxes (docs/REFERENCE-AOIS.md). Add or edit freely.
