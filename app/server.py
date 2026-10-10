@@ -131,6 +131,9 @@ class Core:
                                 "bid": px, "note": a.get("note", ""), "ny": now.strftime("%a %H:%M"),
                                 "manila": now.astimezone(ZoneInfo(self.cfg["display_tz"])).strftime("%a %H:%M"),
                             })
+                            f = self.fired[-1]  # phone message too, if Telegram is set up (opt-in, see alerts.telegram)
+                            threading.Thread(target=alert_logic.telegram, daemon=True, args=(
+                                f"TradingGuide: {f['pair']} crossed {f['price']} (bid {f['bid']}). {f['note']} {f['ny']} NY / {f['manila']} Manila",)).start()
                         self._last[a["id"]] = px
                 except Exception as e:
                     self.mt5_error = str(e)
@@ -299,7 +302,7 @@ class Handler(BaseHTTPRequestHandler):
         if route == "connect":
             return self._send(200, {"mt5": c.connect(), "error": c.mt5_error})
         if route == "settings":
-            allowed = {"account": ("risk_pct", "balance"), "structure": ("swing_atr", "trail"),
+            allowed = {"account": ("risk_pct", "balance"), "structure": ("swing_atr", "mode"),
                        "aoi": ("cluster_pips",), "ui": ("candles",)}
             upd = {s: {k: body[s][k] for k in keys if k in body.get(s, {})} for s, keys in allowed.items() if s in body}
             c.save_settings(upd)

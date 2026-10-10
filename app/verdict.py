@@ -120,10 +120,11 @@ def _plan(side, box, entry, res, aois, pl, pip, acct, risk_pct):
 def analyze(pair, frames, now_ny, cfg, acct=None, price=None, offset_h=7):
     """One pair, as of now_ny (an aware New York datetime). frames: tf -> closed candle frame."""
     sp, ap, pl, tp = cfg["signal"], cfg["aoi"], cfg["plan"], cfg["time"]
-    k, trail = cfg["structure"]["swing_atr"], cfg["structure"]["trail"]
+    cs = cfg["structure"]
     pip = 0.01 if pair.endswith("JPY") else 0.0001
     px = float(price) if price is not None else float(frames["15m"]["close"].iloc[-1])
-    res = {tf: structure.read(frames[tf], k, trail) for tf in ORDER if tf in frames and len(frames[tf]) > 30}
+    res = {tf: structure.read(frames[tf], *structure.tf_settings(cs, tf))
+           for tf in ORDER if tf in frames and len(frames[tf]) > 30}
     emas = {tf: float(frames[tf]["close"].ewm(span=50, adjust=False).mean().iloc[-1])
             for tf in ("W", "D", "4H", "1H") if tf in frames and len(frames[tf])}
 
@@ -140,7 +141,7 @@ def analyze(pair, frames, now_ny, cfg, acct=None, price=None, offset_h=7):
     sunday_states = []
     for tf in ("W", "D"):
         df = candles.closed_only(frames[tf], candles.MINUTES[tf], now=sun)
-        sunday_states.append(structure.read(df, k, trail)["state"] if len(df) > 30 else None)
+        sunday_states.append(structure.read(df, *structure.tf_settings(cs, tf))["state"] if len(df) > 30 else None)
     bias_sun = sunday_states[0] if sunday_states[0] == sunday_states[1] else None
     bias = {"now": align["direction"], "sunday": bias_sun, "sunday_at": sun.isoformat(),
             "changed": bool(bias_sun != align["direction"])}
@@ -168,14 +169,24 @@ def analyze(pair, frames, now_ny, cfg, acct=None, price=None, offset_h=7):
                     patt.append(br)
                     if br["state"] == "rejection" and cand is None:
                         cand, retest = b, br
-        patt += [pt for pt in signals.patterns(frames[sp["pattern_tf"]], k, side)]
+        patt += [pt for pt in signals.patterns(frames[sp["pattern_tf"]], structure.tf_settings(cs, sp["pattern_tf"])[0], side)]
+
+    pdf = frames[sp["pattern_tf"]]
+    for pt in patt:  # chart times and prices for the pattern drawings
+        if pt.get("points"):
+            pt["point_t"] = [broker_seconds(pdf["ny"].iloc[i], offset_h) for i in pt["points"]]
+            pt["point_p"] = [float(pdf["close"].iloc[i]) for i in pt["points"]]
+        for key in ("break_index", "retest_index"):
+            if pt.get(key) is not None:
+                pt[key.replace("_index", "_t")] = broker_seconds(pdf["ny"].iloc[pt[key]], offset_h)
 
     signal = None
     if cand is not None and cand["at"]:
         for tf in ENTRY:
             if tf not in frames or len(frames[tf]) < 5:
                 continue
-            sigs = signals.candle_signals(frames[tf], side, sp, pip)
+            # spec 7.1: a confirmation is a rejection and/or an engulfing; a bare doji alone is not one
+            sigs = [s for s in signals.candle_signals(frames[tf], side, sp, pip) if s["type"] != "doji"]
             if not sigs:
                 continue
             last = frames[tf].iloc[-1]
@@ -240,7 +251,7 @@ def analyze(pair, frames, now_ny, cfg, acct=None, price=None, offset_h=7):
     if verdict in ("SIGNAL", "WAIT_FOR_SESSION"):
         grade = "A" if (align["risk"] == "low" and len(extras) >= 2) else ("B" if extras else "C")
 
-    awaiting = _awaiting(verdict, reason, cand, side, gate, px, pip, now_ny)
+    awaiting = _awaiting(verdict, reason, cand, side, gate, px, pip, now_ny, cfg.get("display_tz", "Asia/Manila"))
     check = _checklist(now_ny, gate, tfb, align, cand, side, signal, plan, reason, extras, pl)
     alerts = []
     for b in aois:
@@ -258,9 +269,9 @@ def analyze(pair, frames, now_ny, cfg, acct=None, price=None, offset_h=7):
         "time_gate": gate, "market_open": timegate.market_open(now_ny),
         "tf": tfb, "alignment": align, "bias": bias, "emas": emas,
         "aois": out_aois, "candidate": cand["id"] if cand else None,
-        "signal": signal, "patterns": patt, "verdict": verdict, "reason": reason, "grade": grade,
+        "signal": signal, "patterns": patt, "pattern_tf": sp["pattern_tf"], "verdict": verdict, "reason": reason, "grade": grade,
         "awaiting": awaiting, "plan": plan, "extras": extras, "checklist": check, "alerts": alerts,
-        "params": {"swing_atr": k, "trail": trail, "cluster_pips": ap["cluster_pips"]},
+        "params": {"swing_atr": cs["swing_atr"], "mode": cs.get("mode", "mixed"), "cluster_pips": ap["cluster_pips"]},
     })
 
 
@@ -268,13 +279,14 @@ def session_verdict(gate, now_ny, tp):
     """Verdict once a confirmed setup exists (spec 8.1, T5).
 
     SIGNAL inside the window. Outside it: WAIT_FOR_SESSION only if the next pre-London hour
-    falls on an entry day (Monday to Wednesday), otherwise NO_TRADE(weekday). On Saturday and
-    Sunday that hour is Monday's. After the window on Wednesday it is Thursday's.
+    falls on an entry day (Monday to Wednesday), otherwise NO_TRADE(weekday). While the market
+    is closed (Friday 17:00 to Sunday 17:00) that hour is Monday's, so the owner can prepare
+    over the weekend. After the window on Wednesday it is Thursday's.
     """
     if gate["pass"]:
         return "SIGNAL", None
     wd = now_ny.weekday()
-    if wd in (5, 6):
+    if wd in (5, 6) or not timegate.market_open(now_ny):  # weekend, incl. Friday after the 17:00 close: Monday is next
         return "WAIT_FOR_SESSION", "time"
     if wd not in tp["days"]:
         return "NO_TRADE", "weekday"
@@ -282,11 +294,17 @@ def session_verdict(gate, now_ny, tp):
     return ("WAIT_FOR_SESSION", "time") if nxt in tp["days"] else ("NO_TRADE", "weekday")
 
 
-def _awaiting(verdict, reason, cand, side, gate, px, pip, now_ny):
+def _both_clocks(iso, tz):
+    """'Mon 12 Oct 01:00 New York (13:00 Manila)' from an ISO timestamp."""
+    t = datetime.fromisoformat(iso)
+    return f"{t:%a %d %b %H:%M} New York ({t.astimezone(ZoneInfo(tz)):%H:%M} {tz.split('/')[-1]})"
+
+
+def _awaiting(verdict, reason, cand, side, gate, px, pip, now_ny, tz="Asia/Manila"):
     if verdict == "SIGNAL":
         return "Confirmation closed inside the entry window. Enter at the next candle open."
     if verdict == "WAIT_FOR_SESSION":
-        return f"Confirmation closed outside the window. Enter in the pre-London hour: {gate['next_window']}."
+        return f"Confirmation closed outside the window. Look to enter in the pre-London hour: {_both_clocks(gate['next_window'], tz)}."
     if reason == "weekday" and cand and gate["reason"] is not None and now_ny.weekday() in (2, 3, 4):
         return "Setup is ready but the next pre-London hour is not a Monday to Wednesday: skipped."
     if reason == "price_not_at_aoi" and cand:
@@ -299,7 +317,7 @@ def _awaiting(verdict, reason, cand, side, gate, px, pip, now_ny):
         "no_aoi": "No valid area of interest on the right side of price.",
         "rr_below_2": "The next structure point gives less than 1:2: skipped.",
         "against_weekly_level": "A weekly level sits in the way of the target: skipped.",
-        "weekday": "Thursday and Friday give no entries. Next window: " + str(gate.get("next_window")),
+        "weekday": "Thursday and Friday give no entries. Next window: " + (_both_clocks(gate["next_window"], tz) if gate.get("next_window") else ""),
     }.get(reason, "")
 
 

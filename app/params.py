@@ -2,7 +2,7 @@
 
 Precedence: built-in defaults, then app/settings.toml, then app/data/user.json (written by
 the UI settings panel). These are numbers, not rule switches: each value changes only the
-number it names. The exception is structure.trail, the owner's open choice (spec 4.2).
+number it names. The exception is structure.mode, the owner's choice of structure reading (spec 4.2).
 """
 import copy
 import json
@@ -15,7 +15,10 @@ USER = Path(__file__).with_name("data") / "user.json"
 DEFAULTS = {
     "pairs": [],
     "display_tz": "Asia/Manila",
-    "structure": {"swing_atr": 0.5, "trail": False},
+    # mode: "mixed" = weekly course rule, lower timeframes latest swing (owner's choice 2026-10-10);
+    # "latest" = all latest swing; "course" = the HL/LH stays until the next extreme (video 12).
+    # swing_atr_tf: D 0.35 reproduces the course's AUDJPY daily HL; the 4H and weekly examples fit 0.5.
+    "structure": {"swing_atr": 0.5, "swing_atr_tf": {"D": 0.35}, "mode": "mixed"},
     "aoi": {
         "cluster_pips": 35,      # tightest cluster of >= min_touches swing points must fit here
         "max_pips": 60,          # hard ceiling (course)

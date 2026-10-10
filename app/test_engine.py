@@ -57,6 +57,7 @@ def test_session_verdict_waits_only_for_an_entry_day():
     assert v(ny(2026, 10, 14, 0, 30)) == ("WAIT_FOR_SESSION", "time")      # Wednesday before 01:00: today
     assert v(ny(2026, 10, 15, 3)) == ("NO_TRADE", "weekday")               # Thursday
     assert v(ny(2026, 10, 16, 9)) == ("NO_TRADE", "weekday")               # Friday
+    assert v(ny(2026, 10, 16, 21)) == ("WAIT_FOR_SESSION", "time")         # Friday after the close: Monday
     assert v(ny(2026, 10, 10, 12)) == ("WAIT_FOR_SESSION", "time")         # Saturday: Monday 01:00
     assert v(ny(2026, 10, 11, 20)) == ("WAIT_FOR_SESSION", "time")         # Sunday evening: Monday 01:00
 

@@ -45,17 +45,25 @@ def clusters(pts, cap, minn, gap):
     return out
 
 
-def _box(tf, df, lo, hi, kept, pip, ap):
+def _box(tf, df, lo, hi, kept, pip, ap, zone=None):
     if hi - lo < ap["min_pips"] * pip:  # a tight cluster still needs a visible box
         mid = (lo + hi) / 2
         lo, hi = mid - ap["min_pips"] * pip / 2, mid + ap["min_pips"] * pip / 2
+        if zone:  # padding must not push the box out of the zone
+            if lo < zone[0]:
+                lo, hi = zone[0], zone[0] + ap["min_pips"] * pip
+            if hi > zone[1]:
+                lo, hi = zone[1] - ap["min_pips"] * pip, zone[1]
     return {"tf": tf, "low": float(lo), "high": float(hi), "pips": float((hi - lo) / pip),
             "touches": len(kept), "touch_idx": kept,
             "touch_times": [df["ny"].iloc[i] for i in kept], "minor": tf == "4H"}
 
 
 def _broken(df, box):
-    """True when price has gone to the other side of the box since its last touch."""
+    """Candles since price closed through the box to its other side after the last touch, or None.
+
+    0 means the latest candle did it. A box that is not broken returns None.
+    """
     c = df["close"].to_numpy(float)
     t = box["touch_idx"][-1]
     before = None
@@ -67,7 +75,10 @@ def _broken(df, box):
             before = "below"
             break
     now = "above" if c[-1] > box["high"] else "below" if c[-1] < box["low"] else None
-    return before is not None and now is not None and before != now
+    if before is None or now is None or before == now:
+        return None
+    first = next((j for j in range(t, len(c)) if (c[j] > box["high"] if now == "above" else c[j] < box["low"])), len(c) - 1)
+    return len(c) - 1 - first
 
 
 def at_aoi(price, box, pip, ap):
@@ -104,11 +115,12 @@ def find_aois(frames, results, price, pip, ap, emas):
         cl = clusters(piv, ap["cluster_pips"] * pip, ap["min_touches"], ap["touch_gap"])
         if not cl:  # nothing that tight: allow the course's hard ceiling before giving up
             cl = clusters(piv, ap["max_pips"] * pip, ap["min_touches"], ap["touch_gap"])
-        boxes = [_box(tf, df, lo, hi, kept, pip, ap) for lo, hi, kept in cl]
-        boxes = [b for b in boxes if b["pips"] <= ap["max_pips"] + 1e-9]
+        boxes = [_box(tf, df, lo, hi, kept, pip, ap, z) for lo, hi, kept in cl]
+        boxes = [b for b in boxes if b["pips"] <= ap["max_pips"] + 1e-9 and b["low"] >= z[0] - 1e-9 and b["high"] <= z[1] + 1e-9]
         for b in boxes:
             b["_df"] = df
-            b["broken"] = _broken(df, b)
+            b["broken_age"] = _broken(df, b)
+            b["broken"] = b["broken_age"] is not None
         # a broken box is removed from the candidates (video 9), so it must not use up a slot;
         # keep two of them only so a flipped zone can still be retested
         live = sorted((b for b in boxes if not b["broken"]), key=lambda b: _dist(price, b))
@@ -121,7 +133,8 @@ def find_aois(frames, results, price, pip, ap, emas):
     for n, b in enumerate(sorted(found, key=lambda b: _dist(price, b)), 1):
         df = b.pop("_df")
         if "broken" not in b:  # a merged weekly+daily box
-            b["broken"] = _broken(df, b)
+            b["broken_age"] = _broken(df, b)
+            b["broken"] = b["broken_age"] is not None
         b["role"] = ("inside" if b["low"] <= price <= b["high"]
                      else "support" if price > b["high"] else "resistance")
         if b["broken"]:  # a broken box flips role; it only comes back after a break and retest

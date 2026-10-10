@@ -48,6 +48,12 @@ def test_params_merge_keeps_defaults_and_overrides():
     assert cfg["aoi"]["cluster_pips"] == 35 and cfg["time"]["days"] == [0, 1, 2]
 
 
+def test_telegram_is_off_unless_configured(monkeypatch):
+    monkeypatch.delenv("TG_BOT_TOKEN", raising=False)
+    monkeypatch.delenv("TG_CHAT_ID", raising=False)
+    assert alerts.telegram("x") is False   # nothing set: nothing is sent
+
+
 def test_alert_fires_on_a_cross_only():
     assert alerts.crossed(1.30, 1.32, 1.31) and alerts.crossed(1.32, 1.30, 1.31)
     assert alerts.crossed(1.30, 1.31, 1.31)        # lands exactly on the level

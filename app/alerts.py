@@ -8,8 +8,11 @@ crossing the price (not on being past it when the script starts). Places no orde
 """
 import argparse
 import ctypes
+import os
 import threading
 import time
+import urllib.parse
+import urllib.request
 import winsound
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -24,6 +27,23 @@ FLAGS = 0x40 | 0x10000 | 0x40000
 def crossed(prev, now, level):
     """True when price went from one side of `level` to the other (or onto it)."""
     return prev is not None and (prev < level <= now or prev > level >= now)
+
+
+def telegram(text):
+    """Send text to your phone via Telegram, only if TG_BOT_TOKEN and TG_CHAT_ID are set on this PC.
+
+    Opt-in: with no variables set nothing is sent. The token lives in your environment, never
+    in the repository. Returns True when Telegram accepted the message.
+    """
+    token, chat = os.environ.get("TG_BOT_TOKEN"), os.environ.get("TG_CHAT_ID")
+    if not (token and chat):
+        return False
+    body = urllib.parse.urlencode({"chat_id": chat, "text": text}).encode()
+    try:
+        with urllib.request.urlopen(f"https://api.telegram.org/bot{token}/sendMessage", body, timeout=8) as r:
+            return r.status == 200
+    except OSError:
+        return False
 
 
 def popup(title, text):
@@ -69,6 +89,7 @@ def main():
                            f"{al.get('note', '')}\n{t:%H:%M} New York / {t.astimezone(tz):%H:%M} Manila")
                     print(msg.replace("\n", "  "))
                     popup(f"TradingGuide: {al['pair']}", msg)
+                    threading.Thread(target=telegram, args=(f"TradingGuide: {msg}",), daemon=True).start()
                     live.discard(n)
                 last[n] = tick.bid
             time.sleep(a.every)

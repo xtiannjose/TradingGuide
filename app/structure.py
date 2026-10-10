@@ -104,6 +104,17 @@ def replay(close, atr, k=1.0, trail=False):
     }
 
 
+def tf_settings(cs, tf):
+    """(swing size in ATR, trail?) for one timeframe from the [structure] settings.
+
+    mode "mixed" (default): weekly follows the course rule so the weekly bias stays stable,
+    every lower timeframe follows the latest swing. "latest": all timeframes. "course": none.
+    """
+    k = cs.get("swing_atr_tf", {}).get(tf, cs["swing_atr"])
+    mode = cs.get("mode", "mixed")
+    return k, (mode == "latest" or (mode == "mixed" and tf != "W"))
+
+
 def read(df, k=1.0, trail=False):
     """Structure of one timeframe from a closed-candle frame (candles.py). Output as spec 4.3."""
     r = replay(df["close"].to_numpy(), atr(df).to_numpy(), k, trail)

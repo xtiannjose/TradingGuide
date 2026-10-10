@@ -5,14 +5,14 @@ Status: every phase has a first version (2026-10-10), built in one pass at the o
 | Phase | Where it lives | State |
 |---|---|---|
 | 0 Foundation | `app/candles.py`, `app/phase0.py` | checked |
-| 1 Structure | `app/structure.py`, `app/chart.py` | built; owner chose "latest swing" feel, option B/D awaiting pick |
+| 1 Structure | `app/structure.py`, `app/chart.py` | done: weekly course rule, lower timeframes latest swing, tested on the course examples |
 | 2 Alignment, zone, bias | `app/verdict.py`, `app/timegate.py` | first version, unchecked |
 | 3 AOI finder | `app/aoi.py` | first version; compare with `docs/REFERENCE-AOIS.md` |
 | 4 Signals, patterns | `app/signals.py` | first version, synthetic tests only |
 | 5 Verdict, plan, lot size | `app/verdict.py`, `app/lotsize.py` | first version |
 | 6 Report | the terminal (`app/server.py`, `app/web/`) replaces the static HTML report | first version |
 | 7 Settings | `app/params.py`, `app/settings.toml`, Settings panel | done |
-| 8 Validation | `app/backtest.py` | first version; tiny samples so far |
+| 8 Validation | `app/backtest.py`, `app/validate.py`, `app/signal_gallery.py` | built; 12-week replay of 21 pairs gave -0.31R average, short stops the weak spot (see `docs/NEXT-STEPS.md`) |
 | 9 Automation, alerts | `app/alerts.py`, terminal alerts, `scripts/schedule-scan.ps1` | built; schedule not installed yet |
 | 10 UI | `app/web/` | first version | This file is the plan; `docs/ANALYSIS-SPEC.md` is what to build; `strategy/strategy.md` is where the rules come from.
 

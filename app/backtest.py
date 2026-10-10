@@ -1,6 +1,6 @@
 """Phase 8: replay the analysis over past weeks and count signals and R outcomes.
 
-python app/backtest.py GBPUSD [AUDJPY ...] [--weeks 8]
+python app/backtest.py GBPUSD [AUDJPY ...] [--weeks 8]     or:  python app/backtest.py all --weeks 12
 
 At each full hour inside the entry window (Mon to Wed, 01:00 to 10:00 New York) the analysis
 sees only candles that were closed by then, so nothing uses future data. A SIGNAL opens one
@@ -80,7 +80,9 @@ def run_pair(pair, frames, cfg, weeks, off=7):
         signals += 1
         res, r, when = simulate(a["plan"], a["plan"]["side"], t.replace(tzinfo=None) + timedelta(minutes=1), frames["15m"])
         trades.append({"at": t.isoformat(), "side": a["plan"]["side"], "grade": a["grade"], "result": res,
-                       "r": r, "rr_planned": a["plan"]["rr"], "box": a["plan"]["box"], "exit": when})
+                       "r": r, "rr_planned": a["plan"]["rr"], "box": a["plan"]["box"], "exit": when,
+                       "sig_tf": a["signal"]["tf"], "sig_type": a["signal"]["type"], "stop_pips": a["plan"]["stop_pips"],
+                       "align_risk": a["alignment"]["risk"]})
         busy_until = datetime.fromisoformat(when) if when else None
     done = [x for x in trades if x["result"] in ("win", "loss")]
     summary = {
@@ -100,20 +102,35 @@ def main():
     a = ap.parse_args()
     cfg = params.load()
     off = cfg["data"]["server_ny_offset_hours"]
+    if a.pairs == ["all"]:
+        a.pairs = cfg["pairs"]
     mt5 = candles.connect()
     try:
         data = {p: candles.load_pair(mt5, p + cfg["data"]["symbol_suffix"], off) for p in a.pairs}
     finally:
         mt5.shutdown()
     DATA.mkdir(exist_ok=True)
+    allt = []
     for p, frames in data.items():
         s = run_pair(p, frames, cfg, a.weeks, off)
         (DATA / f"backtest_{p}.json").write_text(json.dumps(s, indent=1), encoding="utf-8")
         print(f"{p}: {s['decision_points']} decision points, verdicts {s['verdict_counts']}")
         print(f"   signals {s['signals']} ({s['signals_per_week']}/week), closed {s['closed']}, wins {s['wins']}, "
-              f"total {s['total_r']}R, average {s['avg_r']}R")
-        for t in s["trades"]:
-            print(f"   {t['at'][:16]} {t['side']:4} grade {t['grade']} box {t['box']:5} {t['result']:5} {t['r']:+.2f}R")
+              f"total {s['total_r']}R, average {s['avg_r']}R", flush=True)
+        allt += [{**t, "pair": p} for t in s["trades"] if t["result"] in ("win", "loss")]
+    if len(data) > 1 and allt:
+        print("\nAll pairs together (closed paper trades only):")
+        for name, key in (("grade", lambda t: t["grade"]), ("side", lambda t: t["side"]),
+                          ("box", lambda t: t["box"].rstrip("0123456789")), ("signal tf", lambda t: t.get("sig_tf", "?")),
+                          ("signal", lambda t: t.get("sig_type", "?")), ("4H agrees", lambda t: str(t.get("align_risk"))),
+                          ("stop pips", lambda t: "<15" if t.get("stop_pips", 0) < 15 else "15-30" if t["stop_pips"] < 30 else "30+")):
+            groups = {}
+            for t in allt:
+                groups.setdefault(key(t), []).append(t["r"])
+            for g, rs in sorted(groups.items()):
+                print(f"  by {name} {g:5}: {len(rs):3} trades, {sum(r > 0 for r in rs):3} wins, total {sum(rs):+.1f}R, average {np.mean(rs):+.2f}R")
+        rs = [t["r"] for t in allt]
+        print(f"  all: {len(rs)} trades, {sum(r > 0 for r in rs)} wins, total {sum(rs):+.1f}R, average {np.mean(rs):+.2f}R over {a.weeks} weeks and {len(data)} pairs")
 
 
 if __name__ == "__main__":

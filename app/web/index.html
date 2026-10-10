@@ -46,6 +46,11 @@
   <section class="chartcol">
     <div class="chartwrap" id="chartwrap">
       <div id="legend" class="legend mono"></div>
+      <div class="toggles" role="group" aria-label="Chart layers">
+        <label><input type="checkbox" id="tgSwings"> Swing path</label>
+        <label><input type="checkbox" id="tgBoxes" checked> Boxes</label>
+        <label><input type="checkbox" id="tgPatterns" checked> Patterns</label>
+      </div>
       <div id="chart" class="chart"></div>
       <canvas id="overlay" class="overlay"></canvas>
       <button id="alertHere" class="btn small floating" hidden></button>
@@ -79,7 +84,7 @@
     <div class="fld"><label for="sBalance">Account balance (blank uses the MT5 account)</label><input id="sBalance" type="number" step="1" min="0"></div>
     <div class="fld"><label for="sSwing">Swing size (x ATR)</label><input id="sSwing" type="number" step="0.05" min="0.1" max="3"></div>
     <div class="fld"><label for="sTrail">Structure reading</label>
-      <select id="sTrail"><option value="false">Course rule (HL/LH set at a new extreme)</option><option value="true">Latest swing (HL/LH follows each new swing)</option></select></div>
+      <select id="sTrail"><option value="mixed">Weekly: course rule. Lower: latest swing (default)</option><option value="latest">Latest swing everywhere</option><option value="course">Course rule everywhere (HL/LH set at a new extreme)</option></select></div>
     <div class="fld"><label for="sCluster">Box size limit (pips, tightest cluster)</label><input id="sCluster" type="number" step="1" min="10" max="60"></div>
     <div class="fld"><label for="sCandles">Candle colours</label>
       <select id="sCandles"><option value="course">Blue up, red down (the course)</option><option value="classic">Green up, red down</option></select></div>

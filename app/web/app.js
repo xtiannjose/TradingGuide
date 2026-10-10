@@ -22,6 +22,7 @@ const S = {
   pair: store.get('pair', null), tf: store.get('tf', 'D'), tab: store.get('tab', 'verdict'),
   summary: [], analysis: null, bars: [], ema: [], prices: {}, state: null, filter: 'all', q: '',
   firedSeen: 0, clickPrice: null, sort: ['verdict', 1], lines: [], scanWas: false,
+  layers: { swings: store.get('l.swings', '0') === '1', boxes: store.get('l.boxes', '1') === '1', patterns: store.get('l.patterns', '1') === '1' },
 };
 let chart, candle, emaLine, ro;
 
@@ -143,10 +144,54 @@ function draw(onlyIfMoved) {
     ctx.restore();
     labels.push({ y: Math.min(y1, y2) + 11, text: 'YOUR box ' + (r.tf || ''), color: css('--yours') });
   }
+  // swing path: the confirmed swing points of this timeframe joined, as the structure module sees them
+  if (S.layers.swings) {
+    const sw = (a.tf[S.tf] && a.tf[S.tf].swings) || [];
+    ctx.save();
+    ctx.strokeStyle = css('--muted'); ctx.lineWidth = 1; ctx.setLineDash([2, 3]); ctx.beginPath();
+    let first = true;
+    for (const s of sw) { const x = X(s.t), y = Y(s.price); if (x == null || y == null) continue; if (first) ctx.moveTo(x, y); else ctx.lineTo(x, y); first = false; }
+    ctx.stroke(); ctx.setLineDash([]);
+    for (const s of sw) {
+      const x = X(s.t), y = Y(s.price); if (x == null || y == null) continue;
+      ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fillStyle = s.kind === 'H' ? css('--down') : css('--up'); ctx.fill();
+    }
+    ctx.restore();
+  }
+  // patterns (head and shoulders, double top or bottom, break and retest) on the pattern timeframe
+  if (S.layers.patterns && S.tf === a.pattern_tf) {
+    const pc = css('--accent-text');
+    for (const pt of a.patterns || []) {
+      const nm = pt.type.replaceAll('_', ' ');
+      if (pt.point_t) {
+        ctx.save(); ctx.strokeStyle = pc; ctx.lineWidth = 1.5; ctx.beginPath();
+        pt.point_t.forEach((t, i) => { const x = X(t), y = Y(pt.point_p[i]); if (x == null || y == null) return; if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y); });
+        ctx.stroke(); ctx.restore();
+      }
+      if (pt.neckline != null) {
+        const y = Y(pt.neckline), x0 = pt.point_t ? (X(pt.point_t[0]) ?? 0) : 0;
+        if (y != null) {
+          ctx.save(); ctx.strokeStyle = pc; ctx.setLineDash([6, 4]); ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(plotW, y); ctx.stroke(); ctx.restore();
+          labels.push({ y: y - 3, text: `${nm} neckline ${fmt(a.pair, pt.neckline)} (${pt.state.replaceAll('_', ' ')})`, color: pc });
+        }
+      }
+      const bx = (a.aois || []).find(b => b.id === pt.box);
+      if (pt.type === 'break_and_retest' && bx) {
+        for (const [key, word, edge] of [['break_t', 'break', pt.side === 'buy' ? bx.high : bx.low], ['retest_t', 'retest', pt.side === 'buy' ? bx.high : bx.low]]) {
+          const x = pt[key] ? X(pt[key]) : null, y = Y(edge);
+          if (x == null || y == null) continue;
+          ctx.save(); ctx.fillStyle = pc; ctx.font = '600 10px ' + css('--mono'); ctx.textAlign = 'center'; ctx.fillText(word, x, pt.side === 'buy' ? y - 6 : y + 14); ctx.restore();
+        }
+        labels.push({ y: Y(bx.high) - 3, text: `${bx.id} break and retest: ${pt.state.replaceAll('_', ' ')}`, color: pc });
+      }
+    }
+  }
   // areas of interest
   const lowTf = ['4H', '2H', '1H', '30m', '15m'].includes(S.tf);
-  for (const b of a.aois) {
-    if (b.broken) continue;                 // a broken box is removed from the candidates (video 9); see the Levels tab
+  for (const b of (S.layers.boxes ? a.aois : [])) {
+    // a broken box is removed from the candidates (video 9); one broken in the last 5 candles of its own
+    // timeframe stays visible, faint and dashed, for the retest. Older ones are only in the Levels tab.
+    if (b.broken && !(b.broken_age != null && b.broken_age <= 5)) continue;
     if (b.tf === '4H' && !lowTf) continue;  // minor 4H boxes only on 4H and lower charts
     const y1 = Y(b.high), y2 = Y(b.low);
     if (y1 == null || y2 == null) continue;
@@ -160,7 +205,7 @@ function draw(onlyIfMoved) {
     if (b.broken) ctx.setLineDash([4, 3]);
     ctx.strokeRect(x1 + 0.5, top + 0.5, plotW - x1 - 1, hh);
     ctx.restore();
-    labels.push({ y: top + 11, text: `${b.id} ${b.tf} ${b.touches}x ${b.pips.toFixed(0)}p ${b.role}`, color: c });
+    labels.push({ y: top + 11, text: `${b.id} ${b.tf} ${b.touches}x ${b.pips.toFixed(0)}p ${b.broken ? 'broken, retest? ' : ''}${b.role}`, color: c });
     if (a.candidate === b.id) badges.push([5, x1 + 4, top - 2]);
   }
   // box labels sit at the right edge, pushed apart so none overlap
@@ -450,7 +495,7 @@ function paneLevels(a, el) {
       return `<div>${e.ema.length ? tag('EMA 50 near: ' + e.ema.join(', ')) : ''}${e.round_number != null ? tag('Round number ' + fmt(a.pair, e.round_number)) : ''}${e.previous_daily_swing ? tag('Previous daily swing') : ''}${c.overlap || c.overlaps_other_tf ? tag('Weekly and daily overlap') : ''}</div>`; })()}
     <h3>Swing points (${esc(S.tf)})</h3>
     <p class="hint">${(a.tf[S.tf] && a.tf[S.tf].swings || []).slice(-8).map(s => `${s.kind} ${fmt(a.pair, s.price)}`).join(', ') || 'none'}</p>
-    <h3>Settings used</h3><p class="hint">Swing ${a.params.swing_atr} x ATR, ${a.params.trail ? 'latest-swing' : 'course-rule'} structure, boxes up to ${a.params.cluster_pips} pips.</p>`;
+    <h3>Settings used</h3><p class="hint">Swing ${a.params.swing_atr} x ATR (daily 0.35), structure mode "${a.params.mode}", boxes up to ${a.params.cluster_pips} pips.</p>`;
   $$('[data-al]', el).forEach(b => b.onclick = async () => { await post('alerts', { pair: a.pair, price: parseFloat(b.dataset.al), note: b.dataset.note }); toast('Alert added', `${a.pair} at ${fmt(a.pair, parseFloat(b.dataset.al))}`); S.tab = 'alerts'; renderPane(); });
 }
 async function paneAlerts(a, el) {
@@ -565,6 +610,11 @@ function wire() {
   $('#pairInput').addEventListener('change', e => { const v = e.target.value.trim().toUpperCase(); if ((S.state.pairs || []).includes(v)) loadPair(v); else e.target.value = S.pair; });
   $('#scanBtn').onclick = async () => { await post('connect'); const r = await post('scan', { pairs: [S.pair] }); if (!r.started) toast('Scan', 'A scan is already running.'); pollState(); };
   $('#scanAllBtn').onclick = async () => { await post('connect'); const r = await post('scan', {}); if (!r.started) toast('Scan', 'A scan is already running.'); pollState(); };
+  for (const [id, key] of [['tgSwings', 'swings'], ['tgBoxes', 'boxes'], ['tgPatterns', 'patterns']]) {
+    const el = $('#' + id);
+    el.checked = S.layers[key];
+    el.addEventListener('change', () => { S.layers[key] = el.checked; store.set('l.' + key, el.checked ? '1' : '0'); draw(); });
+  }
   $('#alertHere').onclick = async () => {
     if (S.clickPrice == null) return;
     await post('alerts', { pair: S.pair, price: S.clickPrice, note: 'chart click' });
@@ -578,7 +628,7 @@ function wire() {
   $('#settingsBtn').onclick = () => {
     const s = S.state.settings;
     $('#sRisk').value = s.account.risk_pct; $('#sBalance').value = s.account.balance ?? '';
-    $('#sSwing').value = s.structure.swing_atr; $('#sTrail').value = String(!!s.structure.trail);
+    $('#sSwing').value = s.structure.swing_atr; $('#sTrail').value = s.structure.mode || 'mixed';
     $('#sCluster').value = s.aoi.cluster_pips; $('#sCandles').value = s.ui.candles;
     $('#settingsDlg').showModal();
   };
@@ -588,7 +638,7 @@ function wire() {
     const bal = $('#sBalance').value;
     await post('settings', {
       account: { risk_pct: parseFloat($('#sRisk').value) || 1, balance: bal ? parseFloat(bal) : null },
-      structure: { swing_atr: parseFloat($('#sSwing').value) || 0.5, trail: $('#sTrail').value === 'true' },
+      structure: { swing_atr: parseFloat($('#sSwing').value) || 0.5, mode: $('#sTrail').value },
       aoi: { cluster_pips: parseFloat($('#sCluster').value) || 35 }, ui: { candles: $('#sCandles').value },
     });
     await pollState(); applyTheme(); renderPane();

@@ -136,10 +136,12 @@ def main():
         print(f"Pictures in {folder}")
         return
 
-    print(f"{symbol}{tag}, swing = {k} x ATR(14){', latest swing trails' if a.trail else ''}")
+    manual = a.k is not None or a.trail
+    print(f"{symbol}{tag}, " + (f"swing = {k} x ATR(14){', latest swing trails' if a.trail else ''}" if manual
+                               else f"settings mode '{cfg['structure'].get('mode', 'mixed')}' (per-timeframe swing sizes)"))
     for tf in a.tf.split(","):
         df = candles.closed_only(data[tf], MINUTES[tf], now=now) if now else data[tf]
-        res = structure.read(df, k, a.trail)
+        res = structure.read(df, k, a.trail) if manual else structure.read(df, *structure.tf_settings(cfg["structure"], tf))
         if not res["state"]:
             print(f"  {tf:>3}: no structure yet")
             continue
