@@ -7,11 +7,12 @@ Where the project stands and what to do next. Read this first when continuing on
 - **Strategy:** 13 fxalexg videos studied and merged into `strategy/strategy.md`. Section 1 holds the **core rule set** that app v1 builds: one answer per topic, newer upload wins. Account modes, the one-timeframe mode, counter-weekly trades and other extras are **parked** (kept as history, not built).
 - **Guide:** `Confluence-Trading-Guide.pdf` version 1.7, 42 pages, covers all 13 videos. Optional parts are labelled.
 - **Videos:** no more planned. The 16 candidates in `docs/VIDEOS.md` are all older (2021 to 2025) and could only fill gaps, not change rules.
-- **App:** phases 0 and 1 built (2026-10-10). Phase 2 (alignment, zone, weekly bias) is next, once the phase 1 eye check below is answered.
-  - Phase 0, `app/candles.py`: MT5 candles for all seven timeframes on the New York 5 PM boundary. `python app/phase0.py` is the check; it passes, and it also works with the market closed.
-  - Phase 1, `app/structure.py`: HH/HL/LH/LL per timeframe. `python app/chart.py EURUSD` draws it. Swing threshold 0.5 x ATR, tuned on the course's EURUSD and AUDJPY examples. A rule check over all 21 pairs and 3 timeframes found no violations.
-  - Tools: `python app/lotsize.py EURUSD --stop 25` (lot size and risk table), `python app/alerts.py` (pop-up when a price is crossed; levels are the `[[alert]]` blocks in `app/settings.toml`).
-  - All 7 decisions in `docs/BUILD-PLAN.md` section 10 are confirmed (the defaults): MT5 demo, runs on a Windows PC, HTML report with annotated charts, his 21 pairs, 1% risk placeholder, Sunday and daily schedule, public repo with code in `app/`.
+- **App:** first full version built (2026-10-10), in one pass. All phases exist; only phase 0 and the phase 1 structure have been checked against real charts. The rest is a draft to tune one item at a time.
+  - **Open it:** double-click `Start-TradingGuide.cmd` (MetaTrader 5 open and logged in). It opens a TradingView-style terminal at http://127.0.0.1:8765/: watchlist of the 21 pairs, candle chart for 7 timeframes with the 50 EMA, structure lines, area-of-interest boxes, your own boxes dashed, numbered markers that match the checklist, verdict, plan and lot size, alerts, an all-pairs table, light and dark themes. "Scan all" refreshes everything from MT5 in about 15 seconds.
+  - **Engine** (`app/`): `candles.py` (data), `structure.py`, `aoi.py`, `signals.py`, `timegate.py`, `verdict.py` (alignment, bias, verdict, stop, target, R:R), `scan.py`, `backtest.py`, `lotsize.py`, `alerts.py`, `params.py` (every number in one place). 32 tests pass.
+  - **First look at real data:** 21 pairs scanned; most are WATCH or NO_TRADE (counter-trend, or the next structure point is under 1:2), which is what the rules should say on a Friday-close snapshot. A 8-week replay gave 0.25 to 1 signals a week per pair. It is a sanity check on a few trades, not evidence the strategy works.
+  - **Known first-pass limits:** the box finder and signal shapes use app defaults that nobody has checked against the owner's charts yet; the structure reading has an open choice (course rule or latest swing); the chart labels can overlap when boxes sit close together; the engine ignores the spread and news.
+  - All 7 decisions in `docs/BUILD-PLAN.md` section 10 are confirmed (the defaults), except the risk placeholder, which the owner will set (10% or 20%).
 
 ## What the app will give you
 
@@ -25,8 +26,9 @@ Claude keeps this current. Only the items Claude cannot do for you are listed as
 
 **Open (needs you)**
 
+- [ ] **Try the terminal (about 10 minutes) and tell Claude what feels wrong, one item at a time.** Double-click `Start-TradingGuide.cmd`. Open GBPUSD, AUDUSD and AUDJPY on D and W: do the boxes (solid) land near your own (dashed)? Does the verdict make sense? The list of fixes you send becomes the next work.
 - [ ] **Pick how the structure should be read (about 5 minutes).** Your first eye check said the levels were too tied to older HH/HL and LL/LH. Open the pictures in `app/out/compare/` (`AUDUSD_D.png`, `AUDJPY_D.png`, `GBPUSD_D.png` and the `_W.png` ones). Each shows the same candles read four ways: A is the course rule as built, B lets the HL/LH follow the latest swing, C and D are A and B with finer swings. Reply with the letter that matches how you would mark it, or say what is still wrong. The course (video 12) keeps the HL behind the HH until a new HH forms (A), while B flips earlier, on the latest swing; you decide.
-- [ ] **Test the pop-up once:** run `python app/alerts.py --test`. Claude cannot see your screen, so a window must appear for you. Then, with MT5 open and the market open, run `python app/alerts.py`; it watches the six levels in `app/settings.toml` (the edges of your three daily boxes). Edit or add levels there.
+- [ ] **Test the pop-up once:** run `python app/alerts.py --test` (the terminal also shows a toast and plays a beep when an alert fires, and can send a Windows notification if you allow it). Claude cannot see your screen, so a window must appear for you. Then, with MT5 open and the market open, run `python app/alerts.py`; it watches the six levels in `app/settings.toml` (the edges of your three daily boxes). Edit or add levels there.
 - [ ] **Review Claude's weekly and daily draft boxes** (version 2: every box is 35 pips or less, the tightest cluster of at least 3 swing points, as the course prefers). Pictures: `app/out/ideas/` (`GBPUSD_boxes.png`, `AUDUSD_boxes.png`, `AUDJPY_boxes.png`; weekly on the left, daily on the right, your box in green). The numbers are in `docs/REFERENCE-AOIS.md`. Reply with the boxes you agree with and Claude moves them into your key. Best done before phase 3, because the key is what tunes the AOI finder.
 - [ ] **Settle your risk per trade.** The owner said about 10% or 20%. Run `python app/lotsize.py EURUSD --stop 25 --balance <your real balance>` to see lots and the drawdown after 5 and 10 stops in a row for each level (at 10%, five stops in a row leave 59% of the balance; at 20%, 33%). Tell Claude the one number, the balance and the account currency before phase 5. The app then uses that same % on every trade.
 
@@ -34,18 +36,19 @@ Claude keeps this current. Only the items Claude cannot do for you are listed as
 
 **Later**
 
-- [ ] Before phase 9: confirm the PC stays on and MT5 stays logged in at the run times, 12:30 PM Manila (1:30 PM in US winter) each trading day and Monday 5 AM Manila (6 AM in winter) for the weekly bias.
+- [ ] **Optional, when ready:** run `.\scripts\schedule-scan.ps1` to scan automatically before the window. Confirm the PC stays on and MT5 stays logged in at the run times, 12:30 PM Manila (1:30 PM in US winter) each trading day and Monday 5 AM Manila (6 AM in winter) for the weekly bias.
 - [ ] Before phase 9: say whether you also want alerts on your phone (Telegram). A bot token must never be committed; it goes in an environment variable.
 - [ ] Rerun `python app/phase0.py` once after 1 November 2026, when the US clocks change, to confirm the broker clock is still New York + 7 h.
 - [ ] Before phase 10 (optional): decide if you want a small local UI and a news-calendar flag.
 
 **Done**
 
+- [x] Whole app built in a first version, with a browser terminal, alerts, lot size, backtest and a Windows scheduler script.
 - [x] MT5 demo account, broker clock New York + 7 h (confirmed from the candles and from the last tick of the week), 21 pairs with plain names.
 - [x] Daily reference boxes for GBPUSD, AUDUSD and AUDJPY (`docs/REFERENCE-AOIS.md`).
 - [x] Weekly boxes drafted by Claude with confluences, kept apart from your key.
 - [x] Lot size calculator and price alert watcher built.
-- [x] Work committed locally (three commits).
+- [x] Work committed locally.
 
 ## Setup steps (done; kept for a new machine)
 

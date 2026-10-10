@@ -160,7 +160,7 @@ Core (mandatory): trend (weekly and daily aligned), AOI at price, closed confirm
 
 ### 8.2 Plan (course numbers where given)
 
-- **Entry** (video 9): the signal candle closes; set stop, then take profit; enter at the **next candle's open** (market entry). Before that candle opens the report uses the signal close as the estimate.
+- **Entry** (video 9): the signal candle closes; set stop, then take profit; enter at the **next candle's open** (market entry). Before that candle opens the app uses the **current price** as the estimate (not the signal close: a daily or 4H confirmation can be hours old, and a backtest showed targets measured from a stale close were wrong). The stop, target and R:R are all measured from that price.
 - **Stop** (video 9, newer): beyond the **far edge of the AOI box** the signal formed at (weekly, daily, merged or minor 4H), plus `P-STOP-BUFFER` (5 to 10 pips). It does not depend on the signal candle's timeframe or wick. Video 10 keeps the stop tight on purpose so that 1:2 holds: if the target is then closer than 1:2 the setup is skipped, never squeezed inside the AOI.
 - **Target** (videos 9 and 13: "the nearest structure point", the last place the market reacted from; app default for which one): the nearest of (a) the latest confirmed swing pivot beyond the entry in the trade direction on `P-TARGET-TF` (daily and 4H), and (b) the near edge of the nearest opposing AOI. Let `R_next` = distance to the target divided by the stop distance.
   - `R_next < 2` -> `NO_TRADE(rr_below_2)` (every video: minimum 1:2).

@@ -23,6 +23,31 @@ def test_pip_size():
     assert lotsize.pip_size("JPY") == 0.01 and lotsize.pip_size("USD") == 0.0001
 
 
+def test_backtest_simulate_stop_target_and_same_candle_loss():
+    import backtest
+    import pandas as pd
+    ny = "America/New_York"
+
+    def m15(rows):
+        df = pd.DataFrame(rows, columns=["open", "high", "low", "close"])
+        df["ny"] = pd.date_range("2026-01-05 02:00", periods=len(df), freq="15min", tz=ny)
+        return df
+    plan = {"stop": 1.0950, "target": 1.1100}
+    after = pd.Timestamp("2026-01-05 02:00").to_pydatetime()
+    assert backtest.simulate(plan, "buy", after, m15([(1.1000, 1.1010, 1.0990, 1.1005), (1.1005, 1.1105, 1.1000, 1.1100)]))[0] == "win"
+    assert backtest.simulate(plan, "buy", after, m15([(1.1000, 1.1010, 1.0940, 1.0960)]))[:2] == ("loss", -1.0)
+    assert backtest.simulate(plan, "buy", after, m15([(1.1000, 1.1110, 1.0940, 1.1000)]))[:2] == ("loss", -1.0)  # both: loss
+    assert backtest.simulate(plan, "buy", after, m15([(1.1000, 1.1010, 1.0990, 1.1005)]))[0] == "open"
+
+
+def test_params_merge_keeps_defaults_and_overrides():
+    import params
+    base = {"a": {"x": 1, "y": 2}, "b": 3}
+    assert params.merge(base, {"a": {"y": 9}, "c": 4}) == {"a": {"x": 1, "y": 9}, "b": 3, "c": 4}
+    cfg = params.load(user=False)
+    assert cfg["aoi"]["cluster_pips"] == 35 and cfg["time"]["days"] == [0, 1, 2]
+
+
 def test_alert_fires_on_a_cross_only():
     assert alerts.crossed(1.30, 1.32, 1.31) and alerts.crossed(1.32, 1.30, 1.31)
     assert alerts.crossed(1.30, 1.31, 1.31)        # lands exactly on the level

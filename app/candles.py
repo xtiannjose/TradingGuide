@@ -26,6 +26,7 @@ TF = {
 }
 ORDER = ("W", "D", "4H", "2H", "1H", "30m", "15m")
 WEEK_MINUTES = 5 * 1440  # Sunday 5 PM to Friday 5 PM New York
+MINUTES = {k: v[1] for k, v in TF.items()} | {"W": WEEK_MINUTES}
 
 
 def settings():
@@ -87,7 +88,7 @@ def load_pair(mt5, symbol, offset_h, extra_days=0):
     for name, (const, minutes, days) in TF.items():
         want = int((days + extra_days) * 5 / 7 * 1440 / minutes) + 50
         rates = mt5.copy_rates_from_pos(symbol, getattr(mt5, const), 0, want)
-        if rates is None or len(rates) < want:  # the terminal may still be syncing history
+        if rates is None or len(rates) < want * 0.8:  # the terminal may still be syncing history
             time.sleep(2)
             rates = mt5.copy_rates_from_pos(symbol, getattr(mt5, const), 0, want)
         if rates is None:

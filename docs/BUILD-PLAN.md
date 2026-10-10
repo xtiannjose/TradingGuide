@@ -1,6 +1,20 @@
 # Build plan: the chart-analysis app
 
-Status: phases 0 and 1 built (2026-10-10; phase 1 awaits the owner's chart check), phases 2 to 10 planned. What the owner still has to do is tracked in the to-do list in `docs/NEXT-STEPS.md`. This file is the plan; `docs/ANALYSIS-SPEC.md` is what to build; `strategy/strategy.md` is where the rules come from.
+Status: every phase has a first version (2026-10-10), built in one pass at the owner's request. Nothing past phase 1 has been checked against the owner's charts yet, so treat phases 2 to 10 as drafts to tune one item at a time. Phase 1 has an open choice (course rule or latest swing). What the owner still has to do is tracked in `docs/NEXT-STEPS.md`.
+
+| Phase | Where it lives | State |
+|---|---|---|
+| 0 Foundation | `app/candles.py`, `app/phase0.py` | checked |
+| 1 Structure | `app/structure.py`, `app/chart.py` | built; owner chose "latest swing" feel, option B/D awaiting pick |
+| 2 Alignment, zone, bias | `app/verdict.py`, `app/timegate.py` | first version, unchecked |
+| 3 AOI finder | `app/aoi.py` | first version; compare with `docs/REFERENCE-AOIS.md` |
+| 4 Signals, patterns | `app/signals.py` | first version, synthetic tests only |
+| 5 Verdict, plan, lot size | `app/verdict.py`, `app/lotsize.py` | first version |
+| 6 Report | the terminal (`app/server.py`, `app/web/`) replaces the static HTML report | first version |
+| 7 Settings | `app/params.py`, `app/settings.toml`, Settings panel | done |
+| 8 Validation | `app/backtest.py` | first version; tiny samples so far |
+| 9 Automation, alerts | `app/alerts.py`, terminal alerts, `scripts/schedule-scan.ps1` | built; schedule not installed yet |
+| 10 UI | `app/web/` | first version | This file is the plan; `docs/ANALYSIS-SPEC.md` is what to build; `strategy/strategy.md` is where the rules come from.
 
 ## 1. The goal
 

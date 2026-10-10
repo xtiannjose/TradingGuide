@@ -46,6 +46,26 @@ pair = "AUDJPY"
 price = 110.002
 note = "bottom edge of your daily box"
 
+# The owner's hand-drawn boxes (docs/REFERENCE-AOIS.md). The terminal draws them dashed so
+# the app's boxes can be compared with them. The app never reads them as input.
+[[reference]]
+pair = "GBPUSD"
+tf = "D"
+low = 1.31598
+high = 1.32199
+
+[[reference]]
+pair = "AUDUSD"
+tf = "D"
+low = 0.70890
+high = 0.71255
+
+[[reference]]
+pair = "AUDJPY"
+tf = "D"
+low = 110.002
+high = 110.580
+
 [structure]
 # P-SWING-ATR: a swing point is confirmed when closes reverse by this many ATR(14).
 # 0.5 reproduces the course's EURUSD 4H and AUDJPY 4H/weekly examples (1.0 was too coarse).

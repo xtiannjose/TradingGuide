@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TradingGuide Terminal</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand" aria-label="TradingGuide">TradingGuide</div>
+  <label class="symbol">
+    <span class="sr">Pair</span>
+    <input id="pairInput" list="pairList" spellcheck="false" autocomplete="off" aria-label="Pair">
+    <datalist id="pairList"></datalist>
+  </label>
+  <div class="tfs" id="tfs" role="group" aria-label="Timeframe"></div>
+  <div class="spacer"></div>
+  <div class="clocks" aria-label="Clocks">
+    <span>New York <b id="clkNy" class="mono">--:--</b></span>
+    <span>Manila <b id="clkMnl" class="mono">--:--</b></span>
+  </div>
+  <button id="scanBtn" class="btn" title="Re-read this pair from MT5 and re-run the analysis">Scan pair</button>
+  <button id="scanAllBtn" class="btn" title="Re-read all pairs from MT5">Scan all</button>
+  <span id="conn" class="chip" role="status">MT5</span>
+  <button id="themeBtn" class="btn ghost" aria-label="Switch theme">Theme</button>
+  <button id="settingsBtn" class="btn ghost" aria-label="Settings">Settings</button>
+</header>
+
+<div id="scanbar" class="scanbar" hidden><div id="scanfill"></div><span id="scantext"></span></div>
+
+<main class="layout">
+  <aside class="watch" aria-label="Watchlist">
+    <div class="watch-head">
+      <input id="filterInput" placeholder="Filter pairs" aria-label="Filter pairs" spellcheck="false">
+      <div class="chips" id="vchips" role="group" aria-label="Verdict filter">
+        <button data-f="all" class="on">All</button>
+        <button data-f="SIGNAL">Signal</button>
+        <button data-f="WATCH">Watch</button>
+        <button data-f="NO_TRADE">No trade</button>
+      </div>
+    </div>
+    <div id="watchlist" class="watchlist"></div>
+  </aside>
+
+  <section class="chartcol">
+    <div class="chartwrap" id="chartwrap">
+      <div id="legend" class="legend mono"></div>
+      <div id="chart" class="chart"></div>
+      <canvas id="overlay" class="overlay"></canvas>
+      <button id="alertHere" class="btn small floating" hidden></button>
+      <div id="chartEmpty" class="empty" hidden></div>
+      <div class="attrib">Charts by <a href="https://www.tradingview.com/lightweight-charts/" target="_blank" rel="noopener">TradingView Lightweight Charts</a></div>
+    </div>
+    <div class="keyrow" id="keyrow" aria-label="Chart key"></div>
+  </section>
+
+  <aside class="side" aria-label="Analysis">
+    <div class="tabs" id="tabs" role="tablist">
+      <button data-tab="verdict" class="on" role="tab">Verdict</button>
+      <button data-tab="plan" role="tab">Plan</button>
+      <button data-tab="levels" role="tab">Levels</button>
+      <button data-tab="alerts" role="tab">Alerts</button>
+    </div>
+    <div id="pane" class="pane"></div>
+    <p class="disclaimer">Educational analysis, not advice. This app never places orders. You decide and you place the trade.</p>
+  </aside>
+</main>
+
+<section class="drawer" id="drawer">
+  <button id="drawerBtn" class="drawer-head" aria-expanded="true">All pairs</button>
+  <div class="tablewrap"><table id="summary" class="grid"></table></div>
+</section>
+
+<dialog id="settingsDlg">
+  <form method="dialog" id="settingsForm">
+    <h2>Settings</h2>
+    <div class="fld"><label for="sRisk">Risk per trade (%)</label><input id="sRisk" type="number" step="0.1" min="0.1" max="100"></div>
+    <div class="fld"><label for="sBalance">Account balance (blank uses the MT5 account)</label><input id="sBalance" type="number" step="1" min="0"></div>
+    <div class="fld"><label for="sSwing">Swing size (x ATR)</label><input id="sSwing" type="number" step="0.05" min="0.1" max="3"></div>
+    <div class="fld"><label for="sTrail">Structure reading</label>
+      <select id="sTrail"><option value="false">Course rule (HL/LH set at a new extreme)</option><option value="true">Latest swing (HL/LH follows each new swing)</option></select></div>
+    <div class="fld"><label for="sCluster">Box size limit (pips, tightest cluster)</label><input id="sCluster" type="number" step="1" min="10" max="60"></div>
+    <div class="fld"><label for="sCandles">Candle colours</label>
+      <select id="sCandles"><option value="course">Blue up, red down (the course)</option><option value="classic">Green up, red down</option></select></div>
+    <p class="hint">Changing swing size, structure reading or box size needs a new scan to take effect.</p>
+    <div class="row"><button value="cancel" class="btn ghost">Cancel</button><button id="sSave" value="save" class="btn primary">Save</button></div>
+  </form>
+</dialog>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="/vendor/lightweight-charts.standalone.production.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

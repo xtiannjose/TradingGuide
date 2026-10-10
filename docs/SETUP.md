@@ -28,7 +28,16 @@ python app/chart.py EURUSD    # structure read of W, D and 4H, pictures in app/o
 python app/lotsize.py EURUSD --stop 25            # lot size and a table of risk levels
 python app/alerts.py --test                       # one pop-up, to check pop-ups work
 python app/alerts.py                              # watch the [[alert]] levels in settings.toml
+python app/scan.py                                # analyse all 21 pairs, writes app/data (about 15 seconds)
+python app/server.py                              # the terminal, opens http://127.0.0.1:8765/
+python app/backtest.py GBPUSD --weeks 8           # replay past weeks, count signals and R
 ```
+
+Or double-click `Start-TradingGuide.cmd` in the repo folder to open the terminal.
+
+The terminal binds to 127.0.0.1 only, refuses requests from other websites, keeps its output in `app/data/` (not committed) and never places orders. Press "Scan all" in it to refresh from MT5. Keyboard: `1` to `7` change timeframe, `[` and `]` change pair. A link like `http://127.0.0.1:8765/#pair=GBPUSD&tf=4H&tab=plan&theme=light` opens that view.
+
+To scan automatically before the entry window (needs MT5 open and the PC awake): `.\scripts\schedule-scan.ps1` creates the Windows task, `.\scripts\schedule-scan.ps1 -Remove` deletes it.
 
 Broker settings (server offset, pair-name ending) are in `app/settings.toml`. Never put a login there.
 
